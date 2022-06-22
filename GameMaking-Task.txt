@@ -1,0 +1,41 @@
+Done :
+- movement
+- camera
+- train/cars movement
+- mechanics design
+	* Friend following the player(X)
+	* walking, running, crouching, climbing, unclimbing
+	* Use jackets
+	* CCTV and Workers
+	* flashlight
+- character design
+- game level design
+	* Night
+
+
+to-do:
+- assets: Character(X), Environment(buildings(X), road, park(X), trees(X))
+- Gonna make the character and use free assets for the rest of the needs
+- Start making the game level after got all the asset needs.
+- train tracks and the train assets.
+- the fkcing grass is not place properly.
+- detail under the bridge.
+
+
+on-progress:
+- Main character, teksture(X), rig(x) dan animating(walk(X), run(X), crouch(X), climb, unclimb).
+- Other assets.
+- Make the level design.
+- Program the mechanics: walking(X), running(X), crouching(X), and climbing(X).
+- Clean the code
+- train station part (window(X), texture, details).
+
+
+Note:
+- for the level logic, use seperate node and script to build it
+- the detail for the land jst using texture.
+- Jst start with the "necessary assets", then do the details
+- making the road-park first then the details
+- park lamp, benches, bushes and then tress
+
+- road width + sidewalk
