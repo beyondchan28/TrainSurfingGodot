@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Level/ClimbArea.gd" type="Script" id=1]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.809873, 3.80893, 5 )
+
+[sub_resource type="CubeMesh" id=2]
+size = Vector3( 2, 10, 20 )
+
+[sub_resource type="SpatialMaterial" id=4]
+albedo_color = Color( 0.196078, 0.109804, 0.109804, 1 )
+
+[sub_resource type="ConcavePolygonShape" id=3]
+data = PoolVector3Array( -1, 5, 10, 1, 5, 10, -1, -5, 10, 1, 5, 10, 1, -5, 10, -1, -5, 10, 1, 5, -10, -1, 5, -10, 1, -5, -10, -1, 5, -10, -1, -5, -10, 1, -5, -10, 1, 5, 10, 1, 5, -10, 1, -5, 10, 1, 5, -10, 1, -5, -10, 1, -5, 10, -1, 5, -10, -1, 5, 10, -1, -5, -10, -1, 5, 10, -1, -5, 10, -1, -5, -10, 1, 5, 10, -1, 5, 10, 1, 5, -10, -1, 5, 10, -1, 5, -10, 1, 5, -10, -1, -5, 10, 1, -5, 10, -1, -5, -10, 1, -5, 10, 1, -5, -10, -1, -5, -10 )
+
+[node name="ClimbArea" type="Area"]
+script = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1.68854, 0, 0, 0, 0.877534, 0, 0, 0, 0.5, -13.6291, 6.84281, 0 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance2" type="MeshInstance" parent="."]
+transform = Transform( 2.39572, 0, 0, 0, 1, 0, 0, 0, 1, -16.7261, 4, 0 )
+mesh = SubResource( 2 )
+material/0 = SubResource( 4 )
+
+[node name="StaticBody" type="StaticBody" parent="MeshInstance2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="MeshInstance2/StaticBody"]
+shape = SubResource( 3 )
+
+[connection signal="body_entered" from="." to="." method="_on_ClimbArea_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_ClimbArea_body_exited"]
