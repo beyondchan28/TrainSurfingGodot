@@ -1,3 +1,5 @@
+Judul : 
+
 Done :
 - movement
 - camera
@@ -39,3 +41,10 @@ Note:
 - park lamp, benches, bushes and then tress
 
 - road width + sidewalk
+
+
+
+to do kedepan (seta) :
+- Kereta kargo
+- Bikin environment cinematic
+- Scene gunung cinematic
