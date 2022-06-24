@@ -45,6 +45,6 @@ Note:
 
 
 to do kedepan (seta) :
-- Kereta kargo
+- Kereta kargo (X) (Tinggal texture)
 - Bikin environment cinematic
 - Scene gunung cinematic
