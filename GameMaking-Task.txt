@@ -30,7 +30,7 @@ on-progress:
 - Make the level design.
 - Program the mechanics: walking(X), running(X), crouching(X), and climbing(X).
 - Clean the code
-- train station part (window(X), texture, details).
+- train station part (window(X), texture(X), details(X)).
 
 
 Note:
@@ -39,10 +39,11 @@ Note:
 - Jst start with the "necessary assets", then do the details
 - making the road-park first then the details
 - park lamp, benches, bushes and then tress
-
 - road width + sidewalk
+- need an animation after climb, 
 
-
+- FORGET TO FCKING APPLY THE SCALE OF THE ARMATURE, FFS AM I NEED TO REDO ALL THE ANIMATIONS ?
+- make sure the scale between characters and environment is correct
 
 to do kedepan (seta) :
 - Kereta kargo (X) (Tinggal texture)
