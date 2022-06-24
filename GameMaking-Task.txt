@@ -42,7 +42,8 @@ Note:
 - road width + sidewalk
 - need an animation after climb, 
 
-
+- FORGET TO FCKING APPLY THE SCALE OF THE ARMATURE, FFS AM I NEED TO REDO ALL THE ANIMATIONS ?
+- make sure the scale between characters and environment is correct
 
 to do kedepan (seta) :
 - Kereta kargo
