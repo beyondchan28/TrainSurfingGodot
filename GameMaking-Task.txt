@@ -39,8 +39,8 @@ Note:
 - Jst start with the "necessary assets", then do the details
 - making the road-park first then the details
 - park lamp, benches, bushes and then tress
-
 - road width + sidewalk
+- need an animation after climb, 
 
 
 
