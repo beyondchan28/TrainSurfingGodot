@@ -18,7 +18,7 @@ albedo_texture = ExtResource( 1 )
 [node name="MainCharacter" instance=ExtResource( 2 )]
 
 [node name="Armature" parent="." index="0"]
-transform = Transform( 0.36009, 0, 0, 0, 0.36009, 0, 0, 0, 0.36009, 0, 0, 0 )
+transform = Transform( 0.36009, 0, 0, 0, 0.36009, 0, 0, 0, 0.36009, 0, 1.12683, 0 )
 
 [node name="Body" parent="Armature/Skeleton" index="0"]
 material/0 = SubResource( 1 )
