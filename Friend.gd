@@ -14,7 +14,7 @@ var distance
 enum STATES{WALK, STOP}
 
 func _ready():
-	target = get_parent().get_node("Player/Target")
+	target = get_parent().get_node("Player/Pivot/Target")
 	curr_state = STATES.WALK
 
 

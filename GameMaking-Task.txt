@@ -13,6 +13,7 @@ Done :
 - character design
 - game level design
 	* Night
+	* need to tweaking the world light and the flashlight
 
 
 to-do:
@@ -42,10 +43,12 @@ Note:
 - road width + sidewalk
 - need an animation after climb, 
 
+- the movement is not suitable for the gameplay i think, its better to use the RE style
+
 - FORGET TO FCKING APPLY THE SCALE OF THE ARMATURE, FFS AM I NEED TO REDO ALL THE ANIMATIONS ?
 - make sure the scale between characters and environment is correct
 
 to do kedepan (seta) :
-- Kereta kargo
+- Kereta kargo (modelling(X), texturing)
 - Bikin environment cinematic
 - Scene gunung cinematic

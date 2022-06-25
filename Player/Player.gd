@@ -67,9 +67,8 @@ func apply_movement(input_vector : Vector3):
 	velocity.z = input_vector.z * max_speed
 	
 	if input_vector != Vector3.ZERO and !is_on_wall():
-		self.look_at(translation + input_vector, Vector3.UP)
+		pivot.look_at(translation + input_vector, Vector3.UP)
 	
-
 #vertical movement logic
 func apply_gravity(delta):
 	if curr_state == STATES.NORMAL:
