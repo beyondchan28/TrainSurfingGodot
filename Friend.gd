@@ -30,7 +30,6 @@ func _process(delta):
 	calculate_distance(self_pos, target_pos, velocity, delta)
 
 
-#need to :  reach the area node then stop and will be able to walk again until the distance is 5 
 func calculate_distance(self_pos, target_pos, velocity, delta):
 	distance = self_pos.distance_to(target_pos)
 	#print(distance)

@@ -72,6 +72,11 @@ unclimb={
  ]
 }
 
+[layer_names]
+
+3d_physics/layer_1="Player"
+3d_physics/layer_2="Friend"
+
 [physics]
 
 common/enable_pause_aware_picking=true

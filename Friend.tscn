@@ -14,6 +14,7 @@ size = Vector3( 4, 0.5, 0.5 )
 albedo_color = Color( 0.980392, 0.0431373, 0.0431373, 1 )
 
 [node name="Friend" type="KinematicBody"]
+collision_layer = 2
 script = ExtResource( 2 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]

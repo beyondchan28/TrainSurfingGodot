@@ -1,5 +1,23 @@
 Judul : 
 
+agenda :
+* minggu ini:
+	- storyline, leveldesign dan 3D character.
+
+* minggu depan, seharian:
+	- brainstorming judul, gameplay, dan audio.
+	- cinematic storyboard.
+	- desain tema UI.
+	- ngejelasin timeline dam beban kerja.
+
+need:
+- storyline
+- UI
+- cinematic (storyboard) harus estetik (reward)
+- lighting harus sama, antara game dan animasi cutscene
+- nambah anggota
+- audio
+
 Done :
 - movement
 - camera
@@ -11,6 +29,9 @@ Done :
 	* CCTV and Workers
 	* flashlight
 - character design
+	* workers, need to a bit different than the main character.
+	* the shape and height should different.
+	* the texture needs to be a little unique and recogniseable.
 - game level design
 	* Night
 	* need to tweaking the world light and the flashlight

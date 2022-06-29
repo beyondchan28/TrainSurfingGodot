@@ -11,4 +11,4 @@ func _on_ClimbArea_body_exited(body):
 	if body.name == "Player":
 		body.climb_array.erase(self)
 		if body.climb_array.size() == 0:
-			body.curr_state = body.STATES.NORMAL
+			body.curr_state = body.STATES.IDLE

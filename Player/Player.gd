@@ -56,7 +56,7 @@ func climb():
 func get_input_vector():
 	var input_vector = Vector3.ZERO
 	if curr_state == STATES.NORMAL:
-		input_vector.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
+		input_vector.x = Input.get_action_strength("turn_right") - Input.get_action_strength("turn_left")
 		input_vector.z = Input.get_action_strength("move_backwards") - Input.get_action_strength("move_forwards")
 
 	return input_vector.normalized()
