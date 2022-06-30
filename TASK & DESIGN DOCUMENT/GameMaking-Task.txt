@@ -57,7 +57,7 @@ on-progress:
 
 Note:
 - for the level logic, use seperate node and script to build it
-- the detail for the land jst using texture.
+- the detail for the land jst using texture (not suitable, bad idea).
 - Jst start with the "necessary assets", then do the details
 - making the road-park first then the details
 - park lamp, benches, bushes and then tress
