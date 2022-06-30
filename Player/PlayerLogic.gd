@@ -23,12 +23,13 @@ func _physics_process(delta):
 	var move_dir = 0
 	var turn_dir = 0
 	
-	
 	movement_input(move_dir, turn_dir, delta)
 	run()
 	jump()
 	crouch()
 	climber_detection()
+	
+	#print(curr_state)
 #	if not grounded and was_grounded:
 #		pass
 #	if grounded:
@@ -51,25 +52,31 @@ func movement_input(move_dir, turn_dir, delta):
 	rotation_degrees.y += turn_dir * TURN_SPEED * delta
 	var move_vec = global_transform.basis.z * move_speed * move_dir
 	move_vec.y = y_velo
+	if curr_state == STATES.CLIMB :
+		move_vec.z = -2
+	elif curr_state == STATES.UNCLIMB:
+		move_vec.z = 2
+
 	move_and_slide(move_vec, Vector3(0, 1, 0))
+	#print(move_vec)
 	
 	var was_grounded = grounded
 	grounded = is_on_floor()
 	climb_logic(move_vec)
+	
 	y_velo -= GRAVITY * delta
-	if grounded:
+	
+	if curr_state != STATES.CLIMB and grounded:
 		y_velo = -0.1
-	if y_velo < -MAX_FALL_SPEED:
+	if curr_state != STATES.UNCLIMB and y_velo < -MAX_FALL_SPEED:
 		y_velo = -MAX_FALL_SPEED
 
 
 func climb_logic(move_vec):
-	if curr_state == STATES.CLIMB and is_on_wall() :
+	if curr_state == STATES.CLIMB :
 		y_velo = climb_speed
-		move_vec.z = -15
-	elif curr_state == STATES.UNCLIMB:
+	if curr_state == STATES.CLIMB and curr_state == STATES.UNCLIMB:
 		y_velo = -climb_speed
-		move_vec.z = 2
 		
 
 func climber_detection():
@@ -88,7 +95,7 @@ func jump():
 	if is_on_floor() and curr_state != STATES.CROUCH and Input.is_action_just_pressed("jump") and grounded:
 		curr_state = STATES.JUMP
 		y_velo = JUMP_IMPULSE
-	if Input.is_action_just_released("jump") and is_on_floor():
+	if Input.is_action_just_released("jump"):
 		curr_state = STATES.IDLE
 		
 

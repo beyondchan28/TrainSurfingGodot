@@ -1,4 +1,4 @@
-extends KinematicBody
+extends StaticBody
 
 onready var face_target_y = $FaceTargetY
 
@@ -43,3 +43,4 @@ func state_control(target_pos, self_pos):
 	#print(distance)
 	if distance > 10:
 		curr_state = STATES.WALK
+

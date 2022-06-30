@@ -3,7 +3,7 @@
 [ext_resource path="res://Level/ClimbArea.gd" type="Script" id=1]
 
 [sub_resource type="BoxShape" id=1]
-extents = Vector3( 0.809873, 3.80893, 5 )
+extents = Vector3( 0.809873, 4.15143, 5 )
 
 [sub_resource type="CubeMesh" id=2]
 size = Vector3( 2, 10, 20 )
@@ -18,7 +18,7 @@ data = PoolVector3Array( -1, 5, 10, 1, 5, 10, -1, -5, 10, 1, 5, 10, 1, -5, 10, -
 script = ExtResource( 1 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1.68854, 0, 0, 0, 0.877534, 0, 0, 0, 0.5, -13.6291, 6.84281, 0 )
+transform = Transform( 1.68854, 0, 0, 0, 0.958157, 0, 0, 0, 0.5, -13.6291, 6.57628, 0 )
 shape = SubResource( 1 )
 
 [node name="MeshInstance2" type="MeshInstance" parent="."]
