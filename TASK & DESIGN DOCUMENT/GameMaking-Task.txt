@@ -77,3 +77,10 @@ to do kedepan (seta) :
 >>>>>>> 90c41904aa1cc9053b58c3c599750e4ba74f901d
 - Bikin environment cinematic
 - Scene gunung cinematic
+
+Yang diperlukan di UI Design
+- Logo games (sekalian logo game studio (The Farmers))
+- style button
+- Style fonts
+- Main colors
+- 
