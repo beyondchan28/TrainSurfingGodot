@@ -78,9 +78,13 @@ to do kedepan (seta) :
 - Bikin environment cinematic
 - Scene gunung cinematic
 
+
+
 Yang diperlukan di UI Design
 - Logo games (sekalian logo game studio (The Farmers))
 - style button
 - Style fonts
 - Main colors
 - 
+ref UI
+- https://www.gamezebo.com/walkthroughs/mr-jones-graveyard-shift-walkthrough/
