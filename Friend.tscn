@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://FaceTargetY.gd" type="Script" id=1]
 [ext_resource path="res://Friend.gd" type="Script" id=2]
@@ -13,7 +13,9 @@ size = Vector3( 4, 0.5, 0.5 )
 [sub_resource type="SpatialMaterial" id=4]
 albedo_color = Color( 0.980392, 0.0431373, 0.0431373, 1 )
 
-[node name="Friend" type="StaticBody"]
+[sub_resource type="BoxShape" id=5]
+
+[node name="Friend" type="KinematicBody"]
 script = ExtResource( 2 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
@@ -33,3 +35,10 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.1920
 mesh = SubResource( 3 )
 skeleton = NodePath("../..")
 material/0 = SubResource( 4 )
+
+[node name="StopArea" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="StopArea"]
+shape = SubResource( 5 )
+
+[connection signal="body_entered" from="StopArea" to="." method="_on_StopArea_body_entered"]

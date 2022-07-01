@@ -1,7 +1,6 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Player/PlayerLogic.gd" type="Script" id=1]
-[ext_resource path="res://Player/Target.gd" type="Script" id=2]
 [ext_resource path="res://Player/Raw Assets/MainCharacter.png" type="Texture" id=3]
 [ext_resource path="res://Player/Raw Assets/Material.material" type="Material" id=4]
 
@@ -172,8 +171,6 @@ surfaces/0 = {
 
 [sub_resource type="SpatialMaterial" id=12]
 albedo_texture = ExtResource( 3 )
-
-[sub_resource type="BoxShape" id=15]
 
 [sub_resource type="CapsuleShape" id=13]
 height = 2.0
@@ -346,13 +343,6 @@ mesh = SubResource( 5 )
 skin = SubResource( 2 )
 material/0 = SubResource( 12 )
 
-[node name="Target" type="Area" parent="Pivot"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 6 )
-script = ExtResource( 2 )
-
-[node name="CollisionShape" type="CollisionShape" parent="Pivot/Target"]
-shape = SubResource( 15 )
-
 [node name="FlashLight" type="Spatial" parent="Pivot"]
 
 [node name="FlashLightMesh" type="MeshInstance" parent="Pivot/FlashLight"]
@@ -381,6 +371,3 @@ transform = Transform( 3.9, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 8.
 
 [node name="CollisionShape" type="CollisionShape" parent="CollisionShape/UnclimbArea"]
 shape = SubResource( 14 )
-
-[connection signal="body_entered" from="Pivot/Target" to="Pivot/Target" method="_on_Target_body_entered"]
-[connection signal="body_exited" from="Pivot/Target" to="Pivot/Target" method="_on_Target_body_exited"]
