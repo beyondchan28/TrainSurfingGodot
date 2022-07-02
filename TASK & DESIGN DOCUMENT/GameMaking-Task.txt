@@ -44,6 +44,7 @@ to-do:
 - train tracks and the train assets.
 - the fkcing grass is not place properly.
 - detail under the bridge.
+- adding telephone assets.
 
 
 on-progress:
