@@ -24,6 +24,10 @@ config/name="Train Surfing"
 run/main_scene="res://Level/Level.tscn"
 config/icon="res://icon.png"
 
+[global]
+
+occu=true
+
 [input]
 
 move_forwards={
