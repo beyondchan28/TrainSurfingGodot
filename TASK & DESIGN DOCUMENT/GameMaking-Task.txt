@@ -47,9 +47,9 @@ to-do:
 
 - curved train rails (X)
 - junk yard
-- security buildings (modelling(X), texturing())
-- cargo related buildings (modelling(X), texturing())
-- closed train rails on cargo related buildings (modelling(X), texturing())
+- security buildings (modelling(X), texturing(X), details())
+- cargo related buildings (modelling(), texturing(), details())
+- closed train rails on cargo related buildings (modelling(), texturing())
 - adding telephone assets
 - design obstacle on security buildings.
 - design obstacle on cargo related buildings.
