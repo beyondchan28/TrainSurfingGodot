@@ -44,7 +44,16 @@ to-do:
 - train tracks and the train assets.
 - the fkcing grass is not place properly.
 - detail under the bridge.
+
+- curved train rails
+- junk yard
+- security buildings
+- cargo related buildings
+- closed train rails on cargo related buildings
 - adding telephone assets.
+- design obstacle on security buildings.
+- design obstacle on cargo related buildings.
+- design environment and gameplay on the otherside of the yard. 
 
 
 on-progress:
