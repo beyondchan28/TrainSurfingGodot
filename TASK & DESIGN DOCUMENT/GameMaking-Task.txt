@@ -1,4 +1,4 @@
-Judul : 
+Judul : Watch your back: Train Surfing
 
 agenda :
 * minggu ini:
@@ -45,12 +45,12 @@ to-do:
 - the fkcing grass is not place properly.
 - detail under the bridge.
 
-- curved train rails
+- curved train rails (X)
 - junk yard
-- security buildings
-- cargo related buildings
-- closed train rails on cargo related buildings
-- adding telephone assets.
+- security buildings (modelling(X), texturing(X), details())
+- cargo related buildings (modelling(), texturing(), details())
+- closed train rails on cargo related buildings (modelling(), texturing())
+- adding telephone assets
 - design obstacle on security buildings.
 - design obstacle on cargo related buildings.
 - design environment and gameplay on the otherside of the yard. 
@@ -89,7 +89,6 @@ to do kedepan (seta) :
 - Scene gunung cinematic
 
 
-
 Yang diperlukan di UI Design
 - Logo games (sekalian logo game studio (The Farmers))
 - style button
@@ -98,3 +97,29 @@ Yang diperlukan di UI Design
 - 
 ref UI
 - https://www.gamezebo.com/walkthroughs/mr-jones-graveyard-shift-walkthrough/
+
+INVESTASI
+Dengan ini kami, sebagai anggota the Farmer menyatakan, jika kami berkomitmen
+untuk mengerjakan dan menyelesaikan tugas yang telah dikompromi dan telah disepkati
+berdasarkan timeline yang telah disepakati pula. dan Kami menggunakan jaminan berupa
+uang sebesar 50rb setiap anggota yang diserahkan kepada saudara Seta Murdha Pamungkas.
+Dengan rincian sbb:
+1. Chandra Gunawan 50rb, 50rb diserahkan pada tgl 5 July 2022 ke Seta Murdha Pamungkas.
+2. Naila Nahdiyah 50rb, 50rb diserahkan pada tgl 5 July 2022 ke Seta Murdha Pamungkas.
+3. Seta Murdha Pamungkas 50rb, 50rb diserahkan pada tgl 5 July 2022 ke dirinya sendiri.
+
+Jika anggota tidak dapat menyelesaikan tugas yang diberika, sesuai dengan timeline kerja, yaitu
+tiap minggu sesuai dengan yang telah disepakati lebih dari 3 hari setelah deadline, maka uang yang
+diberikannya dibagikan rata kepada anggota yang menyelesaikan tugas tepat waktu. Lalu anggota tersebut
+berkewajiban menyerahkan lagi uang sebanyak 50rb sebagai jaminan untuk kedepannya.
+
+NB: Jika uang dihilangkan oleh penyimpan (Seta Murdha Pamungkas), maka berkewajiban untuk mengembalikan
+sesuai akumulasi uang yang dikumpulkan.	
+
+
+Opsional : Progress atleast 1 kali dalam minggu itu
+Note: 
+- Tiap minggu ada evaluasi sekali
+- GDD bukti untuk ngajuin proposal
+- sebelum entry GDD, ngajuin porposal ke fakultas
+- target: week 4 GDD dan proposal 
