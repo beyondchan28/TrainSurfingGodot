@@ -46,12 +46,12 @@ to-do:
 - detail under the bridge.
 
 - curved train rails (X)
-- junk yard
+- junk yard (X)
 - security buildings (modelling(X), texturing(X), details())
 - cargo related buildings (modelling(), texturing(), details())
 - closed train rails on cargo related buildings (modelling(), texturing())
-- adding telephone assets
-- design obstacle on security buildings.
+- adding telephone assets (X)
+- design obstacle on security buildings (X)
 - design obstacle on cargo related buildings.
 - design environment and gameplay on the otherside of the yard. 
 
