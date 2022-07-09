@@ -122,4 +122,4 @@ Note:
 - Tiap minggu ada evaluasi sekali
 - GDD bukti untuk ngajuin proposal
 - sebelum entry GDD, ngajuin porposal ke fakultas
-- target: week 4 GDD dan proposal 
+- target: week 4 GDD dan proposal beserta game yang sudah playable
