@@ -1,0 +1,67 @@
+Voices
+
+Player
+#Start Level
+- Ahh... Lets GO!
+- Here we go again!
+- Hope no one see me today!
+- Nice morning, nice ride!!
+
+#Catched
+- Calm down boys
+- Lets have a nice chat shall we?
+- Damn it
+- Oh man...
+
+#Aware rise
+- Hope nobody catch my butt
+- Lets see the speed of lightning
+- Catch my tail you sucker...
+- Hahaha call an ambulance, but not for me!
+- Dont STOP me NOW!
+- You saw me bitches?? Haha... Byee..
+- Its only a warm up BITCHES...
+
+#Aware calm down
+- SEE YA LATER SUCKER...
+
+
+#Wasted
+- OH NOO....
+- FUCK ME...
+
+#Finish Line
+- It's too easy...
+- EZ PZ lemon squeEZ
+- Nice train
+- Let my butt feels this nice train
+
+
+#Cinematic
+- Nice mountain in this lonely ride...
+
+
+Worker
+#Catching
+- Come here!!!
+- Dont run!!
+- Lemme catch You!!
+- Haha... Come here...!!!
+
+#Aware cooldown
+- Must be the wind
+- I see nothing
+
+
+Robot
+#Catching
+- CATCHING...
+- RUNNING...
+
+#Aware Cooldown
+- LOOKING....
+- SEARCHING....
+
+Passenger
+#Aware rise
+- Theres intruder!!
