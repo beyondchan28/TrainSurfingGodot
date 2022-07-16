@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/THERES INTRUDER OUT THERE.wav-04bdc23c3436147bf096f1634a3a9a02.sample"
+
+[deps]
+
+source_file="res://Sound Audio/SFx/Passenger Voices/VOICE LINES/THERES INTRUDER OUT THERE.wav"
+dest_files=[ "res://.import/THERES INTRUDER OUT THERE.wav-04bdc23c3436147bf096f1634a3a9a02.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

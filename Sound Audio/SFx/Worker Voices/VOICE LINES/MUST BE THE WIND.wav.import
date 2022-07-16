@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/MUST BE THE WIND.wav-8180bb1253ee0fdd47ad8de4c4323cd5.sample"
+
+[deps]
+
+source_file="res://Sound Audio/SFx/Worker Voices/VOICE LINES/MUST BE THE WIND.wav"
+dest_files=[ "res://.import/MUST BE THE WIND.wav-8180bb1253ee0fdd47ad8de4c4323cd5.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/CATCH MY TAIL YOU SUCKER.wav-b0abb33706a8a30d4c8ea7cfead4bd9a.sample"
+
+[deps]
+
+source_file="res://Sound Audio/SFx/Char Voices/VOICE LINES/CATCH MY TAIL YOU SUCKER.wav"
+dest_files=[ "res://.import/CATCH MY TAIL YOU SUCKER.wav-b0abb33706a8a30d4c8ea7cfead4bd9a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

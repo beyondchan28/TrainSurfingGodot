@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/LEMME CATCH YOU.wav-032104aff06f0d8d8e1b0f8fda4dd669.sample"
+
+[deps]
+
+source_file="res://Sound Audio/SFx/Worker Voices/VOICE LINES/LEMME CATCH YOU.wav"
+dest_files=[ "res://.import/LEMME CATCH YOU.wav-032104aff06f0d8d8e1b0f8fda4dd669.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

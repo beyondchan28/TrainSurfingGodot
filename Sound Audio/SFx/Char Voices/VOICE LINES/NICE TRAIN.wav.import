@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/NICE TRAIN.wav-2dd586e62019c8dd9e2908c5f894015b.sample"
+
+[deps]
+
+source_file="res://Sound Audio/SFx/Char Voices/VOICE LINES/NICE TRAIN.wav"
+dest_files=[ "res://.import/NICE TRAIN.wav-2dd586e62019c8dd9e2908c5f894015b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
