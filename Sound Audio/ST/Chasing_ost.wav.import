@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Chasing_ost.wav-45b60f1bd8c84d31d3bd90241fadbc27.sample"
+
+[deps]
+
+source_file="res://Sound Audio/ST/Chasing_ost.wav"
+dest_files=[ "res://.import/Chasing_ost.wav-45b60f1bd8c84d31d3bd90241fadbc27.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
