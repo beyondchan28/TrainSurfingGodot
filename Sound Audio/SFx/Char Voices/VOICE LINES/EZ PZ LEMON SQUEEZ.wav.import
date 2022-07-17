@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/EZ PZ LEMON SQUEEZ.wav-d5d258c52e2857ab7f168e91598549c8.sample"
+
+[deps]
+
+source_file="res://Sound Audio/SFx/Char Voices/VOICE LINES/EZ PZ LEMON SQUEEZ.wav"
+dest_files=[ "res://.import/EZ PZ LEMON SQUEEZ.wav-d5d258c52e2857ab7f168e91598549c8.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

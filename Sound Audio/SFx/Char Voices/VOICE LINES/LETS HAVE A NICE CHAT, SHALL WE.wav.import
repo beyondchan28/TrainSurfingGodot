@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/LETS HAVE A NICE CHAT, SHALL WE.wav-e5163fb7cc4137a2487122acf20dd5f2.sample"
+
+[deps]
+
+source_file="res://Sound Audio/SFx/Char Voices/VOICE LINES/LETS HAVE A NICE CHAT, SHALL WE.wav"
+dest_files=[ "res://.import/LETS HAVE A NICE CHAT, SHALL WE.wav-e5163fb7cc4137a2487122acf20dd5f2.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Run.wav-d8ec57c9438f224f3ebf1b1597b75bfd.sample"
+
+[deps]
+
+source_file="res://Sound Audio/SFx/Char Voices/MOVEMENT VOICE/Run.wav"
+dest_files=[ "res://.import/Run.wav-d8ec57c9438f224f3ebf1b1597b75bfd.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

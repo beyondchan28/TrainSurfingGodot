@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/CALM DOWN BOYS.wav-d037138d9dac2d255cdce27512923e9a.sample"
+
+[deps]
+
+source_file="res://Sound Audio/SFx/Char Voices/VOICE LINES/CALM DOWN BOYS.wav"
+dest_files=[ "res://.import/CALM DOWN BOYS.wav-d037138d9dac2d255cdce27512923e9a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ITS TOO EZ.wav-53aefeea5617923bd1a725048e9db887.sample"
+
+[deps]
+
+source_file="res://Sound Audio/SFx/Char Voices/VOICE LINES/ITS TOO EZ.wav"
+dest_files=[ "res://.import/ITS TOO EZ.wav-53aefeea5617923bd1a725048e9db887.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

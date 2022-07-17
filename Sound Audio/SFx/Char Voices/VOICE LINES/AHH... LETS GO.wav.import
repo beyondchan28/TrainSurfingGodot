@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/AHH... LETS GO.wav-2c34650f0446429a55aa67a40e9dd118.sample"
+
+[deps]
+
+source_file="res://Sound Audio/SFx/Char Voices/VOICE LINES/AHH... LETS GO.wav"
+dest_files=[ "res://.import/AHH... LETS GO.wav-2c34650f0446429a55aa67a40e9dd118.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

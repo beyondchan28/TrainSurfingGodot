@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Crawling.wav-41291e67ebd4632e8ccbb561dcd0b957.sample"
+
+[deps]
+
+source_file="res://Sound Audio/SFx/Char Voices/MOVEMENT VOICE/Crawling.wav"
+dest_files=[ "res://.import/Crawling.wav-41291e67ebd4632e8ccbb561dcd0b957.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

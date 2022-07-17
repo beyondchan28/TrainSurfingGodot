@@ -11,9 +11,13 @@ var move_speed = 5
 var climb_speed = 5
 var curr_state = STATES.IDLE
 
+export(Resource) var _runtime_data = _runtime_data as RuntimeData
+
 onready var collision_shape = $CollisionShape
 onready var interact_area = $CollisionShape/InteractArea
 onready var unclimb_area = $CollisionShape/UnclimbArea
+
+onready var anim = $Pivot/AnimationPlayer
 
 var climb_array = []
 
@@ -22,32 +26,24 @@ enum STATES{IDLE, JUMP, CROUCH, CLIMB, UNCLIMB}
 func _physics_process(delta):
 	var move_dir = 0
 	var turn_dir = 0
-	
-	movement_input(move_dir, turn_dir, delta)
-	run()
-	jump()
-	crouch()
-	climber_detection()
-	
+	if _runtime_data.current_gameplay_state == Enums.GameplayState.FREEWALK:
+		movement_input(move_dir, turn_dir, delta)
+		run()
+		jump()
+		crouch()
+		climber_detection()
 	#print(curr_state)
-#	if not grounded and was_grounded:
-#		pass
-#	if grounded:
-#		if move_vec.x == 0 and move_vec.z == 0:
-#			pass
-#		else:
-#			pass
+	
 
 func movement_input(move_dir, turn_dir, delta):
-	if curr_state == STATES.IDLE:
-		if Input.is_action_pressed("move_forwards"):
-			move_dir -= 1
-		if Input.is_action_pressed("move_backwards"):
-			move_dir += 1
-		if Input.is_action_pressed("turn_right"):
-			turn_dir -= 1
-		if Input.is_action_pressed("turn_left"):
-			turn_dir += 1
+	if Input.is_action_pressed("move_forwards"):
+		move_dir -= 1
+	if Input.is_action_pressed("move_backwards"):
+		move_dir += 1
+	if Input.is_action_pressed("turn_right"):
+		turn_dir -= 1
+	if Input.is_action_pressed("turn_left"):
+		turn_dir += 1
 		
 	rotation_degrees.y += turn_dir * TURN_SPEED * delta
 	var move_vec = global_transform.basis.z * move_speed * move_dir
@@ -63,6 +59,21 @@ func movement_input(move_dir, turn_dir, delta):
 	var was_grounded = grounded
 	grounded = is_on_floor()
 	climb_logic(move_vec)
+	#animation idle, jump, walk, crouch, crouching and run here
+	
+	if not grounded and was_grounded:
+		play_anim("Jump")
+	if grounded:
+		if move_vec.x == 0 and move_vec.z == 0 and move_speed == 5:
+			play_anim("Idle")
+		elif move_vec.x != 0 and move_vec.z != 0 and move_speed == 10:
+			play_anim("Run")
+		elif move_vec.x == 0 and move_vec.z == 0 and curr_state == STATES.CROUCH:
+			play_anim("Crouch")
+		elif move_vec.x != 0 and move_vec.z != 0 and curr_state == STATES.CROUCH:
+			play_anim("Crouching")
+		else:
+			play_anim("Walk")
 	
 	y_velo -= GRAVITY * delta
 	
@@ -97,7 +108,6 @@ func jump():
 		y_velo = JUMP_IMPULSE
 	if Input.is_action_just_released("jump"):
 		curr_state = STATES.IDLE
-		
 
 func crouch():
 	var ms_changer = 3
@@ -113,8 +123,14 @@ func crouch():
 func run():
 	if is_on_floor() and Input.is_action_pressed("run"):
 		move_speed = 10
+		play_anim("Run")
+		
 	elif is_on_floor() and Input.is_action_just_released("run"):
 		move_speed = 5
 	else :
 		return
 
+func play_anim(name):
+	if anim.current_animation == name:
+		return
+	anim.play(name)
