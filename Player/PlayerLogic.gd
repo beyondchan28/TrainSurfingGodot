@@ -32,6 +32,12 @@ func _physics_process(delta):
 		jump()
 		crouch()
 		climber_detection()
+	else:
+		curr_state = STATES.IDLE
+		move_dir = 0
+		turn_dir = 0
+		self.translation.y = 2
+		anim.play("Idle")
 	#print(curr_state)
 	
 
@@ -64,7 +70,7 @@ func movement_input(move_dir, turn_dir, delta):
 	if not grounded and was_grounded:
 		play_anim("Jump")
 	if grounded:
-		if move_vec.x == 0 and move_vec.z == 0 and move_speed == 5:
+		if move_vec.x == 0 and move_vec.z == 0 and curr_state == STATES.IDLE:
 			play_anim("Idle")
 		elif move_vec.x != 0 and move_vec.z != 0 and move_speed == 10:
 			play_anim("Run")
@@ -72,7 +78,7 @@ func movement_input(move_dir, turn_dir, delta):
 			play_anim("Crouch")
 		elif move_vec.x != 0 and move_vec.z != 0 and curr_state == STATES.CROUCH:
 			play_anim("Crouching")
-		else:
+		elif move_vec.x != 0 and move_vec.z != 0 and move_speed == 5:
 			play_anim("Walk")
 	
 	y_velo -= GRAVITY * delta
@@ -123,7 +129,6 @@ func crouch():
 func run():
 	if is_on_floor() and Input.is_action_pressed("run"):
 		move_speed = 10
-		play_anim("Run")
 		
 	elif is_on_floor() and Input.is_action_just_released("run"):
 		move_speed = 5
