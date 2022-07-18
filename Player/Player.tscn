@@ -1632,3 +1632,6 @@ transform = Transform( 3.9, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 8.
 
 [node name="CollisionShape" type="CollisionShape" parent="CollisionShape/UnclimbArea"]
 shape = SubResource( 14 )
+
+[node name="Listener" type="Listener" parent="."]
+current = true

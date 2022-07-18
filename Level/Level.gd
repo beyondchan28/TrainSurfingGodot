@@ -3,17 +3,23 @@ extends Spatial
 
 onready var player = $Player
 onready var anim_cutscene = $AnimationPlayer
-export(NodePath) onready var telephone = get_node(telephone) as MeshInstance 
+onready var telp_cutscene_trigger = $TelephonCutsceneTrigger
+onready var telp_sound = $TelephoneSound
+onready var pickup_telp_sound = $PickupPhoneSound
+
 
 func _ready():
 	player.transform.translated(Vector3(-182.647, 1, 64.962))
 
 
-func _on_Area_body_entered(body):
+func _on_TelephonCutsceneTrigger_body_entered(body):
 	if body.name == "Player" and player.curr_state != player.STATES.CROUCH:
 		player.transform.translated(Vector3(-25.067, 1, -27.481))
 		telephone_cutscene()
 
+
+func _on_TelephonCutsceneTrigger_body_exited(body):
+	telp_cutscene_trigger.queue_free()
 
 func telephone_cutscene():
 	player.anim.stop(true)
@@ -25,5 +31,8 @@ func telephone_cutscene():
 func anim_started():
 	player.set_physics_process(false)
 
-func anim_finished():
-	pass
+func stop_sound():
+	telp_sound.queue_free()
+	
+	
+

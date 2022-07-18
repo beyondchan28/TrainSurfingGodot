@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/phone-hang-up.mp3-647f243f261fbe10d6f843b2f0c0bb2b.mp3str"
+
+[deps]
+
+source_file="res://Sound Audio/phone-hang-up.mp3"
+dest_files=[ "res://.import/phone-hang-up.mp3-647f243f261fbe10d6f843b2f0c0bb2b.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
