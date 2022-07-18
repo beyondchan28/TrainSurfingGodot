@@ -5,7 +5,6 @@ onready var player = $Player
 onready var anim_cutscene = $AnimationPlayer
 onready var telp_cutscene_trigger = $TelephonCutsceneTrigger
 onready var telp_sound = $TelephoneSound
-onready var pickup_telp_sound = $PickupPhoneSound
 
 
 func _ready():
