@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/phone_ringing.mp3-cebcec664a61c8d1f183ebaed6b6194b.mp3str"
+
+[deps]
+
+source_file="res://Sound Audio/phone_ringing.mp3"
+dest_files=[ "res://.import/phone_ringing.mp3-cebcec664a61c8d1f183ebaed6b6194b.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

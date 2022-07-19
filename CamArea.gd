@@ -1,5 +1,6 @@
 extends Area
 
+
 func _ready():
 	connect("body_entered", self, "enable_camera")
 
@@ -11,3 +12,11 @@ func enable_camera(body):
 		cam.make_current()
 		if cam.has_method("set_target"):
 			cam.set_target(body)
+			
+#		var listener = get_node("Camera/Listener")
+#		if cam.is_current():
+#			listener.make_current()
+#		else:
+#			listener.clear_current()
+#
+

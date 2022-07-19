@@ -1,9 +1,10 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Player/PlayerLogic.gd" type="Script" id=1]
 [ext_resource path="res://RuntimeData.tres" type="Resource" id=2]
 [ext_resource path="res://Player/Raw Assets/MainCharacter.png" type="Texture" id=3]
 [ext_resource path="res://Player/Raw Assets/Material.material" type="Material" id=4]
+[ext_resource path="res://Sound Audio/SFx/Char Voices/MOVEMENT VOICE/Run.wav" type="AudioStream" id=6]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "MainCharacter_USED"
@@ -1071,6 +1072,20 @@ tracks/22/loop_wrap = true
 tracks/22/imported = false
 tracks/22/enabled = true
 tracks/22/keys = PoolRealArray( 0, 1, 0.0103763, -3.62048, -0.622095, 0.457262, 0, -1.6204e-05, 0.889332, 1, 1, 1, 0.0666667, 1, 0.0103763, -3.62048, -0.622095, 0.39386, 1.13475e-06, -1.61642e-05, 0.91917, 1, 1, 1, 0.133333, 1, 0.0103763, -3.62048, -0.622095, 0.201985, 4.346e-06, -1.56103e-05, 0.979389, 1, 1, 1, 0.2, 1, 0.0103879, -2.56741, -0.294111, 0.201985, 4.346e-06, -1.56103e-05, 0.979389, 1, 1, 1, 0.266667, 1, 0.0104056, -0.965888, 0.204691, 0.201985, 4.346e-06, -1.56103e-05, 0.979389, 1, 1, 1, 0.333333, 1, 0.0104107, -0.48576, 0.347414, 0.0394955, 2.91032e-06, -1.04514e-05, 0.99922, 1, 1, 1, 0.4, 1, 0.0104129, -0.130119, 0.410459, -0.244424, 2.3382e-07, -8.39873e-07, 0.969668, 1, 1, 1, 0.466667, 1, 0.0104108, 1.21302, 0.351922, -0.400746, -1.33919e-06, 4.80282e-06, 0.916189, 1, 1, 1, 0.533333, 1, 0.0104131, 1.94845, 0.415083, -0.449783, -1.82702e-06, 6.58229e-06, 0.893138, 1, 1, 1, 0.6, 1, 0.0104147, 2.10274, 0.46155, -0.474655, -2.07474e-06, 7.48995e-06, 0.880172, 1, 1, 1, 0.666667, 1, 0.0104036, 2.04367, 0.150331, -0.584914, -3.31372e-06, 1.18672e-05, 0.811095, 1, 1, 1, 0.733333, 1, 0.0103524, 1.36492, -1.29793, -0.734263, -5.00109e-06, 1.79515e-05, 0.678865, 1, 1, 1, 0.8, 1, 0.0103268, -0.224275, -2.01744, -0.645302, -3.32534e-06, 1.37689e-05, 0.763928, 1, 1, 1, 0.866667, 1, 0.0103276, -1.9977, -1.99819, -0.041878, 2.16346e-06, -7.77087e-06, 0.999123, 1, 1, 1, 0.933333, 1, 0.0103561, -3.19998, -1.1911, 0.346294, 8.60644e-07, -1.54076e-05, 0.938126, 1, 1, 1, 1, 1, 0.0103763, -3.62048, -0.622095, 0.457262, 0, -1.6204e-05, 0.889332, 1, 1, 1 )
+tracks/23/type = "audio"
+tracks/23/path = NodePath("Armature/Skeleton/AudioStreamPlayer3D")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+} ],
+"times": PoolRealArray( 0 )
+}
 
 [sub_resource type="Animation" id=17]
 resource_name = "Telephone"
@@ -1606,6 +1621,8 @@ material/0 = SubResource( 11 )
 mesh = SubResource( 5 )
 skin = SubResource( 2 )
 material/0 = SubResource( 12 )
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Pivot/Armature/Skeleton"]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Pivot"]
 autoplay = "Idle"

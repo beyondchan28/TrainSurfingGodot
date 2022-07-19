@@ -7,7 +7,11 @@ export var follow_speed = 2
 
 var target = null
 
+onready var listener = $Listener
+
 func _process(delta):
+	enable_listener()
+	#print(listener.is_current())
 	if target == null:
 		return
 	
@@ -32,3 +36,9 @@ func _process(delta):
 
 func set_target(t):
 	target = t
+
+func enable_listener():
+	if self.is_current():
+		listener.make_current()
+	elif !self.is_current():
+		listener.clear_current()
