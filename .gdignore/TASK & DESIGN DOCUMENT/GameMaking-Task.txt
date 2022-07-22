@@ -117,6 +117,10 @@ NB: Jika uang dihilangkan oleh penyimpan (Seta Murdha Pamungkas), maka berkewaji
 sesuai akumulasi uang yang dikumpulkan.	
 
 
+Revisi Seta
+- Suara jump
+
+
 Opsional : Progress atleast 1 kali dalam minggu itu
 Note: 
 - Tiap minggu ada evaluasi sekali
