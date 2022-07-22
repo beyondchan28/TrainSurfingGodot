@@ -139,3 +139,6 @@ func play_anim(name):
 	if anim.current_animation == name:
 		return
 	anim.play(name)
+
+func get_aim_at_pos():
+	return self.global_transform.origin + Vector3.UP * 1.5
