@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/idle situation normal.wav-1af2f30c271fc9c485cef45e95676328.sample"
+
+[deps]
+
+source_file="res://Sound Audio/ST/idle situation normal.wav"
+dest_files=[ "res://.import/idle situation normal.wav-1af2f30c271fc9c485cef45e95676328.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

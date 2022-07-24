@@ -10,7 +10,6 @@ var target = null
 onready var listener = $Listener
 
 func _process(delta):
-	enable_listener()
 	#print(listener.is_current())
 	if target == null:
 		return
@@ -33,6 +32,8 @@ func _process(delta):
 	
 	rotation_degrees.y += turn_speed * -r_dot * delta
 	rotation_degrees.x += turn_speed * u_dot * delta
+	enable_listener()
+	
 
 func set_target(t):
 	target = t
