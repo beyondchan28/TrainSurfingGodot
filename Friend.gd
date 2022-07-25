@@ -10,6 +10,7 @@ onready var stop_detector = $StopArea
 
 var curr_state
 var distance
+var activate = false
 
 enum STATES{WALK, STOP}
 
@@ -19,15 +20,16 @@ func _ready():
 
 
 func _process(delta):
-	var target_pos = target.global_transform.origin
-	var self_pos = self.global_transform.origin
-	var direction = self_pos.direction_to(target_pos)
-	
-	face_target_y.face_point(target_pos, delta)
-	
-	velocity = direction.normalized() #not uunderstand
-	state_control(target_pos, self_pos)
-	calculate_distance(self_pos, target_pos, velocity)
+	if activate:
+		var target_pos = target.global_transform.origin
+		var self_pos = self.global_transform.origin
+		var direction = self_pos.direction_to(target_pos)
+		
+		face_target_y.face_point(target_pos, delta)
+		
+		velocity = direction.normalized() #not uunderstand
+		state_control(target_pos, self_pos)
+		calculate_distance(self_pos, target_pos, velocity)
 
 
 func calculate_distance(self_pos, target_pos, velocity):
@@ -48,3 +50,5 @@ func state_control(target_pos, self_pos):
 func _on_StopArea_body_entered(body):
 	if stop_detector.overlaps_body(body):
 		curr_state = STATES.STOP
+	if body.name == "Player":
+		activate = true

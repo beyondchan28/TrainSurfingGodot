@@ -19,6 +19,10 @@ onready var unclimb_area = $CollisionShape/UnclimbArea
 
 onready var anim = $Pivot/AnimationPlayer
 
+onready var flashlight = $Pivot/Armature/Skeleton/BoneAttachment
+
+var flash_on = false
+
 var climb_array = []
 
 enum STATES{IDLE, JUMP, CROUCH, CLIMB, UNCLIMB}
@@ -32,6 +36,7 @@ func _physics_process(delta):
 		jump()
 		crouch()
 		climber_detection()
+		flashlight()
 	else:
 		curr_state = STATES.IDLE
 		move_dir = 0
@@ -120,10 +125,10 @@ func crouch():
 	if is_on_floor()  and Input.is_action_pressed("crouch"):
 		curr_state = STATES.CROUCH
 		move_speed = ms_changer
-		collision_shape.scale.z = 0.5
+		collision_shape.get_shape().height = 1.5
 	elif Input.is_action_just_released("crouch") :
 		move_speed = 5
-		collision_shape.scale.z = 1
+		collision_shape.get_shape().height = 3
 		curr_state = STATES.IDLE
 
 func run():
@@ -134,6 +139,16 @@ func run():
 		move_speed = 5
 	else :
 		return
+
+func flashlight():
+	var light = flashlight.get_node("Flashlight/SpotLight")
+	if flashlight.is_visible():
+		if Input.is_action_just_pressed("flashlight") and flash_on == false:
+			flash_on = true
+			light.light_energy = 16
+		elif Input.is_action_just_pressed("flashlight") and flash_on == true:
+			flash_on = false
+			light.light_energy = 0
 
 func play_anim(name):
 	if anim.current_animation == name:

@@ -3,9 +3,11 @@ extends Spatial
 
 onready var player = $Player
 onready var anim_cutscene = $AnimationPlayer
+
 onready var telp_cutscene_trigger = $TelephonCutsceneTrigger
 onready var telp_sound = $TelephoneSound
 
+onready var flashlight = $FlashlightActivator
 
 func _ready():
 	player.transform.translated(Vector3(-182.647, 1, 64.962))
@@ -33,5 +35,8 @@ func anim_started():
 func stop_sound():
 	telp_sound.queue_free()
 	
-	
 
+func _on_FlashlightActivator_body_entered(body):
+	if body.name == "Player":
+		player.get_node("Pivot/Armature/Skeleton/BoneAttachment").visible = true
+		flashlight.queue_free()

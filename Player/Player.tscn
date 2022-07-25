@@ -1,10 +1,12 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Player/PlayerLogic.gd" type="Script" id=1]
 [ext_resource path="res://RuntimeData.tres" type="Resource" id=2]
 [ext_resource path="res://Player/Raw Assets/MainCharacter.png" type="Texture" id=3]
 [ext_resource path="res://Player/Raw Assets/Material.material" type="Material" id=4]
+[ext_resource path="res://Sound Audio/jump.wav" type="AudioStream" id=5]
 [ext_resource path="res://Sound Audio/SFx/Char Voices/MOVEMENT VOICE/Run.wav" type="AudioStream" id=6]
+[ext_resource path="res://Sound Audio/SFx/Char Voices/MOVEMENT VOICE/Walk.wav" type="AudioStream" id=7]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "MainCharacter_USED"
@@ -159,6 +161,8 @@ surfaces/0 = {
 
 [sub_resource type="SpatialMaterial" id=12]
 albedo_texture = ExtResource( 3 )
+
+[sub_resource type="CubeMesh" id=19]
 
 [sub_resource type="Animation" id=6]
 resource_name = "Crouch"
@@ -907,6 +911,20 @@ tracks/25/loop_wrap = true
 tracks/25/imported = false
 tracks/25/enabled = true
 tracks/25/keys = PoolRealArray( 0, 1, -2.98023e-05, 0.914366, -0.842951, -0.183158, -2.1394e-12, 6.49056e-06, 0.983083, 1, 1, 1, 0.0333333, 1, -2.98023e-05, 0.914366, -0.842951, -0.183158, -2.1394e-12, 6.49056e-06, 0.983083, 1, 1, 1 )
+tracks/26/type = "audio"
+tracks/26/path = NodePath("Armature/Skeleton/AudioStreamPlayer3D")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 5 )
+} ],
+"times": PoolRealArray( -0.2 )
+}
 
 [sub_resource type="Animation" id=16]
 resource_name = "Run"
@@ -1439,9 +1457,24 @@ tracks/22/loop_wrap = true
 tracks/22/imported = false
 tracks/22/enabled = true
 tracks/22/keys = PoolRealArray( 0, 1, 0.0103763, -3.62048, -0.622095, 0.457262, 0, -1.6204e-05, 0.889332, 1, 1, 1, 0.0666667, 1, 0.0103763, -3.62048, -0.622095, 0.439458, 3.22738e-07, -1.62008e-05, 0.898263, 1, 1, 1, 0.133333, 1, 0.0103763, -3.62048, -0.622095, 0.332685, 2.19318e-06, -1.60549e-05, 0.943038, 1, 1, 1, 0.2, 1, 0.0103763, -3.62048, -0.622095, 0.221451, 4.03423e-06, -1.56938e-05, 0.975172, 1, 1, 1, 0.266667, 1, 0.0103772, -3.53628, -0.59587, 0.201985, 4.346e-06, -1.56103e-05, 0.979389, 1, 1, 1, 0.333333, 1, 0.0103834, -2.97253, -0.420287, 0.201985, 4.346e-06, -1.56103e-05, 0.979389, 1, 1, 1, 0.466667, 1, 0.010402, -1.289, 0.104058, 0.201985, 4.346e-06, -1.56103e-05, 0.979389, 1, 1, 1, 0.533333, 1, 0.0104081, -0.74464, 0.273494, 0.189749, 4.2402e-06, -1.52303e-05, 0.981833, 1, 1, 1, 0.6, 1, 0.0104102, -0.533882, 0.336367, 0.104273, 3.48998e-06, -1.25356e-05, 0.994549, 1, 1, 1, 0.666667, 1, 0.0104108, -0.456582, 0.350003, -0.0333324, 2.24252e-06, -8.05486e-06, 0.999444, 1, 1, 1, 0.733333, 1, 0.0104116, -0.302113, 0.374892, -0.180534, 8.54244e-07, -3.06835e-06, 0.983569, 1, 1, 1, 0.8, 1, 0.0104137, 0.140335, 0.433878, -0.297247, -2.87733e-07, 1.03349e-06, 0.9548, 1, 1, 1, 0.866667, 1, 0.0104122, 0.865906, 0.389907, -0.37396, -1.05987e-06, 3.80688e-06, 0.927445, 1, 1, 1, 0.933333, 1, 0.0104104, 1.53193, 0.338203, -0.420679, -1.53921e-06, 5.52862e-06, 0.90721, 1, 1, 1, 1, 1, 0.0104119, 1.84163, 0.384004, -0.444311, -1.78449e-06, 6.40964e-06, 0.895873, 1, 1, 1, 1.06667, 1, 0.0104136, 1.99617, 0.429385, -0.453464, -1.88002e-06, 6.75276e-06, 0.891275, 1, 1, 1, 1.13333, 1, 0.0104144, 2.07519, 0.453754, -0.460132, -1.9498e-06, 7.0034e-06, 0.887851, 1, 1, 1, 1.2, 1, 0.0104147, 2.10459, 0.46183, -0.476302, -2.1197e-06, 7.61368e-06, 0.879282, 1, 1, 1, 1.26667, 1, 0.0104146, 2.11023, 0.458333, -0.513346, -2.51267e-06, 9.02515e-06, 0.858182, 1, 1, 1, 1.33333, 1, 0.0104037, 2.0435, 0.150874, -0.583119, -3.26826e-06, 1.17391e-05, 0.812387, 1, 1, 1, 1.4, 1, 0.0103791, 1.80952, -0.541685, -0.667189, -4.21009e-06, 1.51221e-05, 0.744888, 1, 1, 1, 1.46667, 1, 0.0103523, 1.36486, -1.29775, -0.733711, -4.98595e-06, 1.79089e-05, 0.679462, 1, 1, 1, 1.53333, 1, 0.0103347, 0.666079, -1.79572, -0.759999, -5.30194e-06, 1.90439e-05, 0.649924, 1, 1, 1, 1.6, 1, 0.0103268, -0.224275, -2.01744, -0.645302, -3.32534e-06, 1.37689e-05, 0.763928, 1, 1, 1, 1.66667, 1, 0.0103236, -1.14636, -2.10967, -0.350344, 4.40775e-07, 2.03589e-06, 0.936621, 1, 1, 1, 1.73333, 1, 0.0103276, -1.9977, -1.99819, -0.041878, 2.16346e-06, -7.77087e-06, 0.999123, 1, 1, 1, 1.8, 1, 0.0103399, -2.69101, -1.64925, 0.190523, 1.59876e-06, -1.2972e-05, 0.981683, 1, 1, 1, 1.86667, 1, 0.0103561, -3.19998, -1.1911, 0.346294, 8.60644e-07, -1.54076e-05, 0.938126, 1, 1, 1, 1.93333, 1, 0.0103703, -3.5135, -0.792468, 0.430953, 2.51227e-07, -1.6144e-05, 0.902374, 1, 1, 1, 2, 1, 0.0103763, -3.62048, -0.622095, 0.457262, 0, -1.6204e-05, 0.889332, 1, 1, 1 )
+tracks/23/type = "audio"
+tracks/23/path = NodePath("Armature/Skeleton/AudioStreamPlayer3D")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 7 )
+} ],
+"times": PoolRealArray( 0 )
+}
 
 [sub_resource type="CapsuleShape" id=13]
-height = 2.0
+radius = 0.5
+height = 3.0
 
 [sub_resource type="BoxShape" id=14]
 extents = Vector3( 0.5, 0.5, 2 )
@@ -1452,20 +1485,6 @@ _runtime_data = ExtResource( 2 )
 
 [node name="Pivot" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.945895, 0 )
-
-[node name="FlashLight" type="Spatial" parent="Pivot"]
-visible = false
-
-[node name="FlashLightMesh" type="MeshInstance" parent="Pivot/FlashLight"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.892594 )
-
-[node name="SpotLight" type="SpotLight" parent="Pivot/FlashLight/FlashLightMesh"]
-light_energy = 16.0
-light_indirect_energy = 13.642
-light_specular = 7.216
-shadow_enabled = true
-spot_range = 10.9388
-spot_angle = 44.786
 
 [node name="Armature" type="Spatial" parent="Pivot"]
 transform = Transform( -0.36009, 0, -3.14801e-08, 0, 0.36009, 0, 3.14801e-08, 0, -0.36009, 0, 1.12683, 0 )
@@ -1555,7 +1574,7 @@ bones/16/name = "hand.L"
 bones/16/parent = 15
 bones/16/rest = Transform( 0.999928, -0.0119696, 6.40141e-08, 0.0119696, 0.999928, -5.73092e-05, 6.21958e-07, 5.73059e-05, 1, -8.2862e-08, 0.33551, 1.35162e-09 )
 bones/16/enabled = true
-bones/16/bound_children = [  ]
+bones/16/bound_children = [ NodePath("BoneAttachment") ]
 bones/17/name = "elbowIK.R"
 bones/17/parent = -1
 bones/17/rest = Transform( 0.00610203, 0, -0.999981, 0.999981, 0, 0.00610206, 0, -1, 0, -0.807976, 2.86813, -1.05963 )
@@ -1623,6 +1642,23 @@ skin = SubResource( 2 )
 material/0 = SubResource( 12 )
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Pivot/Armature/Skeleton"]
+stream = ExtResource( 5 )
+
+[node name="BoneAttachment" type="BoneAttachment" parent="Pivot/Armature/Skeleton"]
+transform = Transform( 0.00323709, -0.000647475, -0.999994, -0.547271, -0.836955, -0.00122969, -0.836949, 0.547272, -0.00306364, 1.6968, 1.01672, 1.13791 )
+visible = false
+bone_name = "hand.L"
+
+[node name="Flashlight" type="MeshInstance" parent="Pivot/Armature/Skeleton/BoneAttachment"]
+transform = Transform( 0.0947691, -0.261477, -2.32831e-10, 0.0746536, 0.331933, -5.82077e-10, 4.71482e-09, -7.45058e-09, 0.102628, -0.186994, 0.330292, 0 )
+mesh = SubResource( 19 )
+material/0 = null
+
+[node name="SpotLight" type="SpotLight" parent="Pivot/Armature/Skeleton/BoneAttachment/Flashlight"]
+transform = Transform( 22.2604, -0.228663, -5.85753, -1.673, -0.0649585, -6.35535, 0.191872, 27.0571, -0.327061, 0, 0, 0 )
+light_energy = 16.0
+spot_range = 6.4475
+spot_angle = 25.4257
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Pivot"]
 autoplay = "Idle"
