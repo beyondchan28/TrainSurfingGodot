@@ -1,0 +1,18 @@
+ABCDE - Bespoke Sans (ABJAD)
+https://www.fontshare.com/fonts/bespoke-sans
+
+1233456678  - Supreme (ANGKA)
+https://www.fontshare.com/fonts/supreme
+
+==UKURAN FONT==
+TITLE = 40pt
+BUTTON = 20pt
+
+==COLOR FONT (HEX)==
+ON = #4C5052
+OFF = #FFF
+
+
+!! TITLE FILE FOTO NGARUH YES !!
+
+ngat :)
