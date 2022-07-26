@@ -1,12 +1,13 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Player/PlayerLogic.gd" type="Script" id=1]
 [ext_resource path="res://RuntimeData.tres" type="Resource" id=2]
 [ext_resource path="res://Player/Raw Assets/MainCharacter.png" type="Texture" id=3]
 [ext_resource path="res://Player/Raw Assets/Material.material" type="Material" id=4]
 [ext_resource path="res://Sound Audio/jump.wav" type="AudioStream" id=5]
-[ext_resource path="res://Sound Audio/SFx/Char Voices/MOVEMENT VOICE/Run.wav" type="AudioStream" id=6]
-[ext_resource path="res://Sound Audio/SFx/Char Voices/MOVEMENT VOICE/Walk.wav" type="AudioStream" id=7]
+[ext_resource path="res://Player/MovementAudioStream.gd" type="Script" id=6]
+[ext_resource path="res://Sound Audio/WalkRightFeet.wav" type="AudioStream" id=7]
+[ext_resource path="res://Sound Audio/WalkLeftFeet.wav" type="AudioStream" id=8]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "MainCharacter_USED"
@@ -1100,9 +1101,13 @@ tracks/23/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource( 6 )
+"stream": ExtResource( 8 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 7 )
 } ],
-"times": PoolRealArray( 0 )
+"times": PoolRealArray( 0.1, 0.6 )
 }
 
 [sub_resource type="Animation" id=17]
@@ -1296,6 +1301,7 @@ tracks/25/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 4.54747e-13, 0, 1, 1, 1, 1, 4,
 resource_name = "Walk"
 length = 2.0
 loop = true
+step = 0.01
 tracks/0/type = "transform"
 tracks/0/path = NodePath("Armature/Skeleton:head")
 tracks/0/interp = 1
@@ -1467,9 +1473,13 @@ tracks/23/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
+"stream": ExtResource( 8 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
 "stream": ExtResource( 7 )
 } ],
-"times": PoolRealArray( 0 )
+"times": PoolRealArray( 0.06, 0.93 )
 }
 
 [sub_resource type="CapsuleShape" id=13]
@@ -1574,7 +1584,7 @@ bones/16/name = "hand.L"
 bones/16/parent = 15
 bones/16/rest = Transform( 0.999928, -0.0119696, 6.40141e-08, 0.0119696, 0.999928, -5.73092e-05, 6.21958e-07, 5.73059e-05, 1, -8.2862e-08, 0.33551, 1.35162e-09 )
 bones/16/enabled = true
-bones/16/bound_children = [ NodePath("BoneAttachment") ]
+bones/16/bound_children = [  ]
 bones/17/name = "elbowIK.R"
 bones/17/parent = -1
 bones/17/rest = Transform( 0.00610203, 0, -0.999981, 0.999981, 0, 0.00610206, 0, -1, 0, -0.807976, 2.86813, -1.05963 )
@@ -1642,10 +1652,12 @@ skin = SubResource( 2 )
 material/0 = SubResource( 12 )
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Pivot/Armature/Skeleton"]
-stream = ExtResource( 5 )
+stream = ExtResource( 7 )
+pitch_scale = 0.5
+script = ExtResource( 6 )
 
 [node name="BoneAttachment" type="BoneAttachment" parent="Pivot/Armature/Skeleton"]
-transform = Transform( 0.00323709, -0.000647475, -0.999994, -0.547271, -0.836955, -0.00122969, -0.836949, 0.547272, -0.00306364, 1.6968, 1.01672, 1.13791 )
+transform = Transform( 0.05452, 0.000435581, -0.998512, -0.930278, -0.363299, -0.0509529, -0.36278, 0.931673, -0.0194019, 1.32075, 1.12487, 3.19165 )
 visible = false
 bone_name = "hand.L"
 

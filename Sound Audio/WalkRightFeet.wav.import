@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/WalkRightFeet.wav-d9680ce24ecf9e814a8bd92bbdb7dfdc.sample"
+
+[deps]
+
+source_file="res://Sound Audio/WalkRightFeet.wav"
+dest_files=[ "res://.import/WalkRightFeet.wav-d9680ce24ecf9e814a8bd92bbdb7dfdc.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
