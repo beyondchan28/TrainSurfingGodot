@@ -1,0 +1,136 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://UI/mainmenu_test_font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://UI/TinyUnicode.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://UI/BackgroundMainMenu.webm" type="VideoStream" id=3]
+[ext_resource path="res://UI/MainMenu.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 120
+font_data = ExtResource( 2 )
+
+[node name="MainMenuVideo" type="VideoPlayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+stream = ExtResource( 3 )
+autoplay = true
+script = ExtResource( 4 )
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 0.488281
+anchor_bottom = 1.005
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
+margin_right = 500.0
+margin_bottom = 603.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/CenterContainer"]
+margin_left = 65.0
+margin_top = 89.0
+margin_right = 435.0
+margin_bottom = 513.0
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/CenterContainer/VBoxContainer"]
+margin_right = 370.0
+margin_bottom = 127.0
+
+[node name="Title" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer/CenterContainer"]
+margin_right = 370.0
+margin_bottom = 127.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "Halelujah"
+
+[node name="CenterContainer2" type="CenterContainer" parent="MarginContainer/CenterContainer/VBoxContainer"]
+margin_top = 131.0
+margin_right = 370.0
+margin_bottom = 424.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/CenterContainer/VBoxContainer/CenterContainer2"]
+margin_left = 54.0
+margin_right = 316.0
+margin_bottom = 293.0
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
+margin_right = 262.0
+margin_bottom = 95.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer"]
+margin_right = 262.0
+margin_bottom = 95.0
+
+[node name="Selector" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer"]
+margin_right = 23.0
+margin_bottom = 95.0
+rect_min_size = Vector2( 23, 0 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = ">"
+
+[node name="OptionName" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer"]
+margin_left = 27.0
+margin_right = 262.0
+margin_bottom = 95.0
+rect_min_size = Vector2( 235, 0 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Start"
+
+[node name="CenterContainer2" type="CenterContainer" parent="MarginContainer/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
+margin_top = 99.0
+margin_right = 262.0
+margin_bottom = 194.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2"]
+margin_right = 262.0
+margin_bottom = 95.0
+
+[node name="Selector" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer"]
+margin_right = 23.0
+margin_bottom = 95.0
+rect_min_size = Vector2( 23, 0 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = ">"
+
+[node name="OptionName" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer"]
+margin_left = 27.0
+margin_right = 262.0
+margin_bottom = 95.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Options"
+
+[node name="CenterContainer3" type="CenterContainer" parent="MarginContainer/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
+margin_top = 198.0
+margin_right = 262.0
+margin_bottom = 293.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer3"]
+margin_right = 262.0
+margin_bottom = 95.0
+
+[node name="Selector" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer3/HBoxContainer"]
+margin_right = 23.0
+margin_bottom = 95.0
+rect_min_size = Vector2( 23, 0 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = ">"
+
+[node name="OptionName" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer3/HBoxContainer"]
+margin_left = 27.0
+margin_right = 262.0
+margin_bottom = 95.0
+rect_min_size = Vector2( 235, 0 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Exit"
+
+[connection signal="finished" from="." to="." method="_on_MainMenuVideo_finished"]

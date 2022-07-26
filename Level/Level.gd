@@ -1,6 +1,5 @@
 extends Spatial
 
-
 onready var player = $Player
 onready var anim_cutscene = $AnimationPlayer
 
@@ -8,6 +7,8 @@ onready var telp_cutscene_trigger = $TelephonCutsceneTrigger
 onready var telp_sound = $TelephoneSound
 
 onready var flashlight = $FlashlightActivator
+
+const next_scene = preload("res://Level/TrainStation.tscn")
 
 func _ready():
 	player.transform.translated(Vector3(-182.647, 1, 64.962))
@@ -40,3 +41,9 @@ func _on_FlashlightActivator_body_entered(body):
 	if body.name == "Player":
 		player.get_node("Pivot/Armature/Skeleton/BoneAttachment").visible = true
 		flashlight.queue_free()
+
+
+func _on_TranStationCutsceneTrigger_body_entered(body):
+	if body.name == "Player":
+		get_parent().add_child(next_scene.instance())
+		self.queue_free()

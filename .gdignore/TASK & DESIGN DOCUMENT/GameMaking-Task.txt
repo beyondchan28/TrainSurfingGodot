@@ -127,3 +127,7 @@ Note:
 - GDD bukti untuk ngajuin proposal
 - sebelum entry GDD, ngajuin porposal ke fakultas
 - target: week 4 GDD dan proposal beserta game yang sudah playable
+
+
++ Storyline
++ cinematic untuk menggambarkan story dari game ini
