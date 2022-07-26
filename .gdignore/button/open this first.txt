@@ -1,3 +1,6 @@
+ukuran background game yang dipake di contoh = 1920x1080
+ (intinya kalo reso dibawah itu ya ngikut kecil, sesuaiin ukurannya turun seberapa :D)  *kalo bingung, gmeet aokwkw
+
 ABCDE - Bespoke Sans (ABJAD)
 https://www.fontshare.com/fonts/bespoke-sans
 
@@ -15,4 +18,4 @@ OFF = #FFF
 
 !! TITLE FILE FOTO NGARUH YES !!
 
-ngat :)
+ngats :)
