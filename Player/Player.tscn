@@ -1668,7 +1668,7 @@ material/0 = null
 
 [node name="SpotLight" type="SpotLight" parent="Pivot/Armature/Skeleton/BoneAttachment/Flashlight"]
 transform = Transform( 22.2604, -0.228663, -5.85753, -1.673, -0.0649585, -6.35535, 0.191872, 27.0571, -0.327061, 0, 0, 0 )
-light_indirect_energy = 0.0
+light_indirect_energy = 5.0
 light_specular = 15.0
 shadow_enabled = true
 spot_range = 6.4475
