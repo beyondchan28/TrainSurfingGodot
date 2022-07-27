@@ -1657,7 +1657,7 @@ pitch_scale = 0.5
 script = ExtResource( 6 )
 
 [node name="BoneAttachment" type="BoneAttachment" parent="Pivot/Armature/Skeleton"]
-transform = Transform( 0.05452, 0.000435581, -0.998512, -0.930278, -0.363299, -0.0509529, -0.36278, 0.931673, -0.0194019, 1.32075, 1.12487, 3.19165 )
+transform = Transform( 0.0032369, -0.000647269, -0.999994, -0.331723, -0.943377, -0.00046316, -0.943371, 0.331723, -0.00326833, 1.69679, -0.0510826, 0.851424 )
 visible = false
 bone_name = "hand.L"
 
@@ -1668,7 +1668,9 @@ material/0 = null
 
 [node name="SpotLight" type="SpotLight" parent="Pivot/Armature/Skeleton/BoneAttachment/Flashlight"]
 transform = Transform( 22.2604, -0.228663, -5.85753, -1.673, -0.0649585, -6.35535, 0.191872, 27.0571, -0.327061, 0, 0, 0 )
-light_energy = 16.0
+light_indirect_energy = 5.0
+light_specular = 15.0
+shadow_enabled = true
 spot_range = 6.4475
 spot_angle = 25.4257
 
