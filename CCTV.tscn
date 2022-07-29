@@ -19,8 +19,17 @@ albedo_color = Color( 0.976471, 1, 0.00784314, 1 )
 script = ExtResource( 2 )
 
 [node name="VisionManager" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18511, 0.269819 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18511, -1.07884 )
 script = ExtResource( 1 )
+
+[node name="SpotLight" type="SpotLight" parent="VisionManager"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.131975 )
+light_color = Color( 0.956863, 0.580392, 0.580392, 1 )
+light_energy = 16.0
+light_negative = true
+shadow_enabled = true
+spot_range = 70.0
+spot_angle = 30.0
 
 [node name="Red" type="MeshInstance" parent="."]
 visible = false

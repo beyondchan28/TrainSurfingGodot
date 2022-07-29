@@ -1,0 +1,20 @@
+[gd_resource type="Environment" load_steps=3 format=2]
+
+[ext_resource path="res://Level/satara_night_no_lamps_2k.hdr" type="Texture" id=1]
+
+[sub_resource type="PanoramaSky" id=200]
+panorama = ExtResource( 1 )
+
+[resource]
+background_mode = 2
+background_sky = SubResource( 200 )
+fog_enabled = true
+fog_sun_amount = 1.0
+fog_depth_begin = 3.0
+tonemap_mode = 2
+tonemap_exposure = 0.5
+tonemap_white = 16.0
+ss_reflections_enabled = true
+ss_reflections_max_steps = 5
+ss_reflections_roughness = false
+ssao_radius = 0.1
