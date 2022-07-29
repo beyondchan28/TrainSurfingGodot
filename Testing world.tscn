@@ -38,6 +38,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.31103, 9.89937 )
 
 [node name="CCTV" parent="." instance=ExtResource( 2 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 4.92768, -2.03865 )
+visible = false
 
 [node name="Wall" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.55879, 5.26694 )
@@ -52,5 +53,6 @@ mesh = SubResource( 5 )
 material/0 = null
 
 [node name="Worker" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.05709, 2.05678, 0 )
-speed = 2
+transform = Transform( 0.133692, 0, -0.991023, 0, 1, 0, 0.991023, 0, 0.133692, -8.10305, 2.05678, 23.3664 )
+start_point = [ 9.057, 2.057, 10.0 ]
+end_point = [ 9.057, 2.057, -10.0 ]

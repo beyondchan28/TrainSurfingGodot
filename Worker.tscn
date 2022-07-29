@@ -1,8 +1,6 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://FaceTargetY.gd" type="Script" id=1]
 [ext_resource path="res://Worker.gd" type="Script" id=2]
-[ext_resource path="res://VisionManager.gd" type="Script" id=3]
 
 [sub_resource type="CapsuleShape" id=1]
 
@@ -29,8 +27,6 @@ mesh = SubResource( 5 )
 material/0 = null
 
 [node name="FaceTargetY" type="Spatial" parent="."]
-script = ExtResource( 1 )
-turn_speed = 500.0
 
 [node name="MeshInstance" type="MeshInstance" parent="FaceTargetY"]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.19209e-07, 1, -2 )
@@ -41,6 +37,13 @@ __meta__ = {
 "_editor_description_": ""
 }
 
+[node name="VisionArea" type="Area" parent="FaceTargetY"]
+transform = Transform( -4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 0, 0.806097, -1.14354 )
+
+[node name="CollisionPolygon" type="CollisionPolygon" parent="FaceTargetY/VisionArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0348341, 0 )
+polygon = PoolVector2Array( 0.0176952, 0.0435141, 7.19241, 3.88746, 7.13852, -3.75892 )
+
 [node name="StopArea" type="Area" parent="."]
 
 [node name="CollisionShape" type="CollisionShape" parent="StopArea"]
@@ -49,7 +52,4 @@ __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="VisionManager" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11624, 0 )
-script = ExtResource( 3 )
-vision_arc = 180.0
+[connection signal="body_entered" from="FaceTargetY/VisionArea" to="." method="_on_VisionArea_body_entered"]
