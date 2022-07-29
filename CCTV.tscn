@@ -28,7 +28,7 @@ light_color = Color( 0.956863, 0.580392, 0.580392, 1 )
 light_energy = 16.0
 light_negative = true
 shadow_enabled = true
-spot_range = 70.0
+spot_range = 50.0
 spot_angle = 30.0
 
 [node name="Red" type="MeshInstance" parent="."]
