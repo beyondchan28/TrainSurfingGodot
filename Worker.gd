@@ -30,7 +30,8 @@ func _process(delta):
 	var end_pos = Vector3(end_point[0], end_point[1], end_point[2])
 	
 	var self_to_start = self_pos.distance_to(start_pos)
-	var start_to_end = start_pos.direction_to(end_pos)
+	var self_to_end = self_pos.distance_to(start_pos)
+	var start_to_end = start_pos.distance_to(end_pos)
 	
 	if curr_state == STATES.WALK:
 		velocity = self_pos.direction_to(target_pos).normalized() #not uunderstand
@@ -42,8 +43,11 @@ func _process(delta):
 			velocity = self_pos.direction_to(start_pos).normalized() #not uunderstand
 			calculate_distance(start_pos, velocity)
 		elif self_to_start <= 1:
-			velocity = start_pos.direction_to(end_pos)#not uunderstand
-			calculate_distance(end_pos, velocity)
+			if self_to_end >= 0.1:
+				velocity = start_pos.direction_to(end_pos)#not uunderstand
+				calculate_distance(end_pos, velocity)
+			elif self_to_end <= 0.1:
+				velocity = Vector3.ZERO
 
 
 func calculate_distance(target_pos, velocity):
@@ -73,9 +77,6 @@ func state_control(target_pos, self_pos):
 func distance(self_pos, target_pos):
 	return self_pos.distance_to(target_pos)
 
-func _on_StopArea_body_entered(body):
-	if stop_detector.overlaps_body(body):
-		curr_state = STATES.STOP
 
 func _on_VisionArea_body_entered(body):
 	if body.name == "Player":
