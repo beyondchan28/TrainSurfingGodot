@@ -10,13 +10,9 @@ onready var flashlight = $FlashlightActivator
 
 onready var park_light = $ParkLight
 onready var street_light = $StreetLight
+onready var other_objects = $OtherObjects
 
 const next_scene = preload("res://Level/TrainStation.tscn")
-
-var switch
-
-func _ready():
-	player.transform.translated(Vector3(-182.647, 1, 64.962))
 
 
 func _on_TelephonCutsceneTrigger_body_entered(body):
@@ -26,16 +22,20 @@ func _on_TelephonCutsceneTrigger_body_entered(body):
 
 
 func _on_TelephonCutsceneTrigger_body_exited(body):
-	telp_cutscene_trigger.queue_free()
+	if body.name == "Player":
+		telp_cutscene_trigger.queue_free()
 
 func telephone_cutscene():
 	player.anim.stop(true)
+	anim_cutscene.clear_caches()
 	anim_cutscene.play("TelephonCutscene")
 	yield(anim_cutscene, "animation_finished")
+	print("???")
 	player.set_physics_process(true)
 	
 
 func anim_started():
+	print("starting")
 	player.set_physics_process(false)
 
 func stop_sound():
@@ -59,5 +59,7 @@ func _on_LightActivator_body_entered(body):
 	if body.name == "Player":
 		if street_light.is_visible():
 			park_light.set_visible(true)
+			other_objects.set_visible(false)
 		elif park_light.is_visible():
 			street_light.set_visible(true)
+			other_objects.set_visible(true)

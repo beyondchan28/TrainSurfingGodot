@@ -72,7 +72,7 @@ func movement_input(move_dir, turn_dir, delta):
 	climb_logic(move_vec)
 	#animation idle, jump, walk, crouch, crouching and run here
 	
-	if not grounded and was_grounded:
+	if curr_state == STATES.JUMP and not grounded and was_grounded:
 		play_anim("Jump")
 	if grounded:
 		if move_vec.x == 0 and move_vec.z == 0 and curr_state == STATES.IDLE:
