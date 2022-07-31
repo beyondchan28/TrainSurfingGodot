@@ -52,6 +52,4 @@ __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="VisibilityEnabler" type="VisibilityEnabler" parent="."]
-
 [connection signal="body_entered" from="FaceTargetY/VisionArea" to="." method="_on_VisionArea_body_entered"]
