@@ -9,7 +9,7 @@ var target = null
 
 onready var listener = $Listener
 
-func _process(delta):
+func _physics_process(delta):
 	#print(listener.is_current())
 	if target == null:
 		return
