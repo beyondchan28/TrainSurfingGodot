@@ -151,19 +151,21 @@ func run():
 
 func flashlight():
 	var light = flashlight.get_node("Flashlight/SpotLight")
-	var objectives_detector = flashlight.get_node("Flashlight/ObejctivesArea")
+	var objectives_detector = flashlight.get_node("Flashlight/ObejctivesArea/CollisionShape")
 	
 	if flashlight.is_visible():
 		if Input.is_action_just_pressed("flashlight") and flash_on == false:
 			flash_on = true
-			objectives_detector.set_monitoring(true)
+			objectives_detector.set_disabled(false)
 			
-			light.light_energy = 16
+			light.set_visible(true)
+			#light.light_energy = 10
 		elif Input.is_action_just_pressed("flashlight") and flash_on == true:
 			flash_on = false
-			objectives_detector.set_monitoring(false)
+			objectives_detector.set_disabled(true)
+			light.set_visible(false)
 			
-			light.light_energy = 0
+			#light.light_energy = 0
 
 
 func play_anim(name):

@@ -1,18 +1,27 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://CCTV.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Worker.tscn" type="PackedScene" id=3]
 [ext_resource path="res://ObjectivesLightActivator.tscn" type="PackedScene" id=4]
 
+[sub_resource type="NavigationMesh" id=6]
+vertices = PoolVector3Array( 24, 1.5, -18, 24, 1.5, -24, 12, 1.5, -24, -12, 1.5, -24, -24, 1.5, -24, -24, 1.5, -17, 24, 1.5, -11, 24, 1.5, -18, 12, 1.5, -24, -12, 1.5, -24, -24, 1.5, -17, -24, 1.5, -10, -24, 1.5, 5, -4, 1.5, 5, -3, 1.5, 3, -24, 1.5, -3, -12, 1.5, -24, -24, 1.5, -10, -24, 1.5, -3, -3, 1.5, 3, 3, 1.5, 3, 0, 1.5, -24, 3, 1.5, 3, 24, 1.5, 2, 24, 1.5, -5, 12, 1.5, -24, 0, 1.5, -24, 24, 1.5, -5, 24, 1.5, -11, 12, 1.5, -24, 12, 1.5, 24, 24, 1.5, 24, 24, 1.5, 13, 5, 1.5, 7, 0, 1.5, 8, 0, 1.5, 24, 12, 1.5, 24, 24, 1.5, 2, 5, 1.5, 4, 5, 1.5, 7, 12, 1.5, 24, 24, 1.5, 13, 24, 1.5, 2, 3, 1.5, 3, 5, 1.5, 4, -24, 1.5, 14, -24, 1.5, 24, -12, 1.5, 24, 0, 1.5, 24, 0, 1.5, 8, -3, 1.5, 8, -12, 1.5, 24, 0, 1.5, 24, -3, 1.5, 8, -4, 1.5, 5, -24, 1.5, 5, -24, 1.5, 14 )
+polygons = [ PoolIntArray( 2, 1, 0 ), PoolIntArray( 5, 4, 3 ), PoolIntArray( 8, 7, 6 ), PoolIntArray( 11, 10, 9 ), PoolIntArray( 13, 12, 14 ), PoolIntArray( 14, 12, 15 ), PoolIntArray( 17, 16, 18 ), PoolIntArray( 18, 16, 21 ), PoolIntArray( 18, 21, 19 ), PoolIntArray( 19, 21, 20 ), PoolIntArray( 23, 22, 24 ), PoolIntArray( 24, 22, 25 ), PoolIntArray( 25, 22, 26 ), PoolIntArray( 29, 28, 27 ), PoolIntArray( 32, 31, 30 ), PoolIntArray( 34, 33, 35 ), PoolIntArray( 35, 33, 36 ), PoolIntArray( 38, 37, 39 ), PoolIntArray( 39, 37, 41 ), PoolIntArray( 39, 41, 40 ), PoolIntArray( 44, 43, 42 ), PoolIntArray( 47, 46, 45 ), PoolIntArray( 50, 49, 48 ), PoolIntArray( 53, 52, 54 ), PoolIntArray( 54, 52, 51 ), PoolIntArray( 54, 51, 56 ), PoolIntArray( 54, 56, 55 ) ]
+cell/size = 1.0
+cell/height = 0.5
+agent/height = 1.0
+agent/radius = 1.0
+filter/ledge_spans = true
+
 [sub_resource type="CubeMesh" id=1]
-size = Vector3( 50, 1, 50 )
+size = Vector3( 100, 1, 60 )
 
 [sub_resource type="SpatialMaterial" id=3]
 albedo_color = Color( 0.235294, 0.0627451, 0.0627451, 1 )
 
-[sub_resource type="ConcavePolygonShape" id=2]
-data = PoolVector3Array( -25, 0.5, 25, 25, 0.5, 25, -25, -0.5, 25, 25, 0.5, 25, 25, -0.5, 25, -25, -0.5, 25, 25, 0.5, -25, -25, 0.5, -25, 25, -0.5, -25, -25, 0.5, -25, -25, -0.5, -25, 25, -0.5, -25, 25, 0.5, 25, 25, 0.5, -25, 25, -0.5, 25, 25, 0.5, -25, 25, -0.5, -25, 25, -0.5, 25, -25, 0.5, -25, -25, 0.5, 25, -25, -0.5, -25, -25, 0.5, 25, -25, -0.5, 25, -25, -0.5, -25, 25, 0.5, 25, -25, 0.5, 25, 25, 0.5, -25, -25, 0.5, 25, -25, 0.5, -25, 25, 0.5, -25, -25, -0.5, 25, 25, -0.5, 25, -25, -0.5, -25, 25, -0.5, 25, 25, -0.5, -25, -25, -0.5, -25 )
+[sub_resource type="ConcavePolygonShape" id=7]
+data = PoolVector3Array( -50, 0.5, 30, 50, 0.5, 30, -50, -0.5, 30, 50, 0.5, 30, 50, -0.5, 30, -50, -0.5, 30, 50, 0.5, -30, -50, 0.5, -30, 50, -0.5, -30, -50, 0.5, -30, -50, -0.5, -30, 50, -0.5, -30, 50, 0.5, 30, 50, 0.5, -30, 50, -0.5, 30, 50, 0.5, -30, 50, -0.5, -30, 50, -0.5, 30, -50, 0.5, -30, -50, 0.5, 30, -50, -0.5, -30, -50, 0.5, 30, -50, -0.5, 30, -50, -0.5, -30, 50, 0.5, 30, -50, 0.5, 30, 50, 0.5, -30, -50, 0.5, 30, -50, 0.5, -30, 50, 0.5, -30, -50, -0.5, 30, 50, -0.5, 30, -50, -0.5, -30, 50, -0.5, 30, 50, -0.5, -30, -50, -0.5, -30 )
 
 [sub_resource type="BoxShape" id=4]
 extents = Vector3( 3, 3, 1 )
@@ -22,41 +31,47 @@ size = Vector3( 6, 6, 2 )
 
 [node name="TestingWorld" type="Spatial"]
 
-[node name="Ground" type="MeshInstance" parent="."]
-mesh = SubResource( 1 )
-material/0 = SubResource( 3 )
-
-[node name="StaticBody" type="StaticBody" parent="Ground"]
-
-[node name="CollisionShape" type="CollisionShape" parent="Ground/StaticBody"]
-shape = SubResource( 2 )
-
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.188256, 0.98212, 0, -0.98212, 0.188256, 0, 19.5057, 4.24173 )
+transform = Transform( 1, 0, 0, 0, 0.188256, 0.98212, 0, -0.98212, 0.188256, 0, 39.8615, 8.89153 )
 
 [node name="Player" parent="." groups=["targets"] instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.31103, 9.89937 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8073, 9.89937 )
 
 [node name="CCTV" parent="." instance=ExtResource( 2 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 4.92768, -2.03865 )
 visible = false
 
-[node name="Wall" type="StaticBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.55879, 5.26694 )
+[node name="ObjectivesLightActivator" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0072, 1.67745, 0 )
+
+[node name="Navigation" type="Navigation" parent="."]
+
+[node name="NavigationMeshInstance" type="NavigationMeshInstance" parent="Navigation"]
+navmesh = SubResource( 6 )
+
+[node name="Ground" type="MeshInstance" parent="Navigation/NavigationMeshInstance"]
+mesh = SubResource( 1 )
+skeleton = NodePath("../../..")
+material/0 = SubResource( 3 )
+
+[node name="StaticBody" type="StaticBody" parent="Navigation/NavigationMeshInstance/Ground"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/Ground/StaticBody"]
+shape = SubResource( 7 )
+
+[node name="Wall" type="StaticBody" parent="Navigation/NavigationMeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.44294, 5.26694 )
 collision_layer = 3
 collision_mask = 3
 
-[node name="CollisionShape" type="CollisionShape" parent="Wall"]
+[node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/Wall"]
 shape = SubResource( 4 )
 
-[node name="MeshInstance" type="MeshInstance" parent="Wall"]
+[node name="MeshInstance" type="MeshInstance" parent="Navigation/NavigationMeshInstance/Wall"]
 mesh = SubResource( 5 )
 material/0 = null
 
-[node name="Worker" parent="." instance=ExtResource( 3 )]
-transform = Transform( 0.133692, 0, -0.991023, 0, 1, 0, 0.991023, 0, 0.133692, -8.10305, 2.05678, 23.3664 )
+[node name="Worker" parent="Navigation" instance=ExtResource( 3 )]
+transform = Transform( 0.133692, 0, -0.991023, 0, 1, 0, 0.991023, 0, 0.133692, -0.579404, 2.05678, -10.8696 )
 start_point = [ 9.057, 2.057, 10.0 ]
 end_point = [ 9.057, 2.057, -10.0 ]
-
-[node name="ObjectivesLightActivator" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0072, 1.67745, 0 )

@@ -1361,7 +1361,7 @@ bones/16/name = "hand.L"
 bones/16/parent = 15
 bones/16/rest = Transform( 0.999928, -0.0119696, 6.38748e-08, 0.0119696, 0.999928, -5.73092e-05, 6.22098e-07, 5.73059e-05, 1, 1.54826e-07, 0.33551, 1.35518e-09 )
 bones/16/enabled = true
-bones/16/bound_children = [ NodePath("BoneAttachment") ]
+bones/16/bound_children = [  ]
 bones/17/name = "elbowIK.R"
 bones/17/parent = -1
 bones/17/rest = Transform( 0.00610203, 0, -0.999981, 0.999981, 0, 0.00610206, 0, -1, 0, -0.807976, 2.86813, -1.05963 )
@@ -1435,7 +1435,8 @@ skin = SubResource( 2 )
 material/0 = null
 
 [node name="BoneAttachment" type="BoneAttachment" parent="Pivot/Armature/Skeleton"]
-transform = Transform( 0.0545201, 0.000435583, -0.998513, -0.930279, -0.363299, -0.0509529, -0.362781, 0.931673, -0.019402, 1.32075, 1.1342, 3.19162 )
+transform = Transform( 0.0032369, -0.000647299, -0.999995, -0.323449, -0.946245, -0.000434475, -0.94624, 0.323448, -0.00327237, 1.69684, 0.697389, 1.1968 )
+visible = false
 bone_name = "hand.L"
 
 [node name="Flashlight" type="MeshInstance" parent="Pivot/Armature/Skeleton/BoneAttachment"]
@@ -1445,7 +1446,8 @@ material/0 = null
 
 [node name="SpotLight" type="SpotLight" parent="Pivot/Armature/Skeleton/BoneAttachment/Flashlight"]
 transform = Transform( 5.76092, 1.55066, -0.0982139, -0.0195254, -0.103219, -2.77509, -1.55319, 5.75748, -0.20322, 0.0465181, 0.903466, -0.0545936 )
-light_energy = 16.0
+visible = false
+light_energy = 10.0
 light_indirect_energy = 5.0
 light_specular = 15.0
 shadow_enabled = true
@@ -1459,6 +1461,7 @@ monitorable = false
 [node name="CollisionShape" type="CollisionShape" parent="Pivot/Armature/Skeleton/BoneAttachment/Flashlight/ObejctivesArea"]
 transform = Transform( 0.69708, 1.53082, -0.0803196, 0.120526, -0.145723, 0.444402, 0.668592, -1.47477, -0.286084, -0.383795, 1.01106, -0.441241 )
 shape = SubResource( 21 )
+disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Pivot"]
 autoplay = "Idle"

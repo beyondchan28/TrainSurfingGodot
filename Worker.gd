@@ -12,17 +12,19 @@ var target
 export(Array, float) var start_point
 export(Array, float) var end_point
 
-
+var path = []
+var path_node = 0
+onready var nav = get_parent()
 
 enum STATES{WALK, STOP, PATROL_FWD, PATROL_BWD}
 
 func _ready():
-	target = get_parent().get_node("Player")
-	curr_state = STATES.STOP
+	target = get_parent().get_parent().get_node("Player")
+	curr_state = STATES.WALK
 
 
-func _process(delta):
-	var target_pos = target.global_transform.origin + Vector3.UP * 1.5
+func _physics_process(delta):
+	var target_pos = target.global_transform.origin 
 	var self_pos = self.global_transform.origin
 	
 	var start_pos = Vector3(start_point[0], start_point[1], start_point[2])
@@ -32,8 +34,11 @@ func _process(delta):
 	var self_to_end = self_pos.distance_to(end_pos)
 	
 	if curr_state == STATES.WALK:
-		calculate_distance(self_pos, target_pos, velocity)
-		state_control(target_pos, self_pos)
+#		calculate_distance(self_pos, target_pos, velocity)
+		look_at(target_pos, Vector3.UP)
+		pathfinding(delta)
+		#state_control(target_pos, self_pos)
+		
 		
 	elif curr_state == STATES.STOP:
 		if self_to_start > 1:
@@ -71,3 +76,20 @@ func distance(self_pos, target_pos):
 func _on_VisionArea_body_entered(body):
 	if body.name == "Player":
 		curr_state = STATES.WALK
+
+func pathfinding(delta):
+	if path_node < path.size():
+		var direction = (path[path_node] - self.global_transform.origin)
+		if direction.length() < 1:
+			path_node += 1
+		else:
+			move_and_slide(direction.normalized() * speed, Vector3.UP)
+			
+
+func move_to(target_pos):
+	path = nav.get_simple_path(self.global_transform.origin, target_pos)
+	path_node = 0
+
+
+func _on_Timer_timeout():
+	move_to(target.global_transform.origin)
