@@ -46,6 +46,14 @@ func _physics_process(delta):
 	#print(curr_state)
 	
 
+func _process(delta):
+	#for stable flashlight position
+	if curr_state == STATES.IDLE:
+		flashlight.rotation_degrees = Vector3(0.148, -90.118, -117.344)
+	else:
+		flashlight.rotation_degrees = Vector3(0.025, -90.187, -161.128)
+		
+
 func movement_input(move_dir, turn_dir, delta):
 	if Input.is_action_pressed("move_forwards"):
 		move_dir -= 1
@@ -123,6 +131,7 @@ func jump():
 func crouch():
 	var ms_changer = 3
 	if is_on_floor()  and Input.is_action_pressed("crouch"):
+		flash_on = false
 		curr_state = STATES.CROUCH
 		move_speed = ms_changer
 		collision_shape.get_shape().height = 1.5
@@ -142,13 +151,20 @@ func run():
 
 func flashlight():
 	var light = flashlight.get_node("Flashlight/SpotLight")
+	var objectives_detector = flashlight.get_node("Flashlight/ObejctivesArea")
+	
 	if flashlight.is_visible():
 		if Input.is_action_just_pressed("flashlight") and flash_on == false:
 			flash_on = true
+			objectives_detector.set_monitoring(true)
+			
 			light.light_energy = 16
 		elif Input.is_action_just_pressed("flashlight") and flash_on == true:
 			flash_on = false
+			objectives_detector.set_monitoring(false)
+			
 			light.light_energy = 0
+
 
 func play_anim(name):
 	if anim.current_animation == name:
@@ -157,3 +173,13 @@ func play_anim(name):
 
 func get_aim_at_pos():
 	return self.global_transform.origin + Vector3.UP * 1.5
+
+
+func _on_ObejctivesArea_area_entered(area):
+	if area.name == "ObjectivesLightActivator":
+		area.get_node("OmniLight").set_visible(true)
+
+
+func _on_ObejctivesArea_area_exited(area):
+	if area.name == "ObjectivesLightActivator":
+		area.get_node("OmniLight").set_visible(false)

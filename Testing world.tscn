@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://CCTV.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Worker.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ObjectivesLightActivator.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 50, 1, 50 )
@@ -56,3 +57,6 @@ material/0 = null
 transform = Transform( 0.133692, 0, -0.991023, 0, 1, 0, 0.991023, 0, 0.133692, -8.10305, 2.05678, 23.3664 )
 start_point = [ 9.057, 2.057, 10.0 ]
 end_point = [ 9.057, 2.057, -10.0 ]
+
+[node name="ObjectivesLightActivator" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0072, 1.67745, 0 )
