@@ -7,8 +7,11 @@ onready var park_light = $ParkLight
 onready var street_light = $StreetLight
 onready var other_objects = $OtherObjects
 
+onready var canvas = $CanvasLayer
+
 const next_scene = preload("res://Level/TrainStation.tscn")
 
+export(Resource) var _runtime_data = _runtime_data as RuntimeData
 
 func _on_FlashlightActivator_body_entered(body):
 	if body.name == "Player":
@@ -30,3 +33,17 @@ func _on_LightActivator_body_entered(body):
 		elif park_light.is_visible():
 			street_light.set_visible(true)
 			other_objects.set_visible(true)
+
+
+func _on_TelephoneCutsceneTrigger_body_entered(body):
+	if body.name == "Player":
+		_runtime_data.current_gameplay_state = Enums.GameplayState.IN_DIALOG
+		canvas.get_node("VideoPlayer").set_visible(true)
+		canvas.get_node("VideoPlayer").play()
+		yield(canvas.get_node("VideoPlayer"), "finished")
+		canvas.get_node("VideoPlayer").set_visible(false)
+		_runtime_data.current_gameplay_state = Enums.GameplayState.FREEWALK
+
+func _on_TelephoneCutsceneTrigger_body_exited(body):
+		if body.name == "Player":
+			self.get_node("TelephoneCutsceneTrigger").queue_free()
