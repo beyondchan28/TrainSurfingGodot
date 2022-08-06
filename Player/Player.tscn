@@ -1272,6 +1272,7 @@ script = ExtResource( 1 )
 _runtime_data = ExtResource( 2 )
 
 [node name="Pivot" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.10723, 0 )
 
 [node name="Armature" type="Spatial" parent="Pivot"]
 transform = Transform( -0.36009, 0, -3.14801e-08, 0, 0.36009, 0, 3.14801e-08, 0, -0.36009, 0, 0, 0 )
@@ -1411,28 +1412,23 @@ bones/25/bound_children = [  ]
 [node name="Body" type="MeshInstance" parent="Pivot/Armature/Skeleton"]
 mesh = SubResource( 1 )
 skin = SubResource( 2 )
-material/0 = null
 
 [node name="Hands" type="MeshInstance" parent="Pivot/Armature/Skeleton"]
 mesh = SubResource( 3 )
 skin = SubResource( 2 )
-material/0 = null
 
 [node name="Head" type="MeshInstance" parent="Pivot/Armature/Skeleton"]
 mesh = SubResource( 4 )
 skin = SubResource( 2 )
-material/0 = null
 
 [node name="Legs" type="MeshInstance" parent="Pivot/Armature/Skeleton"]
 mesh = SubResource( 5 )
 skin = SubResource( 2 )
-material/0 = null
 
 [node name="WorkerJacket" type="MeshInstance" parent="Pivot/Armature/Skeleton"]
 visible = false
 mesh = SubResource( 6 )
 skin = SubResource( 2 )
-material/0 = null
 
 [node name="BoneAttachment" type="BoneAttachment" parent="Pivot/Armature/Skeleton"]
 transform = Transform( 0.0032369, -0.000647299, -0.999995, -0.323449, -0.946245, -0.000434475, -0.94624, 0.323448, -0.00327237, 1.69684, 0.697389, 1.1968 )
@@ -1442,7 +1438,6 @@ bone_name = "hand.L"
 [node name="Flashlight" type="MeshInstance" parent="Pivot/Armature/Skeleton/BoneAttachment"]
 transform = Transform( 0.423931, -0.412348, -0.00836808, 0.191508, 0.910601, -0.0180179, 0.0150495, 0.0278634, 0.465001, -0.216695, 0.556503, -0.0115891 )
 mesh = SubResource( 19 )
-material/0 = null
 
 [node name="SpotLight" type="SpotLight" parent="Pivot/Armature/Skeleton/BoneAttachment/Flashlight"]
 transform = Transform( 5.76092, 1.55066, -0.0982139, -0.0195254, -0.103219, -2.77509, -1.55319, 5.75748, -0.20322, 0.0465181, 0.903466, -0.0545936 )
@@ -1479,7 +1474,7 @@ pitch_scale = 0.5
 script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.269187, -0.165358 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.83805, -0.165358 )
 shape = SubResource( 13 )
 
 [node name="InteractArea" type="Area" parent="CollisionShape"]
