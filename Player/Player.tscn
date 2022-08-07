@@ -1272,7 +1272,6 @@ script = ExtResource( 1 )
 _runtime_data = ExtResource( 2 )
 
 [node name="Pivot" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.10723, 0 )
 
 [node name="Armature" type="Spatial" parent="Pivot"]
 transform = Transform( -0.36009, 0, -3.14801e-08, 0, 0.36009, 0, 3.14801e-08, 0, -0.36009, 0, 0, 0 )
@@ -1474,7 +1473,7 @@ pitch_scale = 0.5
 script = ExtResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.83805, -0.165358 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
 shape = SubResource( 13 )
 
 [node name="InteractArea" type="Area" parent="CollisionShape"]

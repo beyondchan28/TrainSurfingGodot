@@ -2,32 +2,53 @@ extends RigidBody
 
 export(float) var velocity
 export(NodePath) onready var target_node_1 = get_node(target_node_1)
+export(NodePath) onready var patrol_point_1 = get_node(patrol_point_1) as Position3D
+export(NodePath) onready var patrol_point_2 = get_node(patrol_point_2) as Position3D
 
-var current_pos: Vector3
+onready var graphic = $Graphic
 
-func _ready():
-	current_pos = target_node_1.get_global_transform().origin
-	$NavigationAgent.set_target_location(current_pos)
+enum STATES {CHASE, PATROL_FWD, PATROL_BWD}
+
+var current_state = STATES.PATROL_FWD
+
 
 func _physics_process(_delta):
 	# Query the `NavigationAgent` to know the next free to reach location.
-	var pos = get_global_transform().origin
+	var self_pos = get_global_transform().origin
 	var target_pos = target_node_1.get_global_transform().origin
-	update_location(pos, target_pos)
-
-
+	var patrol_1 = patrol_point_1.global_transform.origin
+	var patrol_2 = patrol_point_2.global_transform.origin
+	
+	
+	if self_pos.distance_to(target_pos) < 20 and current_state == STATES.CHASE:
+		update_location(self_pos, target_pos)
+	elif self_pos.distance_to(target_pos) > 20 and current_state == STATES.CHASE:
+		current_state = STATES.PATROL_FWD
+	elif current_state == STATES.PATROL_FWD :
+		update_location(self_pos, patrol_1)
+	elif current_state == STATES.PATROL_BWD :
+		update_location(self_pos, patrol_2)
 	# Calculate the velocity.
-
-
 func update_location(self_pos, target_pos):
-	if self_pos.distance_to(target_pos) != self_pos.distance_to(current_pos) :
-		current_pos = target_pos
-		$NavigationAgent.set_target_location(current_pos)
-		var target = $NavigationAgent.get_next_location()
-		var n = $RayCast.get_collision_normal()
-		if n.length_squared() < 0.1:
-			n = Vector3(0, 1, 0)
+	graphic.look_at(target_pos, Vector3.UP)
+	set_target_location(target_pos)
+	var target = $NavigationAgent.get_next_location()
+	var n = $RayCast.get_collision_normal()
+	if n.length_squared() < 0.1:
+		n = Vector3(0, 1, 0)
+	var vel = (target - self_pos).slide(n).normalized() * velocity
+	set_linear_velocity(vel)
 
-		var vel = (target - self_pos).slide(n).normalized() * velocity
-		set_linear_velocity(vel)
-		
+func set_target_location(pos):
+	$NavigationAgent.set_target_location(pos)
+
+func _on_NavigationAgent_navigation_finished():
+	if current_state == STATES.PATROL_FWD:
+		current_state = STATES.PATROL_BWD
+	elif current_state == STATES.PATROL_BWD:
+		current_state = STATES.PATROL_FWD
+
+
+func _on_DetectionArea_body_entered(body):
+	if body.name == "Player":
+		current_state = STATES.CHASE
