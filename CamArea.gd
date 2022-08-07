@@ -11,7 +11,8 @@ func enable_camera(body):
 		var cam = get_node("Camera")
 		cam.make_current()
 		if cam.has_method("set_target"):
-			cam.set_target(body)
+			if body.name == "Player":
+				cam.set_target(body)
 			
 #		var listener = get_node("Camera/Listener")
 #		if cam.is_current():
