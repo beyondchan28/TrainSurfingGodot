@@ -1,0 +1,14 @@
+font dialog box
+	Bespoke Sans - Regular
+	Size = 27pt
+	Color = black
+
+font objective
+	Bespoke Sans - Regular
+	Size = 27pt
+	Color = fff (white)
+
+font jam
+	Supreme - medium
+	Size = 38pt
+	Color = fff
