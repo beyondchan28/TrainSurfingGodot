@@ -451,57 +451,46 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 175.975 )
 transform = Transform( -1, -2.38419e-07, -2.38418e-07, 2.38419e-07, -3.69549e-06, -1, 2.38418e-07, -1, 3.57628e-06, -12.0783, 1.5085, 44.8599 )
 mesh = SubResource( 61 )
 skeleton = NodePath("../..")
-material/0 = null
 
 [node name="AC001" type="MeshInstance" parent="Detail"]
 transform = Transform( -1, -2.38419e-07, -2.38418e-07, 2.38419e-07, -3.69549e-06, -1, 2.38418e-07, -1, 3.57628e-06, -5.03914, 1.5085, 44.8599 )
 mesh = SubResource( 62 )
 skeleton = NodePath("../..")
-material/0 = null
 
 [node name="AC002" type="MeshInstance" parent="Detail"]
 transform = Transform( 1, 0, 0, 0, -3.69549e-06, -1, 0, 1, -3.69549e-06, -5.12228, 1.48322, -40.5963 )
 mesh = SubResource( 63 )
 skeleton = NodePath("../..")
-material/0 = null
 
 [node name="AC003" type="MeshInstance" parent="Detail"]
 transform = Transform( 1, 0, 0, 0, -3.69549e-06, -1, 0, 1, -3.69549e-06, -12.1614, 1.48322, -40.5963 )
 mesh = SubResource( 64 )
 skeleton = NodePath("../..")
-material/0 = null
 
 [node name="AC004" type="MeshInstance" parent="Detail"]
 transform = Transform( -1, -2.38419e-07, -2.38418e-07, 2.38419e-07, -3.69549e-06, -1, 2.38418e-07, -1, 3.57628e-06, -12.0488, 9.0857, 14.8164 )
 mesh = SubResource( 65 )
 skeleton = NodePath("../..")
-material/0 = null
 
 [node name="AC005" type="MeshInstance" parent="Detail"]
 transform = Transform( 1, 0, 0, 0, -3.69549e-06, -1, 0, 1, -3.69549e-06, -6.88294, 9.05651, -10.7121 )
 mesh = SubResource( 66 )
 skeleton = NodePath("../..")
-material/0 = null
 
 [node name="CrossingBridge" type="MeshInstance" parent="Detail"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -72.1932, 12.7956, 74.274 )
 mesh = SubResource( 75 )
 skeleton = NodePath("../..")
-material/0 = null
 
 [node name="BridgeSkeleton" type="MeshInstance" parent="Detail"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -74.1095, 2.09602, 74.2565 )
 mesh = SubResource( 77 )
 skeleton = NodePath("../..")
-material/0 = null
 
 [node name="Stairs" type="MeshInstance" parent="Detail"]
 transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -19.0651, 1.49249, -74.6255 )
 mesh = SubResource( 86 )
 skeleton = NodePath("../..")
-material/0 = null
-material/1 = null
-material/2 = null
 
 [node name="StairsPole004" type="MeshInstance" parent="Detail"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.4902, -4.09304, 54.0273 )
@@ -515,7 +504,6 @@ material/2 = ExtResource( 3 )
 transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -103.112, -7.78447, 58.6681 )
 mesh = SubResource( 81 )
 skeleton = NodePath("../..")
-material/0 = null
 
 [node name="MiddleTrainStation" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.80495, -6.01561, 204.685 )
@@ -530,7 +518,6 @@ shape = SubResource( 100 )
 [node name="TrainStationChair" type="MeshInstance" parent="."]
 transform = Transform( -1, -2.38419e-07, -2.38418e-07, 2.38419e-07, -3.69549e-06, -1, 2.38418e-07, -1, 3.57628e-06, -23.3334, -4.72251, 209.752 )
 mesh = SubResource( 68 )
-material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="TrainStationChair"]
 
@@ -540,7 +527,6 @@ shape = SubResource( 118 )
 [node name="TrainStationChair001" type="MeshInstance" parent="."]
 transform = Transform( -1, -2.38419e-07, -2.38418e-07, 2.38419e-07, -3.69549e-06, -1, 2.38418e-07, -1, 3.57628e-06, -23.3334, -4.72251, 197.603 )
 mesh = SubResource( 69 )
-material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="TrainStationChair001"]
 
@@ -550,7 +536,6 @@ shape = SubResource( 118 )
 [node name="TrainStationChair002" type="MeshInstance" parent="."]
 transform = Transform( -1, -2.38419e-07, -2.38418e-07, 2.38419e-07, -3.69549e-06, -1, 2.38418e-07, -1, 3.57628e-06, -23.3334, -4.72251, 156.702 )
 mesh = SubResource( 70 )
-material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="TrainStationChair002"]
 
@@ -560,7 +545,6 @@ shape = SubResource( 118 )
 [node name="TrainStationChair003" type="MeshInstance" parent="."]
 transform = Transform( -1, -2.38419e-07, -2.38418e-07, 2.38419e-07, -3.69549e-06, -1, 2.38418e-07, -1, 3.57628e-06, -23.3334, -4.72251, 144.552 )
 mesh = SubResource( 71 )
-material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="TrainStationChair003"]
 
@@ -570,7 +554,6 @@ shape = SubResource( 118 )
 [node name="TrashCan" type="MeshInstance" parent="."]
 transform = Transform( -1, -2.38419e-07, -2.38418e-07, 2.38419e-07, -3.69549e-06, -1, 2.38418e-07, -1, 3.57628e-06, -25.1648, -4.62718, 150.858 )
 mesh = SubResource( 72 )
-material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="TrashCan"]
 
@@ -580,7 +563,6 @@ shape = SubResource( 119 )
 [node name="TrashCan001" type="MeshInstance" parent="."]
 transform = Transform( -1, -2.38419e-07, -2.38418e-07, 2.38419e-07, -3.69549e-06, -1, 2.38418e-07, -1, 3.57628e-06, -25.1648, -4.62718, 204.112 )
 mesh = SubResource( 73 )
-material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="TrashCan001"]
 
@@ -626,7 +608,6 @@ omni_range = 20.0
 [node name="TrainRailsmCurve001" type="MeshInstance" parent="."]
 transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -44.4919, -7.78447, 234.643 )
 mesh = SubResource( 82 )
-material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0658, -4.69624, 220.461 )

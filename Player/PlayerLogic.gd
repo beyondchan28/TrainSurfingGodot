@@ -19,6 +19,7 @@ onready var unclimb_area = $CollisionShape/UnclimbArea
 
 onready var anim = $Pivot/AnimationPlayer
 
+onready var tween = $Tween
 onready var flashlight = $Pivot/Armature/Skeleton/BoneAttachment
 
 var flash_on = false
@@ -130,14 +131,13 @@ func jump():
 
 func crouch():
 	var ms_changer = 3
-	if is_on_floor()  and Input.is_action_pressed("crouch"):
-		flash_on = false
+	if is_on_floor() and Input.is_action_pressed("crouch"):
 		curr_state = STATES.CROUCH
 		move_speed = ms_changer
-		collision_shape.get_shape().height = 1.5
+		collision_shape.get_shape().height = 1.75
 	elif Input.is_action_just_released("crouch") :
 		move_speed = 5
-		collision_shape.get_shape().height = 3
+		collision_shape.get_shape().height = 3.5
 		curr_state = STATES.IDLE
 
 func run():

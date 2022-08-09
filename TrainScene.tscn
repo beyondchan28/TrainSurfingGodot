@@ -16,11 +16,11 @@ _data = {
 "tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 )
 }
 
-[sub_resource type="SphereMesh" id=5]
+[sub_resource type="SphereMesh" id=16]
 
-[sub_resource type="CubeMesh" id=6]
+[sub_resource type="CubeMesh" id=17]
 
-[sub_resource type="SpatialMaterial" id=7]
+[sub_resource type="SpatialMaterial" id=18]
 albedo_color = Color( 1, 0.0156863, 0.0156863, 1 )
 
 [node name="TrainScene" type="Spatial"]
@@ -44,13 +44,12 @@ script = ExtResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Path/PathFollow"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.06353, 0 )
-mesh = SubResource( 5 )
-material/0 = null
+mesh = SubResource( 16 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Path/PathFollow/MeshInstance"]
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 1, 0, 0.564752, 1.42829 )
-mesh = SubResource( 6 )
-material/0 = SubResource( 7 )
+mesh = SubResource( 17 )
+material/0 = SubResource( 18 )
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 51.1157, 0 )
