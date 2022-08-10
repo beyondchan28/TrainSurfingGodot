@@ -1,19 +1,16 @@
 extends RigidBody
 
-export(float) var velocity
+var velocity = 3
 export(NodePath) onready var target_node_1 = get_node(target_node_1)
 export(NodePath) onready var patrol_point_1 = get_node(patrol_point_1) as Position3D
 export(NodePath) onready var patrol_point_2 = get_node(patrol_point_2) as Position3D
 
 onready var graphic = $Graphic
+onready var anim = $Graphic/AnimationPlayer
 
 enum STATES {CHASE, PATROL_FWD, PATROL_BWD, STOP}
 
-onready var patrol_1 = patrol_point_1.global_transform.origin
-onready var patrol_2 = patrol_point_2.global_transform.origin
-var current_state = STATES.PATROL_FWD
-
-var count = 0
+export(STATES) var current_state = STATES.PATROL_FWD
 
 func _physics_process(_delta):
 	# Query the `NavigationAgent` to know the next free to reach location.
@@ -33,7 +30,15 @@ func _physics_process(_delta):
 		self.set_sleeping(false)
 		update_location(self_pos)
 	elif current_state == STATES.STOP:
+		play_anim("Idle")
 		self.set_sleeping(true)
+	
+	if current_state == STATES.CHASE:
+		velocity = 6
+		play_anim("Run")
+	elif current_state == STATES.PATROL_FWD or current_state == STATES.PATROL_BWD:
+		velocity = 3
+		play_anim("Walk")
 	
 func update_location(self_pos):
 	var target = $NavigationAgent.get_next_location()
@@ -53,9 +58,6 @@ func set_target_location(pos):
 func set_look_at(_target):
 	graphic.look_at(_target, Vector3.UP * 5)
 
-func reached():
-	return count
-
 func _on_DetectionArea_body_entered(body):
 	if body.name == "Player":
 		current_state = STATES.CHASE
@@ -64,13 +66,13 @@ func _on_DetectionArea_body_entered(body):
 func _on_NavigationAgent_target_reached():
 	if current_state == STATES.PATROL_FWD:
 		current_state = STATES.PATROL_BWD
-		count = 0
 	elif current_state == STATES.PATROL_BWD:
 		current_state = STATES.PATROL_FWD
-		count = 1
 
-
-
+func play_anim(name):
+	if anim.current_animation == name:
+		return
+	anim.play(name)
 
 func _on_NavigationAgent_velocity_computed(safe_velocity):
 	set_linear_velocity(safe_velocity)
