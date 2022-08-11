@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Ally.gd" type="Script" id=1]
 [ext_resource path="res://Assets/FriendFace.material" type="Material" id=2]
@@ -376,7 +376,11 @@ tracks/18/imported = false
 tracks/18/enabled = true
 tracks/18/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.625, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
 
+[sub_resource type="SphereShape" id=9]
+radius = 2.0
+
 [node name="Ally" type="RigidBody"]
+collision_layer = 4
 mode = 2
 physics_material_override = SubResource( 3 )
 custom_integrator = true
@@ -385,7 +389,6 @@ velocity = 7.0
 activate = true
 
 [node name="NavigationAgent" type="NavigationAgent" parent="."]
-path_max_distance = 1.0
 avoidance_enabled = true
 radius = 5.0
 
@@ -525,6 +528,19 @@ uppercase = true
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 
+[node name="SelfActivator" type="Area" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape" type="CollisionShape" parent="SelfActivator"]
+shape = SubResource( 9 )
+
+[node name="SpotLight" type="SpotLight" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 4.00731, -0.570017 )
+visible = false
+light_energy = 16.0
+
 [connection signal="navigation_finished" from="NavigationAgent" to="." method="_on_NavigationAgent_navigation_finished"]
 [connection signal="velocity_computed" from="NavigationAgent" to="." method="_on_NavigationAgent_velocity_computed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="body_entered" from="SelfActivator" to="." method="_on_SelfActivator_body_entered"]

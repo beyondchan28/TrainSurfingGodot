@@ -772,4 +772,5 @@ __meta__ = {
 "_editor_description_": ""
 }
 
+[connection signal="body_entered" from="RobotArea" to="." method="_on_RobotArea_body_entered"]
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_PlayerDetector_body_entered"]
