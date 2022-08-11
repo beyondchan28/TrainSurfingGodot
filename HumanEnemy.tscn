@@ -594,10 +594,10 @@ custom_integrator = true
 script = ExtResource( 1 )
 
 [node name="NavigationAgent" type="NavigationAgent" parent="."]
-path_desired_distance = 5.0
-target_desired_distance = 1.5
+path_desired_distance = 2.0
 path_max_distance = 10.0
 avoidance_enabled = true
+radius = 5.0
 time_horizon = 10.0
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
@@ -609,7 +609,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.294535, 0 )
 cast_to = Vector3( 0, -2, 0 )
 
 [node name="Graphic" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.4173, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.1, 0 )
 
 [node name="DetectionArea" type="Area" parent="Graphic"]
 
@@ -618,7 +618,7 @@ transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4
 polygon = PoolVector2Array( 1, 4, 1.09265, -4.00637, -6, 0 )
 
 [node name="Armature" type="Spatial" parent="Graphic"]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.404529, 0 )
 
 [node name="Skeleton" type="Skeleton" parent="Graphic/Armature"]
 bones/0/name = "Bone"

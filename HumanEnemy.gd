@@ -18,9 +18,9 @@ func _physics_process(_delta):
 	var target_pos = target_node_1.get_global_transform().origin
 	var patrol_1 = patrol_point_1.global_transform.origin
 	var patrol_2 = patrol_point_2.global_transform.origin
-	if self_pos.distance_to(target_pos) < 20 and current_state == STATES.CHASE:
+	if self_pos.distance_to(target_pos) < 15 and current_state == STATES.CHASE:
 		set_target_location(target_pos)
-	elif self_pos.distance_to(target_pos) > 20 and current_state == STATES.CHASE:
+	elif self_pos.distance_to(target_pos) > 15 and current_state == STATES.CHASE:
 		current_state = STATES.PATROL_FWD
 	elif current_state == STATES.PATROL_FWD :
 		set_target_location(patrol_1)
