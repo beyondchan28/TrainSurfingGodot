@@ -19,7 +19,7 @@ onready var unclimb_area = $CollisionShape/UnclimbArea
 
 onready var anim = $Pivot/AnimationPlayer
 
-onready var tween = $Tween
+onready var health_manager = $HealthManager
 onready var flashlight = $Pivot/Armature/Skeleton/BoneAttachment
 
 var flash_on = false
@@ -27,10 +27,20 @@ var flash_on = false
 var climb_array = []
 
 enum STATES{IDLE, JUMP, CROUCH, CLIMB, UNCLIMB}
- 
+
+var dead = false 
+
+func _ready():
+	health_manager.init()
+	health_manager.connect("dead", self, "die")
+
 func _physics_process(delta):
 	var move_dir = 0
 	var turn_dir = 0
+	
+	if dead:
+		return
+	
 	if _runtime_data.current_gameplay_state == Enums.GameplayState.FREEWALK:
 		movement_input(move_dir, turn_dir, delta)
 		run()
@@ -176,6 +186,14 @@ func play_anim(name):
 func get_aim_at_pos():
 	return self.global_transform.origin + Vector3.UP * 1.5
 
+
+func noticed(damage: int):
+	health_manager.noticed()
+	
+
+func die():
+	dead = true
+	self.set_physics_process(false)
 
 func _on_ObejctivesArea_area_entered(area):
 	if area.name == "ObjectivesLightActivator":

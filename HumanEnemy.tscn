@@ -619,6 +619,8 @@ cast_to = Vector3( 0, -2, 0 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.1, 0 )
 
 [node name="DetectionArea" type="Area" parent="Graphic"]
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionPolygon" type="CollisionPolygon" parent="Graphic/DetectionArea"]
 transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, -0.243489, 1, -6.89778 )
@@ -797,4 +799,5 @@ __meta__ = {
 
 [connection signal="target_reached" from="NavigationAgent" to="." method="_on_NavigationAgent_target_reached"]
 [connection signal="velocity_computed" from="NavigationAgent" to="." method="_on_NavigationAgent_velocity_computed"]
-[connection signal="body_entered" from="Graphic/DetectionArea" to="." method="_on_DetectionArea_body_entered"]
+[connection signal="body_entered" from="Graphic/DetectionArea" to="." method="_on_DetectionArea_body_entered" flags=3]
+[connection signal="body_exited" from="Graphic/DetectionArea" to="." method="_on_DetectionArea_body_exited"]
