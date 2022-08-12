@@ -25,16 +25,6 @@ func _on_TranStationCutsceneTrigger_body_entered(body):
 		self.queue_free()
 
 
-func _on_LightActivator_body_entered(body):
-	if body.name == "Player":
-		if street_light.is_visible():
-			park_light.set_visible(true)
-			other_objects.set_visible(false)
-		elif park_light.is_visible():
-			street_light.set_visible(true)
-			other_objects.set_visible(true)
-
-
 func _on_TelephoneCutsceneTrigger_body_entered(body):
 	if body.name == "Player":
 		_runtime_data.current_gameplay_state = Enums.GameplayState.IN_DIALOG
