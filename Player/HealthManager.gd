@@ -14,9 +14,6 @@ func init():
 	current_health = max_health
 	emit_signal("health_changed", current_health)
 
-#func _process(delta):
-#	print(current_health)
-#
 
 func noticed(damage: int = 1):
 	if current_health <= 0:
@@ -27,3 +24,5 @@ func noticed(damage: int = 1):
 	else:
 		emit_signal("noticed")
 	emit_signal("health_changed", current_health)
+	print(current_health)
+	

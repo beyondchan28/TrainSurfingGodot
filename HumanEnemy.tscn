@@ -587,7 +587,7 @@ tracks/20/imported = false
 tracks/20/enabled = true
 tracks/20/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.66667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
 
-[sub_resource type="SpatialMaterial" id=9]
+[sub_resource type="SpatialMaterial" id=138]
 flags_transparent = true
 flags_unshaded = true
 flags_do_not_receive_shadows = true
@@ -792,7 +792,7 @@ anims/Walk = SubResource( 6 )
 [node name="CSGPolygon" type="CSGPolygon" parent="Graphic"]
 transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, -0.243489, 2.36534, -6.89778 )
 polygon = PoolVector2Array( 1, 4, 1.09265, -4.00637, -6.63051, -0.0384835 )
-material = SubResource( 9 )
+material = SubResource( 138 )
 __meta__ = {
 "_editor_description_": ""
 }
