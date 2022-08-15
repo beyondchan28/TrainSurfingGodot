@@ -11,7 +11,7 @@ func in_vision(point: Vector3):
 
 func has_line_of_sight(point: Vector3):
 	var space_state = get_world().direct_space_state
-	var result = space_state.intersect_ray(self.global_transform.origin, point, [], 2)
+	var result = space_state.intersect_ray(self.global_transform.origin, point, [], 1)
 	if result:
 		return false
 	return true

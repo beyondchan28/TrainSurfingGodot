@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://Assets/TrainStationMaterial_001.material" type="Material" id=1]
 [ext_resource path="res://Assets/Material_001.material" type="Material" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Assets/PassengerBody.material" type="Material" id=9]
 [ext_resource path="res://Assets/Backpack.material" type="Material" id=10]
 [ext_resource path="res://Level/WindowWatcher.gd" type="Script" id=11]
+[ext_resource path="res://Passenger.gd" type="Script" id=12]
 
 [sub_resource type="ArrayMesh" id=61]
 resource_name = "TrainStationLevel_Cube163"
@@ -3234,11 +3235,11 @@ mesh = SubResource( 3 )
 skin = SubResource( 2 )
 
 [node name="BoneAttachment" type="BoneAttachment" parent="Passenger/Armature/Skeleton"]
-transform = Transform( 0.936047, -0.313027, -0.160719, 0.270234, 0.346965, 0.898103, -0.225367, -0.884098, 0.409366, -0.0831265, 3.55069, -0.872463 )
+transform = Transform( 0.936047, -0.313027, -0.16072, 0.270235, 0.346965, 0.898104, -0.225368, -0.884098, 0.409365, -0.0831263, 3.55068, -0.872461 )
 bone_name = "Bone.003"
 
 [node name="WindowVision" type="Area" parent="Passenger/Armature/Skeleton/BoneAttachment"]
-transform = Transform( 0.936047, 0.146496, -0.319931, -0.313027, -0.068606, -0.947264, -0.16072, 0.98683, -0.0183623, -0.333527, -1.87465, 1.19176 )
+transform = Transform( 0.936047, 0.146496, -0.319931, -0.313027, -0.0686061, -0.947264, -0.16072, 0.98683, -0.0183623, 0.191879, -2.05035, 1.10155 )
 collision_layer = 2
 collision_mask = 2
 script = ExtResource( 11 )
@@ -3248,7 +3249,7 @@ transform = Transform( 2.45726e-08, -1, 2.33326e-08, 0.999832, 9.91854e-08, -0.0
 polygon = PoolVector2Array( 3.71302, 4.68936, 3.91257, -4.96036, -6, 0 )
 
 [node name="CSGPolygon" type="CSGPolygon" parent="Passenger/Armature/Skeleton/BoneAttachment/WindowVision"]
-transform = Transform( 7.61886e-08, -1, 3.76801e-08, 0.999832, 7.54852e-08, -0.018325, 0.018325, 3.90698e-08, 0.999832, -0.243484, 6.50707, 0.179838 )
+transform = Transform( 7.61886e-08, -1, 3.76801e-08, 0.999832, 7.54852e-08, -0.018325, 0.018325, 3.907e-08, 0.999832, -0.243484, 6.50707, 0.179838 )
 polygon = PoolVector2Array( 3.62275, 4.70325, 3.75402, -4.19125, -6, 0 )
 material = SubResource( 135 )
 __meta__ = {
@@ -3264,6 +3265,7 @@ anims/Sleepy = SubResource( 7 )
 
 [node name="Passenger3" type="Spatial" parent="."]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -21.3826, -5.84836, 198.622 )
+script = ExtResource( 12 )
 
 [node name="Armature" type="Spatial" parent="Passenger3"]
 
@@ -3421,6 +3423,28 @@ skin = SubResource( 2 )
 [node name="Body" type="MeshInstance" parent="Passenger3/Armature/Skeleton"]
 mesh = SubResource( 3 )
 skin = SubResource( 2 )
+
+[node name="BoneAttachment" type="BoneAttachment" parent="Passenger3/Armature"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0831299, 3.55068, -0.872461 )
+bone_name = "Bone.003"
+
+[node name="WindowVision" type="Area" parent="Passenger3/Armature/BoneAttachment"]
+transform = Transform( 0.936047, 0.146496, -0.319931, -0.313027, -0.0686061, -0.947264, -0.16072, 0.98683, -0.0183623, 0.191879, -2.05035, 1.10155 )
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 11 )
+
+[node name="CollisionPolygon" type="CollisionPolygon" parent="Passenger3/Armature/BoneAttachment/WindowVision"]
+transform = Transform( 2.45726e-08, -1, 2.33326e-08, 0.999832, 9.91854e-08, -0.0183249, 0.018325, 3.95042e-08, 0.999832, -0.243484, 6.51931, -0.488003 )
+polygon = PoolVector2Array( 3.71302, 4.68936, 3.91257, -4.96036, -6, 0 )
+
+[node name="CSGPolygon" type="CSGPolygon" parent="Passenger3/Armature/BoneAttachment/WindowVision"]
+transform = Transform( 7.61886e-08, -1, 3.76801e-08, 0.999832, 7.54852e-08, -0.018325, 0.018325, 3.907e-08, 0.999832, -0.243484, 6.50707, 0.179838 )
+polygon = PoolVector2Array( 3.62275, 4.70325, 3.75402, -4.19125, -6, 0 )
+material = SubResource( 135 )
+__meta__ = {
+"_editor_description_": ""
+}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Passenger3"]
 autoplay = "Idle"
@@ -3598,3 +3622,4 @@ anims/Sleep = SubResource( 129 )
 anims/Sleepy = SubResource( 130 )
 
 [connection signal="body_exited" from="Passenger/Armature/Skeleton/BoneAttachment/WindowVision" to="Passenger/Armature/Skeleton/BoneAttachment/WindowVision" method="_on_WindowVision_body_exited"]
+[connection signal="body_exited" from="Passenger3/Armature/BoneAttachment/WindowVision" to="Passenger3/Armature/BoneAttachment/WindowVision" method="_on_WindowVision_body_exited"]

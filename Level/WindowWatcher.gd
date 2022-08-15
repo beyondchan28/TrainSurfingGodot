@@ -1,6 +1,5 @@
 extends Area
 
-onready var player = get_parent().get_parent().get_node("Player")
 
 var damage = 1 
 
