@@ -8,10 +8,18 @@ export(NodePath) onready var patrol_point_2 = get_node(patrol_point_2) as Positi
 onready var graphic = $Graphic
 onready var anim = $Graphic/AnimationPlayer
 onready var detector = $Graphic/DetectionArea
+onready var notice_sound = $NoticeSound
+
+const SOUND_1 = preload("res://Sound Audio/SFx/Worker Voices/VOICE LINES/COME HERE.wav")
+const SOUND_2 = preload("res://Sound Audio/SFx/Worker Voices/VOICE LINES/DONT RUN.wav")
+const SOUND_3 = preload("res://Sound Audio/SFx/Worker Voices/VOICE LINES/LEMME CATCH YOU.wav")
+
 
 enum STATES {CHASE, PATROL_FWD, PATROL_BWD, STOP}
 
 export(STATES) var current_state = STATES.PATROL_FWD
+
+var count = 0
 
 var damage = 1
 
@@ -82,6 +90,12 @@ func _on_DetectionArea_body_exited(body):
 
 func attack():
 	target_node_1.noticed(damage)
+	play_sound()
+	if count == 3:
+		count = 0
+	else:
+		count += 1
+	
 	
 
 func _on_NavigationAgent_target_reached():
@@ -94,6 +108,17 @@ func play_anim(name):
 	if anim.current_animation == name:
 		return
 	anim.play(name)
+
+func play_sound():
+	if count == 0:
+		notice_sound.set_stream(SOUND_1)
+		notice_sound.play()
+	elif count == 1:
+		notice_sound.set_stream(SOUND_2)
+		notice_sound.play()
+	elif count == 2:
+		notice_sound.set_stream(SOUND_3)
+		notice_sound.play()
 
 func _on_NavigationAgent_velocity_computed(safe_velocity):
 	set_linear_velocity(safe_velocity)

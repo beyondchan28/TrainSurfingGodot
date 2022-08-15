@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=2]
+[gd_scene load_steps=51 format=2]
 
 [ext_resource path="res://Assets/TrainStationMaterial_001.material" type="Material" id=1]
 [ext_resource path="res://Assets/Material_001.material" type="Material" id=2]
@@ -12,6 +12,9 @@
 [ext_resource path="res://Assets/Backpack.material" type="Material" id=10]
 [ext_resource path="res://Level/WindowWatcher.gd" type="Script" id=11]
 [ext_resource path="res://Passenger.gd" type="Script" id=12]
+[ext_resource path="res://Sound Audio/SFx/Passenger Voices/VOICE LINES/INTRUDER INTRUDER.wav" type="AudioStream" id=13]
+[ext_resource path="res://Sound Audio/PassengerSnoring.wav" type="AudioStream" id=14]
+[ext_resource path="res://Sound Audio/PassengerYawning.wav" type="AudioStream" id=15]
 
 [sub_resource type="ArrayMesh" id=61]
 resource_name = "TrainStationLevel_Cube163"
@@ -1288,6 +1291,20 @@ tracks/28/loop_wrap = true
 tracks/28/imported = false
 tracks/28/enabled = true
 tracks/28/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 5, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
+tracks/29/type = "audio"
+tracks/29/path = NodePath("AudioStreamPlayer3D")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 15 )
+} ],
+"times": PoolRealArray( 0 )
+}
 
 [sub_resource type="Animation" id=131]
 resource_name = "Idle"
@@ -1499,7 +1516,8 @@ tracks/28/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 2.5, 1, 0, 0
 
 [sub_resource type="Animation" id=132]
 resource_name = "Notice"
-length = 1.625
+length = 2.3
+loop = true
 tracks/0/type = "transform"
 tracks/0/path = NodePath("Armature/Skeleton:Bone.007.L")
 tracks/0/interp = 1
@@ -1703,6 +1721,20 @@ tracks/28/loop_wrap = true
 tracks/28/imported = false
 tracks/28/enabled = true
 tracks/28/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.625, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
+tracks/29/type = "audio"
+tracks/29/path = NodePath("AudioStreamPlayer3D")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 13 )
+} ],
+"times": PoolRealArray( 0 )
+}
 
 [sub_resource type="Animation" id=133]
 resource_name = "Sleep"
@@ -2535,7 +2567,8 @@ tracks/28/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.625, 1, 0,
 
 [sub_resource type="Animation" id=129]
 resource_name = "Sleep"
-length = 0.0416667
+length = 13.0
+loop = true
 tracks/0/type = "transform"
 tracks/0/path = NodePath("Armature/Skeleton:Bone.007.L")
 tracks/0/interp = 1
@@ -2739,6 +2772,20 @@ tracks/28/loop_wrap = true
 tracks/28/imported = false
 tracks/28/enabled = true
 tracks/28/keys = PoolRealArray( 0, 1, 1.10666, 1.58705, -0.185704, -0.0323667, 0.263287, 0.61713, 0.740799, 1, 1, 1, 0.0416667, 1, 1.10666, 1.58705, -0.185704, -0.0323667, 0.263287, 0.61713, 0.740799, 1, 1, 1 )
+tracks/29/type = "audio"
+tracks/29/path = NodePath("AudioStreamPlayer3D")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 14 )
+} ],
+"times": PoolRealArray( 0 )
+}
 
 [sub_resource type="Animation" id=130]
 resource_name = "Sleepy"
@@ -3263,6 +3310,10 @@ anims/Notice = SubResource( 5 )
 anims/Sleep = SubResource( 6 )
 anims/Sleepy = SubResource( 7 )
 
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Passenger"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.06589, -0.514729 )
+stream = ExtResource( 15 )
+
 [node name="Passenger3" type="Spatial" parent="."]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -21.3826, -5.84836, 198.622 )
 script = ExtResource( 12 )
@@ -3453,6 +3504,10 @@ anims/Notice = SubResource( 132 )
 anims/Sleep = SubResource( 133 )
 anims/Sleepy = SubResource( 134 )
 
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Passenger3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.13723, 0 )
+stream = ExtResource( 13 )
+
 [node name="Passenger2" type="Spatial" parent="."]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -16.7245, -5.89176, 209.548 )
 
@@ -3620,6 +3675,10 @@ anims/Idle = SubResource( 127 )
 anims/Notice = SubResource( 128 )
 anims/Sleep = SubResource( 129 )
 anims/Sleepy = SubResource( 130 )
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Passenger2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.10877, 0 )
+stream = ExtResource( 14 )
 
 [connection signal="body_exited" from="Passenger/Armature/Skeleton/BoneAttachment/WindowVision" to="Passenger/Armature/Skeleton/BoneAttachment/WindowVision" method="_on_WindowVision_body_exited"]
 [connection signal="body_exited" from="Passenger3/Armature/BoneAttachment/WindowVision" to="Passenger3/Armature/BoneAttachment/WindowVision" method="_on_WindowVision_body_exited"]
