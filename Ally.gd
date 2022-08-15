@@ -53,7 +53,7 @@ func _process(delta):
 	elif activate or current_state != STATES.STOP:
 		$SpotLight.set_visible(true)
 		sign_text.set_visible(false)
-	print(dist > 10)
+
 func behaviour():
 	if current_state == STATES.LOST:
 		activate = false

@@ -1,11 +1,18 @@
 extends Spatial
 
 onready var vision_manager = $VisionManager
+onready var lampu_sorot = get_parent().get_node("LampuSorot/Cube002/SpotLight")
+
+signal detected
 
 var target
 
+var damage = 1
+
 func _ready():
 	target = get_parent().get_node("Player")
+	self.connect("detected", self, "attack", [], 4)
+	
 func _process(delta):
 	var target_point = target.global_transform.origin + Vector3.UP
 	if target.has_method("get_aim_at_pos"):
@@ -13,6 +20,13 @@ func _process(delta):
 	if vision_manager.in_vision(target_point) and vision_manager.has_line_of_sight(target_point):
 		$Red.show()
 		$Yellow.hide()
+		emit_signal("detected")
 	else:
 		$Red.hide()
 		$Yellow.show()
+		if !self.is_connected("detected", self, "attack"):
+			self.connect("detected", self, "attack", [], 4)
+		
+
+func attack():
+	target.noticed(damage)
