@@ -9,8 +9,6 @@ export(NodePath) onready var setting_off = get_node(setting_off) as TextureRect
 export(NodePath) onready var exit_on = get_node(exit_on) as TextureRect
 export(NodePath) onready var exit_off = get_node(exit_off) as TextureRect
 
-
-
 const first_scene = preload("res://Level/Level.tscn")
 
 var current_selection = 0
