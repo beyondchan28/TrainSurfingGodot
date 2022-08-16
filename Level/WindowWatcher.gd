@@ -12,7 +12,10 @@ func connecting():
 
 func attack(body):
 	if body.name == "Player":
-		body.noticed(damage)
+		if !body.get_node("Pivot/Armature/Skeleton/WorkerJacket").is_visible():
+			body.noticed(damage)
+		else:
+			return
 
 func emmiting():
 	emit_signal("body_entered")

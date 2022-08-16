@@ -29,4 +29,7 @@ func _process(delta):
 		
 
 func attack():
-	target.noticed(damage)
+	if !target.get_node("Pivot/Armature/Skeleton/WorkerJacket").is_visible():
+		target.noticed(damage)
+	else:
+		return
