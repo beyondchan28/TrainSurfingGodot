@@ -42,18 +42,20 @@ anchor_left = 0.205
 anchor_top = 0.852
 anchor_right = 0.254
 anchor_bottom = 1.0
-margin_left = -0.600037
-margin_top = -0.160034
-margin_right = 0.319977
+margin_left = -0.599976
+margin_top = -28.1599
+margin_right = 0.320038
+margin_bottom = -27.9999
 
 [node name="TextBackground" type="ColorRect" parent="DialogUI"]
-anchor_left = 0.253
-anchor_top = 0.859
-anchor_right = 0.734
-anchor_bottom = 1.0
-margin_left = 0.23996
-margin_top = 0.279968
-margin_right = -0.280029
+anchor_left = 0.258
+anchor_top = 0.826
+anchor_right = 0.739
+anchor_bottom = 0.967
+margin_left = -0.360046
+margin_top = -0.0800171
+margin_right = -0.880005
+margin_bottom = -0.360107
 
 [node name="DialogText" type="Label" parent="DialogUI/TextBackground"]
 anchor_right = 1.0
@@ -72,35 +74,15 @@ valign = 1
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="ClockBackground" type="TextureRect" parent="GamePlayUI"]
-anchor_right = 0.219
-anchor_bottom = 0.088
-margin_right = 0.52002
-margin_bottom = -0.0400009
-texture = ExtResource( 7 )
-
-[node name="Clock" parent="GamePlayUI/ClockBackground" instance=ExtResource( 5 )]
-anchor_left = 0.116
-anchor_top = 0.074
-anchor_right = 0.413
-anchor_bottom = 0.895
-margin_left = 0.163998
-margin_top = -0.0300002
-margin_right = 0.126999
-margin_bottom = -0.0250015
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_fonts/font = SubResource( 1 )
-text = "00 : 00"
-
 [node name="EyeHBoxContainer" type="HBoxContainer" parent="GamePlayUI"]
-anchor_left = 0.095
-anchor_top = 0.009
-anchor_right = 0.233
-anchor_bottom = 0.087
-margin_left = -0.400009
-margin_top = 0.28
-margin_right = -0.360016
-margin_bottom = 0.0399933
+anchor_left = 0.112
+anchor_top = 0.029
+anchor_right = 0.247
+anchor_bottom = 0.106
+margin_left = -0.0400085
+margin_top = -0.320002
+margin_right = 0.759979
+margin_bottom = 0.519997
 
 [node name="EyeON" type="TextureRect" parent="GamePlayUI/EyeHBoxContainer"]
 margin_right = 84.0
@@ -140,22 +122,53 @@ margin_right = 436.0
 margin_bottom = 94.0
 texture = ExtResource( 10 )
 
+[node name="ClockBackground" type="TextureRect" parent="GamePlayUI"]
+anchor_left = 0.015
+anchor_top = 0.019
+anchor_right = 0.234
+anchor_bottom = 0.107
+margin_left = -0.800001
+margin_top = 0.48
+margin_right = -0.280029
+margin_bottom = 0.439995
+texture = ExtResource( 7 )
+
+[node name="Clock" parent="GamePlayUI/ClockBackground" instance=ExtResource( 5 )]
+anchor_left = 0.116
+anchor_top = 0.074
+anchor_right = 0.413
+anchor_bottom = 0.895
+margin_left = 0.163998
+margin_top = -0.0300002
+margin_right = 0.126999
+margin_bottom = -0.0250015
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "00:00"
+
 [node name="ObjectiveBackground" type="TextureRect" parent="GamePlayUI"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -572.0
-margin_bottom = 101.0
+anchor_left = 0.986
+anchor_top = 0.023
+anchor_right = 0.986
+anchor_bottom = 0.023
+margin_left = -572.12
+margin_top = 0.159998
+margin_right = -0.120117
+margin_bottom = 101.16
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource( 11 )
 
 [node name="DialogText" type="Label" parent="GamePlayUI/ObjectiveBackground"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 15.0
-margin_top = 15.0
-margin_right = -15.0
-margin_bottom = -15.0
+anchor_left = 0.082
+anchor_top = 0.149
+anchor_right = 0.953
+anchor_bottom = 0.851
+margin_left = 0.0959969
+margin_top = -0.0490007
+margin_right = -0.116028
+margin_bottom = 0.048996
 custom_fonts/font = SubResource( 2 )
-text = "Objectives"
+text = "Objectives adaodoakwodawkoawkd"
+align = 2
 valign = 1

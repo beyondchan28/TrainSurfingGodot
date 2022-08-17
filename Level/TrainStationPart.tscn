@@ -3680,5 +3680,9 @@ anims/Sleepy = SubResource( 130 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.10877, 0 )
 stream = ExtResource( 14 )
 
+[node name="VisibilityEnabler" type="VisibilityEnabler" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -39.7988, -0.234978, 162.986 )
+aabb = AABB( -44.4326, -9.82032, -62.9171, 88.8653, 19.6406, 125.834 )
+
 [connection signal="body_exited" from="Passenger/Armature/Skeleton/BoneAttachment/WindowVision" to="Passenger/Armature/Skeleton/BoneAttachment/WindowVision" method="_on_WindowVision_body_exited"]
 [connection signal="body_exited" from="Passenger3/Armature/BoneAttachment/WindowVision" to="Passenger3/Armature/BoneAttachment/WindowVision" method="_on_WindowVision_body_exited"]
