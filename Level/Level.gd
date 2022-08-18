@@ -3,15 +3,22 @@ extends Spatial
 onready var player = $Player
 onready var flashlight = $FlashlightActivator
 
-onready var park_light = $ParkLight
-onready var street_light = $StreetLight
-onready var other_objects = $OtherObjects
 
-onready var canvas = $CanvasLayer
 
-const next_scene = preload("res://Level/TrainStation.tscn")
+onready var loading_screen = $CanvasLayer/LoadingScreen
 
-export(Resource) var _runtime_data = _runtime_data as RuntimeData
+
+export(PackedScene) var next_scene  
+
+const telephone_vid = preload("res://UI/RoomOfDepression15sec.webm")
+const next_level_vid = preload("res://UI/RoomOfDepression15sec.webm")
+
+
+
+onready var gameplay_ui = $CanvasLayer
+
+func next_level():
+	get_tree().change_scene_to(next_scene)
 
 func _on_FlashlightActivator_body_entered(body):
 	if body.name == "Player":
@@ -21,18 +28,12 @@ func _on_FlashlightActivator_body_entered(body):
 
 func _on_TranStationCutsceneTrigger_body_entered(body):
 	if body.name == "Player":
-		get_parent().add_child(next_scene.instance())
-		self.queue_free()
+		gameplay_ui.play_cutscene(next_level_vid)
 
 
 func _on_TelephoneCutsceneTrigger_body_entered(body):
 	if body.name == "Player":
-		_runtime_data.current_gameplay_state = Enums.GameplayState.IN_DIALOG
-		canvas.get_node("VideoPlayer").set_visible(true)
-		canvas.get_node("VideoPlayer").play()
-		yield(canvas.get_node("VideoPlayer"), "finished")
-		canvas.get_node("VideoPlayer").set_visible(false)
-		_runtime_data.current_gameplay_state = Enums.GameplayState.FREEWALK
+		gameplay_ui.play_cutscene(telephone_vid)
 
 func _on_TelephoneCutsceneTrigger_body_exited(body):
 		if body.name == "Player":
