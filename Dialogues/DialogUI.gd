@@ -8,12 +8,12 @@ export(Resource) var _runtime_data = _runtime_data as RuntimeData
 
 var _current_slides_index := 0
 
-func _ready():
-	_avatar.texture = _current_dialogue.avatar_texture
-	show_slide()
-	
-	GameEvents.connect("dialog_initiated", self, "_on_dialog_initiated")
-	GameEvents.connect("dialog_finished", self, "_on_dialog_finished")
+#func _ready():
+#	_avatar.texture = _current_dialogue.avatar_texture
+#	show_slide()
+#
+#	GameEvents.connect("dialog_initiated", self, "_on_dialog_initiated")
+#	GameEvents.connect("dialog_finished", self, "_on_dialog_finished")
 
 func _input(event):
 	if Input.is_action_just_pressed("ui_accept"):

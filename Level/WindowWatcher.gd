@@ -11,6 +11,7 @@ func connecting():
 	
 
 func attack(body):
+#	print(self.name)
 	if body.name == "Player":
 		if !body.get_node("Pivot/Armature/Skeleton/WorkerJacket").is_visible():
 			body.noticed(damage)

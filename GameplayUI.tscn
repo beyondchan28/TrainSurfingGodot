@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Dialogues/Intro.tres" type="Resource" id=1]
 [ext_resource path="res://Dialogues/DialogUI.gd" type="Script" id=2]
@@ -6,11 +6,12 @@
 [ext_resource path="res://UI/RoomOfDepression15sec.webm" type="VideoStream" id=4]
 [ext_resource path="res://UI/Clock.tscn" type="PackedScene" id=5]
 [ext_resource path="res://UI/Supreme-Medium.otf" type="DynamicFontData" id=6]
-[ext_resource path="res://UI/GameplayUI/jam.png" type="Texture" id=7]
+[ext_resource path="res://UI/GameplayUI/objektif.png" type="Texture" id=7]
 [ext_resource path="res://UI/BespokeSans-Regular.otf" type="DynamicFontData" id=8]
 [ext_resource path="res://UI/GameplayUI/eye.png" type="Texture" id=9]
 [ext_resource path="res://UI/GameplayUI/diedeye.png" type="Texture" id=10]
-[ext_resource path="res://UI/GameplayUI/objective.png" type="Texture" id=11]
+[ext_resource path="res://UI/GameplayUI/jam.png" type="Texture" id=11]
+[ext_resource path="res://UI/GameplayUI/db_friend.png" type="Texture" id=12]
 
 [sub_resource type="DynamicFont" id=2]
 size = 27
@@ -32,38 +33,31 @@ stream = ExtResource( 4 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 2 )
-_dialog_text = NodePath("TextBackground/DialogText")
+_dialog_text = NodePath("DialogText")
 _avatar = NodePath("Avatar")
 _current_dialogue = ExtResource( 1 )
 _runtime_data = ExtResource( 3 )
 
 [node name="Avatar" type="TextureRect" parent="DialogUI"]
-anchor_left = 0.205
-anchor_top = 0.852
-anchor_right = 0.254
-anchor_bottom = 1.0
-margin_left = -0.599976
-margin_top = -28.1599
-margin_right = 0.320038
-margin_bottom = -27.9999
+anchor_left = 0.246
+anchor_top = 0.684
+anchor_right = 0.751
+anchor_bottom = 0.994
+margin_left = -0.320007
+margin_top = 0.279968
+margin_right = 0.0799561
+margin_bottom = 0.47998
+texture = ExtResource( 12 )
 
-[node name="TextBackground" type="ColorRect" parent="DialogUI"]
-anchor_left = 0.258
-anchor_top = 0.826
-anchor_right = 0.739
-anchor_bottom = 0.967
-margin_left = -0.360046
-margin_top = -0.0800171
-margin_right = -0.880005
-margin_bottom = -0.360107
-
-[node name="DialogText" type="Label" parent="DialogUI/TextBackground"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 15.0
-margin_top = 15.0
-margin_right = -15.0
-margin_bottom = -15.0
+[node name="DialogText" type="Label" parent="DialogUI"]
+anchor_left = 0.403
+anchor_top = 0.821
+anchor_right = 0.722
+anchor_bottom = 0.939
+margin_left = -0.760071
+margin_top = 0.319946
+margin_right = -0.240112
+margin_bottom = -0.120056
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 2 )
 text = "Sample
@@ -79,18 +73,18 @@ margin_right = -1.0
 margin_bottom = 2.0
 
 [node name="EyeHBoxContainer" type="HBoxContainer" parent="GamePlayUI"]
-anchor_left = 0.135
-anchor_top = 0.08
-anchor_right = 0.27
-anchor_bottom = 0.145
-margin_left = -0.200012
-margin_top = -10.4
-margin_right = 0.599976
-margin_bottom = 3.40001
+anchor_left = 0.119
+anchor_top = 0.063
+anchor_right = 0.227
+anchor_bottom = 0.121
+margin_left = 7.51999
+margin_top = -3.04
+margin_right = 6.15997
+margin_bottom = 0.319992
 
 [node name="EyeON" type="TextureRect" parent="GamePlayUI/EyeHBoxContainer"]
-margin_right = 84.0
-margin_bottom = 84.0
+margin_right = 66.0
+margin_bottom = 66.0
 texture = ExtResource( 9 )
 
 [node name="EyeOFF" type="TextureRect" parent="GamePlayUI/EyeHBoxContainer"]
@@ -101,9 +95,9 @@ margin_bottom = 84.0
 texture = ExtResource( 10 )
 
 [node name="EyeON2" type="TextureRect" parent="GamePlayUI/EyeHBoxContainer"]
-margin_left = 88.0
-margin_right = 172.0
-margin_bottom = 84.0
+margin_left = 70.0
+margin_right = 136.0
+margin_bottom = 66.0
 texture = ExtResource( 9 )
 
 [node name="EyeOFF2" type="TextureRect" parent="GamePlayUI/EyeHBoxContainer"]
@@ -114,9 +108,9 @@ margin_bottom = 94.0
 texture = ExtResource( 10 )
 
 [node name="EyeON3" type="TextureRect" parent="GamePlayUI/EyeHBoxContainer"]
-margin_left = 176.0
-margin_right = 260.0
-margin_bottom = 84.0
+margin_left = 140.0
+margin_right = 206.0
+margin_bottom = 66.0
 texture = ExtResource( 9 )
 
 [node name="EyeOFF3" type="TextureRect" parent="GamePlayUI/EyeHBoxContainer"]
@@ -129,13 +123,13 @@ texture = ExtResource( 10 )
 [node name="ClockBackground" type="TextureRect" parent="GamePlayUI"]
 anchor_left = 0.036
 anchor_top = 0.057
-anchor_right = 0.256
-anchor_bottom = 0.151
-margin_left = 0.879997
-margin_top = 0.439987
-margin_right = -0.52002
-margin_bottom = -6.08
-texture = ExtResource( 7 )
+anchor_right = 0.234
+anchor_bottom = 0.137
+margin_left = 0.880005
+margin_top = 0.439999
+margin_right = -0.280029
+margin_bottom = 0.0399933
+texture = ExtResource( 11 )
 
 [node name="Clock" parent="GamePlayUI/ClockBackground" instance=ExtResource( 5 )]
 anchor_left = 0.116
@@ -151,17 +145,17 @@ custom_fonts/font = SubResource( 1 )
 text = "00:00"
 
 [node name="ObjectiveBackground" type="TextureRect" parent="GamePlayUI"]
-anchor_left = 0.986
-anchor_top = 0.023
-anchor_right = 0.986
-anchor_bottom = 0.023
-margin_left = -572.12
-margin_top = 0.159998
-margin_right = -0.120117
-margin_bottom = 101.16
+anchor_left = 0.983
+anchor_top = 0.041
+anchor_right = 0.983
+anchor_bottom = 0.041
+margin_left = -468.36
+margin_top = -0.280003
+margin_right = 0.640015
+margin_bottom = 100.72
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource( 11 )
+texture = ExtResource( 7 )
 
 [node name="DialogText" type="Label" parent="GamePlayUI/ObjectiveBackground"]
 anchor_left = 0.082
@@ -173,6 +167,6 @@ margin_top = -0.0490007
 margin_right = -0.116028
 margin_bottom = 0.048996
 custom_fonts/font = SubResource( 2 )
-text = "Objectives adaodoakwodawkoawkd"
+text = "Objectives adaodoakwodawkoa"
 align = 2
 valign = 1

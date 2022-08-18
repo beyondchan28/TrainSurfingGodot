@@ -1,7 +1,6 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://CCTV.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Ally.tscn" type="PackedScene" id=3]
 [ext_resource path="res://ObjectivesLightActivator.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/TrainStationMaterial.material" type="Material" id=5]
@@ -229,10 +228,6 @@ transform = Transform( -2.18556e-08, 0.328026, -0.944669, -3.78551e-08, 0.944669
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2305, 3.09827, -10.1006 )
-
-[node name="CCTV" parent="." instance=ExtResource( 2 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 4.92768, -2.03865 )
-visible = false
 
 [node name="ObjectivesLightActivator" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0072, 1.67745, 0 )
