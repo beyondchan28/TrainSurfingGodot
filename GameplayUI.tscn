@@ -11,8 +11,8 @@
 [ext_resource path="res://UI/GameplayUI/eye.png" type="Texture" id=9]
 [ext_resource path="res://UI/GameplayUI/diedeye.png" type="Texture" id=10]
 [ext_resource path="res://UI/GameplayUI/jam.png" type="Texture" id=11]
-[ext_resource path="res://UI/loading-screen.webm" type="VideoStream" id=12]
 [ext_resource path="res://GameplayUI.gd" type="Script" id=13]
+[ext_resource path="res://Level/TrainStationLevel.tscn" type="PackedScene" id=14]
 
 [sub_resource type="DynamicFont" id=2]
 size = 27
@@ -25,17 +25,12 @@ font_data = ExtResource( 6 )
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource( 13 )
 _runtime_data = ExtResource( 3 )
+next_scene = ExtResource( 14 )
 
 [node name="VideoPlayer" type="VideoPlayer" parent="."]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-
-[node name="LoadingScreen" type="VideoPlayer" parent="."]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-stream = ExtResource( 12 )
 
 [node name="DialogUI" type="Control" parent="."]
 anchor_right = 1.0

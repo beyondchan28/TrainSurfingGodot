@@ -3,33 +3,21 @@ extends Spatial
 onready var player = $Player
 onready var flashlight = $FlashlightActivator
 
-
-
 onready var loading_screen = $CanvasLayer/LoadingScreen
-
-
-export(PackedScene) var next_scene  
 
 const telephone_vid = preload("res://UI/RoomOfDepression15sec.webm")
 const next_level_vid = preload("res://UI/RoomOfDepression15sec.webm")
 
-
-
 onready var gameplay_ui = $CanvasLayer
-
-func next_level():
-	get_tree().change_scene_to(next_scene)
 
 func _on_FlashlightActivator_body_entered(body):
 	if body.name == "Player":
 		player.get_node("Pivot/Armature/Skeleton/BoneAttachment").visible = true
 		flashlight.queue_free()
 
-
 func _on_TranStationCutsceneTrigger_body_entered(body):
 	if body.name == "Player":
 		gameplay_ui.play_cutscene(next_level_vid)
-
 
 func _on_TelephoneCutsceneTrigger_body_entered(body):
 	if body.name == "Player":

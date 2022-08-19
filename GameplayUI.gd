@@ -2,6 +2,8 @@ extends CanvasLayer
 
 export(Resource) var _runtime_data = _runtime_data as RuntimeData
 
+export(PackedScene) var next_scene 
+
 onready var gameplay_ui = $GamePlayUI
 onready var video_player = $VideoPlayer
 
@@ -10,9 +12,6 @@ const loading_vid = preload("res://UI/loading-screen.webm")
 var video_name: String
 var play_loading:bool = false 
 
-func _process(delta):
-	if play_loading:
-		play_cutscene(loading_vid)
 
 func play_cutscene(video):
 	_runtime_data.current_gameplay_state = Enums.GameplayState.IN_DIALOG
@@ -32,6 +31,11 @@ func play_cutscene(video):
 	_runtime_data.current_gameplay_state = Enums.GameplayState.FREEWALK
 
 
+func next_level(next):
+	get_tree().change_scene_to(next)
+
 func _on_VideoPlayer_finished():
 	if video_name == "res://UI/RoomOfDepression15sec.webm":
-		play_loading = true
+		call_deferred("play_cutscene", loading_vid)
+	elif video_name == "res://UI/loading-screen.webm":
+		next_level(next_scene)

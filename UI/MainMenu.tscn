@@ -449,6 +449,4 @@ anchor_bottom = 0.991
 margin_top = 0.635994
 margin_bottom = -0.193024
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-
 [connection signal="finished" from="." to="." method="_on_MainMenuVideo_finished"]
