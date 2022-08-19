@@ -3110,7 +3110,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.82741, 2.44266, 12.9991 )
 shape = SubResource( 124 )
 
 [node name="CollisionShape3" type="CollisionShape" parent="StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -49.2119, 6.9617, 24.0798 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -49.2119, 6.9617, 7.31285 )
 shape = SubResource( 125 )
 
 [node name="CollisionShape4" type="CollisionShape" parent="StaticBody"]

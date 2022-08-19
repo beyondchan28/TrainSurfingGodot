@@ -1,8 +1,10 @@
 extends Spatial
 
-var got_key_access = false
+var got_key_access = true
+onready var gameplay_ui = $CanvasLayer
 
-const next_level = preload("res://Level/SecretBuilding.tscn")
+var loading_vid = preload("res://UI/loading-screen.webm")
+#var next_level = load("res://Level/SecretBuilding.tscn")
 
 func _on_JacketTrigger_body_entered(body):
 	if body.name == "Player":
@@ -18,4 +20,5 @@ func _on_KeyAccess_body_entered(body):
 
 
 func _on_EndPoint_body_entered(body):
-	pass # Replace with function body.
+	if body.name == "Player":
+		gameplay_ui.play_cutscene(loading_vid)

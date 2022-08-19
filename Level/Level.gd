@@ -1,12 +1,14 @@
 extends Spatial
 
+export(Resource) var cutscene_vid = cutscene_vid as Cutscene
+
 onready var player = $Player
 onready var flashlight = $FlashlightActivator
 
-onready var loading_screen = $CanvasLayer/LoadingScreen
 
-const telephone_vid = preload("res://UI/RoomOfDepression15sec.webm")
-const next_level_vid = preload("res://UI/RoomOfDepression15sec.webm")
+#var telephone_vid = load("res://UI/RoomOfDepression15sec.webm")
+#var next_level_vid = load("res://UI/RoomOfDepression15sec.webm")
+
 
 onready var gameplay_ui = $CanvasLayer
 
@@ -17,11 +19,11 @@ func _on_FlashlightActivator_body_entered(body):
 
 func _on_TranStationCutsceneTrigger_body_entered(body):
 	if body.name == "Player":
-		gameplay_ui.play_cutscene(next_level_vid)
+		gameplay_ui.play_cutscene(cutscene_vid.video[1])
 
 func _on_TelephoneCutsceneTrigger_body_entered(body):
 	if body.name == "Player":
-		gameplay_ui.play_cutscene(telephone_vid)
+		gameplay_ui.play_cutscene(cutscene_vid.video[0])
 
 func _on_TelephoneCutsceneTrigger_body_exited(body):
 		if body.name == "Player":
