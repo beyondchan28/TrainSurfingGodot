@@ -35,13 +35,12 @@ func play_cutscene(video):
 
 
 func next_level(next):
-	print(next)
 	get_tree().change_scene(next)
 
 func _on_VideoPlayer_finished():
 	if video_name == "res://UI/RoomOfDepression15sec.webm":
 		call_deferred("play_cutscene", loading_vid.video[0])
-	elif self.get_parent().name == "Level" and video_name == "res://UI/loading-screen.webm":
+	elif self.get_parent().get_parent().name == "Level" and video_name == "res://UI/loading-screen.webm":
 		next_level(trainstation_scene)
-	elif self.get_parent().name == "TrainStationLevel" and video_name == "res://UI/loading-screen.webm":
+	elif self.get_parent().get_parent().name == "TrainStationLevel" and video_name == "res://UI/loading-screen.webm":
 		next_level(secretbuilding_scene)

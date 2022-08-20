@@ -10,7 +10,7 @@ onready var flashlight = $FlashlightActivator
 #var next_level_vid = load("res://UI/RoomOfDepression15sec.webm")
 
 
-onready var gameplay_ui = $CanvasLayer
+onready var gameplay_ui = $Player/CanvasLayer
 
 func _on_FlashlightActivator_body_entered(body):
 	if body.name == "Player":
