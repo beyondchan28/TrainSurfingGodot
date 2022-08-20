@@ -8,6 +8,7 @@ export(String, FILE, "*.tscn") var trainstation_scene
 export(String, FILE, "*.tscn") var secretbuilding_scene
 
 
+
 onready var gameplay_ui = $GamePlayUI
 onready var video_player = $VideoPlayer
 
@@ -15,6 +16,9 @@ onready var video_player = $VideoPlayer
 
 var video_name: String
 
+func _ready():
+	if !self.is_inside_tree():
+		self.set_visible(false)
 
 func play_cutscene(video):
 	_runtime_data.current_gameplay_state = Enums.GameplayState.IN_DIALOG

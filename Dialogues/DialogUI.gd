@@ -2,21 +2,18 @@ extends Control
 
 export(NodePath) onready var _dialog_text = get_node(_dialog_text) as Label
 export(NodePath) onready var _avatar = get_node(_avatar) as TextureRect
-export(Resource) var _current_dialogue = _current_dialogue as Dialogue
+var _current_dialogue: Dialogue
 
 export(Resource) var _runtime_data = _runtime_data as RuntimeData
 
 var _current_slides_index := 0
 
 func _ready():
-	_avatar.texture = _current_dialogue.avatar_texture
-	show_slide()
-
 	GameEvents.connect("dialog_initiated", self, "_on_dialog_initiated")
 	GameEvents.connect("dialog_finished", self, "_on_dialog_finished")
 
 func _input(event):
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("next_dialog"):
 		if _current_slides_index < _current_dialogue.dialog_slides.size() - 1:
 			_current_slides_index += 1
 			show_slide()
