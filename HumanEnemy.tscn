@@ -1,8 +1,11 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://HumanEnemy.gd" type="Script" id=1]
 [ext_resource path="res://Assets/HatWorker.material" type="Material" id=2]
 [ext_resource path="res://Assets/BodyWorker.material" type="Material" id=3]
+[ext_resource path="res://SoundSystem.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Sound Audio/WorkerWalkLeftFeet.wav" type="AudioStream" id=5]
+[ext_resource path="res://Sound Audio/WorkerWalkRightFeet.wav" type="AudioStream" id=6]
 
 [sub_resource type="PhysicsMaterial" id=3]
 friction = 0.0
@@ -434,6 +437,24 @@ tracks/20/loop_wrap = true
 tracks/20/imported = false
 tracks/20/enabled = true
 tracks/20/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.66667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
+tracks/21/type = "audio"
+tracks/21/path = NodePath("../AudioStreamPlayer3D")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 5 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+} ],
+"times": PoolRealArray( 0.8, 1.5 )
+}
 
 [sub_resource type="Animation" id=6]
 resource_name = "Walk"
@@ -586,6 +607,24 @@ tracks/20/loop_wrap = true
 tracks/20/imported = false
 tracks/20/enabled = true
 tracks/20/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1.66667, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1 )
+tracks/21/type = "audio"
+tracks/21/path = NodePath("../AudioStreamPlayer3D")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 5 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 6 )
+} ],
+"times": PoolRealArray( 1, 1.6 )
+}
 
 [sub_resource type="SpatialMaterial" id=138]
 flags_transparent = true
@@ -796,6 +835,11 @@ material = SubResource( 138 )
 __meta__ = {
 "_editor_description_": ""
 }
+
+[node name="AudioStreamPlayer3D" parent="." instance=ExtResource( 4 )]
+stream = ExtResource( 5 )
+
+[node name="NoticeSound" type="AudioStreamPlayer" parent="."]
 
 [connection signal="target_reached" from="NavigationAgent" to="." method="_on_NavigationAgent_target_reached"]
 [connection signal="velocity_computed" from="NavigationAgent" to="." method="_on_NavigationAgent_velocity_computed"]

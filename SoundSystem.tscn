@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Player/MovementAudioStream.gd" type="Script" id=1]
+[ext_resource path="res://Sound Audio/WalkRightFeet.wav" type="AudioStream" id=2]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D"]
+transform = Transform( -1, 0, -8.74229e-08, 0, 1, 0, 8.74229e-08, 0, -1, 0, 1.12683, 0 )
+stream = ExtResource( 2 )
+pitch_scale = 0.5
+script = ExtResource( 1 )

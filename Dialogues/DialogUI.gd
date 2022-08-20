@@ -11,7 +11,7 @@ var _current_slides_index := 0
 func _ready():
 	_avatar.texture = _current_dialogue.avatar_texture
 	show_slide()
-	
+
 	GameEvents.connect("dialog_initiated", self, "_on_dialog_initiated")
 	GameEvents.connect("dialog_finished", self, "_on_dialog_finished")
 

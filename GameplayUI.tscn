@@ -1,66 +1,184 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Dialogues/Intro.tres" type="Resource" id=1]
 [ext_resource path="res://Dialogues/DialogUI.gd" type="Script" id=2]
 [ext_resource path="res://RuntimeData.tres" type="Resource" id=3]
-[ext_resource path="res://UI/RoomOfDepression15sec.webm" type="VideoStream" id=4]
+[ext_resource path="res://UI/GameplayUI/db_tlp.png" type="Texture" id=4]
+[ext_resource path="res://UI/Clock.tscn" type="PackedScene" id=5]
+[ext_resource path="res://UI/Supreme-Medium.otf" type="DynamicFontData" id=6]
+[ext_resource path="res://UI/GameplayUI/objektif.png" type="Texture" id=7]
+[ext_resource path="res://UI/BespokeSans-Regular.otf" type="DynamicFontData" id=8]
+[ext_resource path="res://UI/GameplayUI/eye.png" type="Texture" id=9]
+[ext_resource path="res://UI/GameplayUI/died eye.png" type="Texture" id=10]
+[ext_resource path="res://UI/GameplayUI/jam.png" type="Texture" id=11]
+[ext_resource path="res://HealthUI.gd" type="Script" id=12]
+[ext_resource path="res://GameplayUI.gd" type="Script" id=13]
+[ext_resource path="res://UI/LoadingScreen.tres" type="Resource" id=15]
+
+[sub_resource type="DynamicFont" id=2]
+size = 27
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 38
+font_data = ExtResource( 6 )
 
 [node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource( 13 )
+_runtime_data = ExtResource( 3 )
+loading_vid = ExtResource( 15 )
+trainstation_scene = "res://Level/TrainStationLevel.tscn"
+secretbuilding_scene = "res://Level/SecretBuilding.tscn"
 
 [node name="VideoPlayer" type="VideoPlayer" parent="."]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-stream = ExtResource( 4 )
 
 [node name="DialogUI" type="Control" parent="."]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -20.0
-margin_top = -40.0
-margin_right = 20.0
 script = ExtResource( 2 )
-_dialog_text = NodePath("TextBackground/DialogText")
-_avatar = NodePath("Avatar")
+_dialog_text = NodePath("DialogText")
+_avatar = NodePath("CenterContainer/Avatar")
 _current_dialogue = ExtResource( 1 )
 _runtime_data = ExtResource( 3 )
 
-[node name="Avatar" type="TextureRect" parent="DialogUI"]
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -240.0
-margin_top = -64.0
-margin_right = -216.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextBackground" type="ColorRect" parent="DialogUI"]
+[node name="CenterContainer" type="MarginContainer" parent="DialogUI"]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -196.5
-margin_top = -59.0
-margin_right = 196.5
-__meta__ = {
-"_edit_use_anchors_": false
-}
+margin_left = -502.0
+margin_top = -331.0
+margin_right = 555.0
 
-[node name="DialogText" type="Label" parent="DialogUI/TextBackground"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 15.0
-margin_top = 15.0
-margin_right = -15.0
-margin_bottom = -15.0
+[node name="Avatar" type="TextureRect" parent="DialogUI/CenterContainer"]
+margin_right = 1057.0
+margin_bottom = 331.0
+texture = ExtResource( 4 )
+
+[node name="DialogText" type="Label" parent="DialogUI"]
+anchor_left = 0.393
+anchor_top = 0.752
+anchor_right = 0.722
+anchor_bottom = 0.925
+margin_left = 0.440002
+margin_top = -0.160034
+margin_right = -0.23999
+margin_bottom = -6.10352e-05
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
 text = "Sample
 ANOTHER"
 valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+
+[node name="GamePlayUI" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1.0
+margin_top = 2.0
+margin_right = -1.0
+margin_bottom = 2.0
+script = ExtResource( 12 )
+
+[node name="EyeHBoxContainer" type="HBoxContainer" parent="GamePlayUI"]
+anchor_left = 0.123
+anchor_top = 0.063
+anchor_right = 0.23
+anchor_bottom = 0.121
+margin_left = -0.160004
+margin_top = -3.04
+margin_right = 0.399963
+margin_bottom = 0.319977
+
+[node name="EyeON" type="TextureRect" parent="GamePlayUI/EyeHBoxContainer"]
+margin_right = 66.0
+margin_bottom = 66.0
+texture = ExtResource( 9 )
+
+[node name="EyeOFF" type="TextureRect" parent="GamePlayUI/EyeHBoxContainer"]
+visible = false
+margin_left = 70.0
+margin_right = 134.0
+margin_bottom = 66.0
+texture = ExtResource( 10 )
+
+[node name="EyeON2" type="TextureRect" parent="GamePlayUI/EyeHBoxContainer"]
+margin_left = 70.0
+margin_right = 136.0
+margin_bottom = 66.0
+texture = ExtResource( 9 )
+
+[node name="EyeOFF2" type="TextureRect" parent="GamePlayUI/EyeHBoxContainer"]
+visible = false
+margin_left = 208.0
+margin_right = 272.0
+margin_bottom = 66.0
+texture = ExtResource( 10 )
+
+[node name="EyeON3" type="TextureRect" parent="GamePlayUI/EyeHBoxContainer"]
+margin_left = 140.0
+margin_right = 206.0
+margin_bottom = 66.0
+texture = ExtResource( 9 )
+
+[node name="EyeOFF3" type="TextureRect" parent="GamePlayUI/EyeHBoxContainer"]
+visible = false
+margin_left = 276.0
+margin_right = 340.0
+margin_bottom = 66.0
+texture = ExtResource( 10 )
+
+[node name="ClockBackground" type="TextureRect" parent="GamePlayUI"]
+anchor_left = 0.036
+anchor_top = 0.057
+anchor_right = 0.234
+anchor_bottom = 0.137
+margin_left = 0.880005
+margin_top = 0.439999
+margin_right = -0.280029
+margin_bottom = 0.0399933
+texture = ExtResource( 11 )
+
+[node name="Clock" parent="GamePlayUI/ClockBackground" instance=ExtResource( 5 )]
+anchor_left = 0.116
+anchor_top = 0.074
+anchor_right = 0.413
+anchor_bottom = 0.895
+margin_left = 0.163998
+margin_top = -0.0300002
+margin_right = 0.126999
+margin_bottom = -0.0250015
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "00:00"
+
+[node name="ObjectiveBackground" type="TextureRect" parent="GamePlayUI"]
+anchor_left = 0.983
+anchor_top = 0.041
+anchor_right = 0.983
+anchor_bottom = 0.041
+margin_left = -468.36
+margin_top = -0.280003
+margin_right = 0.640015
+margin_bottom = 100.72
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource( 7 )
+
+[node name="DialogText" type="Label" parent="GamePlayUI/ObjectiveBackground"]
+anchor_left = 0.082
+anchor_top = 0.149
+anchor_right = 0.953
+anchor_bottom = 0.851
+margin_left = 0.0959969
+margin_top = -0.0490007
+margin_right = -0.116028
+margin_bottom = 0.048996
+custom_fonts/font = SubResource( 2 )
+text = "Objectives adaodoakwodawkoa"
+align = 2
+valign = 1
+
+[connection signal="finished" from="VideoPlayer" to="." method="_on_VideoPlayer_finished"]
