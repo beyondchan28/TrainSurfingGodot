@@ -4,6 +4,8 @@ var time = 3655
 var timer_on = true
 var current_time = 22
 
+
+
 func _process(delta):
 	if timer_on:
 		time += delta

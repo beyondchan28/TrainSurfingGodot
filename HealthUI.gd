@@ -9,11 +9,13 @@ export(NodePath) onready var eye_off2 = get_node(eye_off2) as TextureRect
 export(NodePath) onready var eye_on3 = get_node(eye_on3) as TextureRect
 export(NodePath) onready var eye_off3 = get_node(eye_off3) as TextureRect
 
+onready var hint = $ObjectiveBackground/Hint
+onready var current_level = get_parent().get_parent().get_parent()
 
 var health = 0
 
-func _ready():
-	eye_on1 = get_node("EyeHBoxContainer/EyeON")
+func hint_display():
+	pass
 
 func update_health(amount):
 	health = amount

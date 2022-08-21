@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://Player/PlayerLogic.gd" type="Script" id=1]
 [ext_resource path="res://RuntimeData.tres" type="Resource" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://Player/HealthManager.gd" type="Script" id=5]
 [ext_resource path="res://SoundSystem.tscn" type="PackedScene" id=6]
 [ext_resource path="res://UI/LoadingScreen.tres" type="Resource" id=7]
-[ext_resource path="res://Dialogues/Intro.tres" type="Resource" id=8]
 [ext_resource path="res://Assets/Flashlight.material" type="Material" id=9]
 [ext_resource path="res://UI/Clock.tscn" type="PackedScene" id=10]
 [ext_resource path="res://GameplayUI.gd" type="Script" id=11]
@@ -1277,7 +1276,7 @@ height = 3.5
 extents = Vector3( 0.5, 0.5, 2 )
 
 [sub_resource type="DynamicFont" id=22]
-size = 27
+size = 21
 font_data = ExtResource( 14 )
 
 [sub_resource type="DynamicFont" id=23]
@@ -1517,12 +1516,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="DialogUI" type="Control" parent="CanvasLayer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 12 )
 _dialog_text = NodePath("DialogText")
 _avatar = NodePath("CenterContainer/Avatar")
-_current_dialogue = ExtResource( 8 )
 _runtime_data = ExtResource( 2 )
 
 [node name="CenterContainer" type="MarginContainer" parent="CanvasLayer/DialogUI"]
@@ -1654,7 +1653,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource( 16 )
 
-[node name="DialogText" type="Label" parent="CanvasLayer/GamePlayUI/ObjectiveBackground"]
+[node name="Hint" type="Label" parent="CanvasLayer/GamePlayUI/ObjectiveBackground"]
 anchor_left = 0.082
 anchor_top = 0.149
 anchor_right = 0.953
@@ -1664,7 +1663,6 @@ margin_top = -0.0490007
 margin_right = -0.116028
 margin_bottom = 0.048996
 custom_fonts/font = SubResource( 22 )
-text = "Objectives adaodoakwodawkoa"
 align = 2
 valign = 1
 

@@ -31,6 +31,8 @@ enum STATES{IDLE, JUMP, CROUCH, CLIMB, UNCLIMB}
 var dead = false 
 
 func _ready():
+	collision_shape.get_shape().height = 3.5
+	curr_state = STATES.IDLE
 	health_manager.init()
 	health_manager.connect("dead", self, "die")
 
