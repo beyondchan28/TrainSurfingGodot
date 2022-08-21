@@ -3110,7 +3110,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.82741, 2.44266, 12.9991 )
 shape = SubResource( 124 )
 
 [node name="CollisionShape3" type="CollisionShape" parent="StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -49.2119, 6.9617, 24.0798 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -49.2119, 6.9617, 7.31285 )
 shape = SubResource( 125 )
 
 [node name="CollisionShape4" type="CollisionShape" parent="StaticBody"]
@@ -3170,7 +3170,7 @@ bones/8/name = "Bone.003"
 bones/8/parent = 7
 bones/8/rest = Transform( 0.830391, -0.0710848, -0.552628, 0.262203, 0.924997, 0.275009, 0.49163, -0.373266, 0.786748, 5.96046e-08, 0.252039, 4.47035e-08 )
 bones/8/enabled = true
-bones/8/bound_children = [ NodePath("BoneAttachment") ]
+bones/8/bound_children = [  ]
 bones/9/name = "Bone.009.L"
 bones/9/parent = 6
 bones/9/rest = Transform( -0.534485, 0.837863, 0.110956, -0.837863, -0.542508, 0.0605844, 0.110956, -0.0605846, 0.991977, -3.54743e-07, 1.46942, 6.01302e-08 )

@@ -1,9 +1,7 @@
-[gd_resource type="Resource" load_steps=3 format=2]
+[gd_resource type="Resource" load_steps=2 format=2]
 
 [ext_resource path="res://Dialogue.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
 
 [resource]
 script = ExtResource( 1 )
-avatar_texture = ExtResource( 2 )
-dialog_slides = [ "Welcome...", "For now, u just need to walk forward..." ]
+dialog_slides = [  ]

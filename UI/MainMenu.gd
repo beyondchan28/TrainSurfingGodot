@@ -3,13 +3,13 @@ extends VideoPlayer
 export(NodePath) onready var start_on = get_node(start_on) as TextureRect
 export(NodePath) onready var start_off = get_node(start_off) as TextureRect
 
-export(NodePath) onready var setting_on = get_node(setting_on) as TextureRect
-export(NodePath) onready var setting_off = get_node(setting_off) as TextureRect
+export(NodePath) onready var howtoplay_on = get_node(howtoplay_on) as TextureRect
+export(NodePath) onready var howtoplay_off = get_node(howtoplay_off) as TextureRect
 
 export(NodePath) onready var exit_on = get_node(exit_on) as TextureRect
 export(NodePath) onready var exit_off = get_node(exit_off) as TextureRect
 
-const first_scene = preload("res://Level/Level.tscn")
+const loading_vid = preload("res://UI/loading-screen.webm")
 
 var current_selection = 0
 
@@ -25,23 +25,37 @@ func _process(delta):
 		set_current_selection(current_selection)
 	elif Input.is_action_just_pressed("jump"):
 		handle_selection(current_selection)
+	
+	if !current_selection == 1:
+		self.get_node("HowtoplayControl").set_visible(false)
 
 func handle_selection(_current_selection):
 	if _current_selection == 0:
-		get_parent().add_child(first_scene.instance())
-		queue_free()
+		loading()
 	elif _current_selection == 1:
-		pass
-		#about creator and the game
+		self.get_node("HowtoplayControl").set_visible(true)
 	elif _current_selection == 2:
 		get_tree().quit()
+
+
+
+func loading():
+	self.set_stream(loading_vid)
+	self.play()
+	var children = self.get_children()
+	children[0].set_visible(false)
+	children[1].set_visible(false)
+	children[2].set_visible(false)
+	
+	yield(self, "finished")
+	get_tree().change_scene("res://Level/Level.tscn")
 
 func set_current_selection(_current_selection) :
 	start_off.visible = true
 	start_on.visible = false
 	
-	setting_off.visible = true
-	setting_on.visible = false
+	howtoplay_off.visible = true
+	howtoplay_on.visible = false
 	
 	exit_off.visible = true
 	exit_on.visible = false
@@ -50,8 +64,8 @@ func set_current_selection(_current_selection) :
 		start_off.visible = false
 		start_on.visible = true
 	elif _current_selection == 1:
-		setting_off.visible = false
-		setting_on.visible = true
+		howtoplay_off.visible = false
+		howtoplay_on.visible = true
 	elif _current_selection == 2:
 		exit_off.visible = false
 		exit_on.visible = true

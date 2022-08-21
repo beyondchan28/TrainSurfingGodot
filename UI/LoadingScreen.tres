@@ -1,0 +1,8 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://vid_res.gd" type="Script" id=1]
+[ext_resource path="res://UI/loading-screen.webm" type="VideoStream" id=2]
+
+[resource]
+script = ExtResource( 1 )
+video = [ ExtResource( 2 ) ]

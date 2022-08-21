@@ -10,6 +10,11 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Resource",
+"class": "Cutscene",
+"language": "GDScript",
+"path": "res://vid_res.gd"
+}, {
+"base": "Resource",
 "class": "Dialogue",
 "language": "GDScript",
 "path": "res://Dialogue.gd"
@@ -23,11 +28,18 @@ _global_script_classes=[ {
 "class": "RuntimeData",
 "language": "GDScript",
 "path": "res://RuntimeState.gd"
+}, {
+"base": "Resource",
+"class": "Scene",
+"language": "GDScript",
+"path": "res://scene_res.gd"
 } ]
 _global_script_class_icons={
+"Cutscene": "",
 "Dialogue": "",
 "Ladder": "",
-"RuntimeData": ""
+"RuntimeData": "",
+"Scene": ""
 }
 
 [application]
@@ -107,6 +119,11 @@ flashlight={
 call={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":88,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+next_dialog={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777221,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
 

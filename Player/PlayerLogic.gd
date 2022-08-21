@@ -31,6 +31,8 @@ enum STATES{IDLE, JUMP, CROUCH, CLIMB, UNCLIMB}
 var dead = false 
 
 func _ready():
+	collision_shape.get_shape().height = 3.5
+	curr_state = STATES.IDLE
 	health_manager.init()
 	health_manager.connect("dead", self, "die")
 
@@ -83,7 +85,7 @@ func movement_input(move_dir, turn_dir, delta):
 	elif curr_state == STATES.UNCLIMB:
 		move_vec.z = 2
 
-	move_and_slide(move_vec, Vector3(0, 1, 0))
+	move_and_slide(move_vec, Vector3.UP, true)
 	#print(move_vec)
 	
 	var was_grounded = grounded

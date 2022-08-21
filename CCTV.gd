@@ -26,8 +26,8 @@ func _process(delta):
 		$Red.show()
 		$Yellow.hide()
 		emit_signal("detected")
-		print(distance)
-		print(self.name)
+#		print(distance)
+#		print(self.name)
 	else:
 		$Red.hide()
 		$Yellow.show()

@@ -7,8 +7,8 @@ signal health_changed
 export var max_health = 3
 var current_health = 1
 
-func _ready():
-	init()
+#func _ready():
+#	init()
 
 func init():
 	current_health = max_health
