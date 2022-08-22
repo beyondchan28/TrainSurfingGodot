@@ -1460,6 +1460,7 @@ skin = SubResource( 2 )
 
 [node name="BoneAttachment" type="BoneAttachment" parent="Pivot/Armature/Skeleton"]
 transform = Transform( 0.0032369, -0.000647299, -0.999995, -0.323449, -0.946245, -0.000434475, -0.94624, 0.323448, -0.00327237, 1.69684, 0.697389, 1.1968 )
+visible = false
 bone_name = "hand.L"
 
 [node name="Flashlight" type="MeshInstance" parent="Pivot/Armature/Skeleton/BoneAttachment"]
@@ -1679,13 +1680,16 @@ valign = 1
 
 [node name="PauseMenu" type="Control" parent="CanvasLayer"]
 pause_mode = 2
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 24 )
-resume_on = NodePath("Background/CenterContainer/HBoxContainer/ResumeON")
-resume_off = NodePath("Background/CenterContainer/HBoxContainer/ResumeOFF")
-exit_on = NodePath("Background/CenterContainer/HBoxContainer2/ExitON")
-exit_off = NodePath("Background/CenterContainer/HBoxContainer2/ExitOFF")
+resume_on = NodePath("Background/CenterContainer/VBoxContainer/HBoxContainer/ResumeON")
+resume_off = NodePath("Background/CenterContainer/VBoxContainer/HBoxContainer/ResumeOFF")
+restart_on = NodePath("Background/CenterContainer/VBoxContainer/HBoxContainer3/RestartON")
+restart_off = NodePath("Background/CenterContainer/VBoxContainer/HBoxContainer3/RestartOFF")
+exit_on = NodePath("Background/CenterContainer/VBoxContainer/HBoxContainer2/ExitON")
+exit_off = NodePath("Background/CenterContainer/VBoxContainer/HBoxContainer2/ExitOFF")
 
 [node name="Background" type="ColorRect" parent="CanvasLayer/PauseMenu"]
 anchor_left = 0.5
@@ -1715,16 +1719,24 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PauseMenu/Background/CenterContainer"]
-anchor_left = 0.419792
-anchor_top = 0.387963
-anchor_right = 0.579167
-anchor_bottom = 0.443519
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PauseMenu/Background/CenterContainer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -153.0
+margin_top = -94.0
+margin_right = 153.0
+margin_bottom = 94.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PauseMenu/Background/CenterContainer/VBoxContainer"]
+margin_right = 306.0
+margin_bottom = 60.0
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="ResumeOFF" type="TextureRect" parent="CanvasLayer/PauseMenu/Background/CenterContainer/HBoxContainer"]
+[node name="ResumeOFF" type="TextureRect" parent="CanvasLayer/PauseMenu/Background/CenterContainer/VBoxContainer/HBoxContainer"]
 margin_right = 306.0
 margin_bottom = 60.0
 texture = ExtResource( 21 )
@@ -1732,7 +1744,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="ButtonName" type="Label" parent="CanvasLayer/PauseMenu/Background/CenterContainer/HBoxContainer/ResumeOFF"]
+[node name="ButtonName" type="Label" parent="CanvasLayer/PauseMenu/Background/CenterContainer/VBoxContainer/HBoxContainer/ResumeOFF"]
 anchor_left = 0.098
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1742,14 +1754,14 @@ custom_fonts/font = SubResource( 24 )
 text = "RESUME"
 valign = 1
 
-[node name="ResumeON" type="TextureRect" parent="CanvasLayer/PauseMenu/Background/CenterContainer/HBoxContainer"]
+[node name="ResumeON" type="TextureRect" parent="CanvasLayer/PauseMenu/Background/CenterContainer/VBoxContainer/HBoxContainer"]
 visible = false
 margin_left = 310.0
 margin_right = 616.0
 margin_bottom = 60.0
 texture = ExtResource( 23 )
 
-[node name="ButtonName" type="Label" parent="CanvasLayer/PauseMenu/Background/CenterContainer/HBoxContainer/ResumeON"]
+[node name="ButtonName" type="Label" parent="CanvasLayer/PauseMenu/Background/CenterContainer/VBoxContainer/HBoxContainer/ResumeON"]
 anchor_left = 0.098
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1760,16 +1772,15 @@ custom_fonts/font = SubResource( 24 )
 text = "RESUME"
 valign = 1
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/PauseMenu/Background/CenterContainer"]
-anchor_left = 0.420833
-anchor_top = 0.476852
-anchor_right = 0.580208
-anchor_bottom = 0.532407
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/PauseMenu/Background/CenterContainer/VBoxContainer"]
+margin_top = 64.0
+margin_right = 306.0
+margin_bottom = 124.0
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="ExitOFF" type="TextureRect" parent="CanvasLayer/PauseMenu/Background/CenterContainer/HBoxContainer2"]
+[node name="RestartOFF" type="TextureRect" parent="CanvasLayer/PauseMenu/Background/CenterContainer/VBoxContainer/HBoxContainer3"]
 margin_right = 306.0
 margin_bottom = 60.0
 texture = ExtResource( 21 )
@@ -1777,7 +1788,51 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="ButtonName" type="Label" parent="CanvasLayer/PauseMenu/Background/CenterContainer/HBoxContainer2/ExitOFF"]
+[node name="ButtonName" type="Label" parent="CanvasLayer/PauseMenu/Background/CenterContainer/VBoxContainer/HBoxContainer3/RestartOFF"]
+anchor_left = 0.098
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 0.0119991
+rect_min_size = Vector2( 235, 0 )
+custom_fonts/font = SubResource( 24 )
+text = "RESTART"
+valign = 1
+
+[node name="RestartON" type="TextureRect" parent="CanvasLayer/PauseMenu/Background/CenterContainer/VBoxContainer/HBoxContainer3"]
+visible = false
+margin_left = 310.0
+margin_right = 616.0
+margin_bottom = 60.0
+texture = ExtResource( 23 )
+
+[node name="ButtonName" type="Label" parent="CanvasLayer/PauseMenu/Background/CenterContainer/VBoxContainer/HBoxContainer3/RestartON"]
+anchor_left = 0.098
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 0.0119991
+rect_min_size = Vector2( 235, 0 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 24 )
+text = "RESTART"
+valign = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/PauseMenu/Background/CenterContainer/VBoxContainer"]
+margin_top = 128.0
+margin_right = 306.0
+margin_bottom = 188.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ExitOFF" type="TextureRect" parent="CanvasLayer/PauseMenu/Background/CenterContainer/VBoxContainer/HBoxContainer2"]
+margin_right = 306.0
+margin_bottom = 60.0
+texture = ExtResource( 21 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ButtonName" type="Label" parent="CanvasLayer/PauseMenu/Background/CenterContainer/VBoxContainer/HBoxContainer2/ExitOFF"]
 anchor_left = 0.098
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1787,14 +1842,14 @@ custom_fonts/font = SubResource( 24 )
 text = "EXIT"
 valign = 1
 
-[node name="ExitON" type="TextureRect" parent="CanvasLayer/PauseMenu/Background/CenterContainer/HBoxContainer2"]
+[node name="ExitON" type="TextureRect" parent="CanvasLayer/PauseMenu/Background/CenterContainer/VBoxContainer/HBoxContainer2"]
 visible = false
 margin_left = 310.0
 margin_right = 616.0
 margin_bottom = 60.0
 texture = ExtResource( 23 )
 
-[node name="ButtonName" type="Label" parent="CanvasLayer/PauseMenu/Background/CenterContainer/HBoxContainer2/ExitON"]
+[node name="ButtonName" type="Label" parent="CanvasLayer/PauseMenu/Background/CenterContainer/VBoxContainer/HBoxContainer2/ExitON"]
 anchor_left = 0.098
 anchor_right = 1.0
 anchor_bottom = 1.0

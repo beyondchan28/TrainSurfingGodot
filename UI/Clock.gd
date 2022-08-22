@@ -1,6 +1,6 @@
 extends Label
 
-var time = 3655
+var time = 0
 var timer_on = true
 var current_time = 4
 
