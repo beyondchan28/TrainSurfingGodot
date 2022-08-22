@@ -13,12 +13,13 @@ func _ready():
 	GameEvents.connect("dialog_finished", self, "_on_dialog_finished")
 
 func _input(event):
-	if Input.is_action_just_pressed("next_dialog"):
-		if _current_slides_index < _current_dialogue.dialog_slides.size() - 1:
-			_current_slides_index += 1
-			show_slide()
-		else:
-			GameEvents.emit_signal("dialog_finished")
+	if _current_dialogue != null:
+		if Input.is_action_just_pressed("next_dialog"):
+			if _current_slides_index < _current_dialogue.dialog_slides.size() - 1:
+				_current_slides_index += 1
+				show_slide()
+			else:
+				GameEvents.emit_signal("dialog_finished")
 
 func show_slide():
 	_dialog_text.text = _current_dialogue.dialog_slides[_current_slides_index]

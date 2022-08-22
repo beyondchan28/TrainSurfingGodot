@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://Player/PlayerLogic.gd" type="Script" id=1]
 [ext_resource path="res://RuntimeData.tres" type="Resource" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Player/HealthManager.gd" type="Script" id=5]
 [ext_resource path="res://SoundSystem.tscn" type="PackedScene" id=6]
 [ext_resource path="res://UI/LoadingScreen.tres" type="Resource" id=7]
+[ext_resource path="res://UI/BespokeSans-Medium.otf" type="DynamicFontData" id=8]
 [ext_resource path="res://Assets/Flashlight.material" type="Material" id=9]
 [ext_resource path="res://UI/Clock.tscn" type="PackedScene" id=10]
 [ext_resource path="res://GameplayUI.gd" type="Script" id=11]
@@ -19,6 +20,10 @@
 [ext_resource path="res://UI/GameplayUI/jam.png" type="Texture" id=18]
 [ext_resource path="res://HealthUI.gd" type="Script" id=19]
 [ext_resource path="res://UI/GameplayUI/died eye.png" type="Texture" id=20]
+[ext_resource path="res://UI/Button/button menu off.png" type="Texture" id=21]
+[ext_resource path="res://UI/Logo ingame.png" type="Texture" id=22]
+[ext_resource path="res://UI/Button/button menu - on.png" type="Texture" id=23]
+[ext_resource path="res://UI/PauseMenu.gd" type="Script" id=24]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "MainCharacter_USED"
@@ -1283,6 +1288,10 @@ font_data = ExtResource( 14 )
 size = 38
 font_data = ExtResource( 13 )
 
+[sub_resource type="DynamicFont" id=24]
+size = 20
+font_data = ExtResource( 8 )
+
 [node name="Player" type="KinematicBody"]
 collision_layer = 2
 script = ExtResource( 1 )
@@ -1504,6 +1513,7 @@ shape = SubResource( 14 )
 script = ExtResource( 5 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enable = true
 script = ExtResource( 11 )
 _runtime_data = ExtResource( 2 )
 loading_vid = ExtResource( 7 )
@@ -1639,6 +1649,7 @@ margin_bottom = -0.0250015
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 23 )
 text = "00:00"
+health_manager = NodePath("../../../../HealthManager")
 
 [node name="ObjectiveBackground" type="TextureRect" parent="CanvasLayer/GamePlayUI"]
 anchor_left = 0.983
@@ -1664,6 +1675,134 @@ margin_right = -0.116028
 margin_bottom = 0.048996
 custom_fonts/font = SubResource( 22 )
 align = 2
+valign = 1
+
+[node name="PauseMenu" type="Control" parent="CanvasLayer"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 24 )
+resume_on = NodePath("Background/CenterContainer/HBoxContainer/ResumeON")
+resume_off = NodePath("Background/CenterContainer/HBoxContainer/ResumeOFF")
+exit_on = NodePath("Background/CenterContainer/HBoxContainer2/ExitON")
+exit_off = NodePath("Background/CenterContainer/HBoxContainer2/ExitOFF")
+
+[node name="Background" type="ColorRect" parent="CanvasLayer/PauseMenu"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -960.0
+margin_top = -540.0
+margin_right = 960.0
+margin_bottom = 540.0
+color = Color( 0, 0, 0, 0.168627 )
+
+[node name="CenterContainer" type="Control" parent="CanvasLayer/PauseMenu/Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Title" type="TextureRect" parent="CanvasLayer/PauseMenu/Background/CenterContainer"]
+anchor_left = 0.388021
+anchor_top = 0.174074
+anchor_right = 0.611979
+anchor_bottom = 0.341667
+texture = ExtResource( 22 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PauseMenu/Background/CenterContainer"]
+anchor_left = 0.419792
+anchor_top = 0.387963
+anchor_right = 0.579167
+anchor_bottom = 0.443519
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ResumeOFF" type="TextureRect" parent="CanvasLayer/PauseMenu/Background/CenterContainer/HBoxContainer"]
+margin_right = 306.0
+margin_bottom = 60.0
+texture = ExtResource( 21 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ButtonName" type="Label" parent="CanvasLayer/PauseMenu/Background/CenterContainer/HBoxContainer/ResumeOFF"]
+anchor_left = 0.098
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 0.0119991
+rect_min_size = Vector2( 235, 0 )
+custom_fonts/font = SubResource( 24 )
+text = "RESUME"
+valign = 1
+
+[node name="ResumeON" type="TextureRect" parent="CanvasLayer/PauseMenu/Background/CenterContainer/HBoxContainer"]
+visible = false
+margin_left = 310.0
+margin_right = 616.0
+margin_bottom = 60.0
+texture = ExtResource( 23 )
+
+[node name="ButtonName" type="Label" parent="CanvasLayer/PauseMenu/Background/CenterContainer/HBoxContainer/ResumeON"]
+anchor_left = 0.098
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 0.0119991
+rect_min_size = Vector2( 235, 0 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 24 )
+text = "RESUME"
+valign = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/PauseMenu/Background/CenterContainer"]
+anchor_left = 0.420833
+anchor_top = 0.476852
+anchor_right = 0.580208
+anchor_bottom = 0.532407
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ExitOFF" type="TextureRect" parent="CanvasLayer/PauseMenu/Background/CenterContainer/HBoxContainer2"]
+margin_right = 306.0
+margin_bottom = 60.0
+texture = ExtResource( 21 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ButtonName" type="Label" parent="CanvasLayer/PauseMenu/Background/CenterContainer/HBoxContainer2/ExitOFF"]
+anchor_left = 0.098
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 0.0119991
+rect_min_size = Vector2( 235, 0 )
+custom_fonts/font = SubResource( 24 )
+text = "EXIT"
+valign = 1
+
+[node name="ExitON" type="TextureRect" parent="CanvasLayer/PauseMenu/Background/CenterContainer/HBoxContainer2"]
+visible = false
+margin_left = 310.0
+margin_right = 616.0
+margin_bottom = 60.0
+texture = ExtResource( 23 )
+
+[node name="ButtonName" type="Label" parent="CanvasLayer/PauseMenu/Background/CenterContainer/HBoxContainer2/ExitON"]
+anchor_left = 0.098
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 0.0119991
+rect_min_size = Vector2( 235, 0 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 24 )
+text = "EXIT"
 valign = 1
 
 [connection signal="area_entered" from="Pivot/Armature/Skeleton/BoneAttachment/Flashlight/ObejctivesArea" to="." method="_on_ObejctivesArea_area_entered"]

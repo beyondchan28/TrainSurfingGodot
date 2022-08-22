@@ -2,9 +2,9 @@ extends Label
 
 var time = 3655
 var timer_on = true
-var current_time = 22
+var current_time = 4
 
-
+export(NodePath) onready var health_manager = get_node(health_manager)
 
 func _process(delta):
 	if timer_on:
@@ -15,3 +15,12 @@ func _process(delta):
 	
 	var time_passed = "%02d:%02d" % [mins, secs]
 	self.text = time_passed
+	time_limit(mins)
+	
+
+func time_limit(mins):
+	if health_manager.get_parent().get_parent().name == "Park" and fmod(mins, 1) <= 1.0:
+		health_manager.emit_signal("dead")
+	elif health_manager.get_parent().get_parent().name == "TrainStationLevel" and  fmod(mins, 5) <= 1.0:
+		health_manager.emit_signal("dead")
+		
