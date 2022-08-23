@@ -3,6 +3,7 @@
 [ext_resource path="res://Camera.gd" type="Script" id=1]
 
 [node name="Camera" type="Camera"]
+fov = 102.5
 far = 8192.0
 script = ExtResource( 1 )
 

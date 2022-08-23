@@ -12,18 +12,26 @@ export(NodePath) onready var restart_off = get_node(restart_off)
 export(NodePath) onready var exit_on = get_node(exit_on)
 export(NodePath) onready var exit_off = get_node(exit_off)
 
+var can_toggle = true
+
 func _ready():
 	set_current_selection(current_selection)
 
 func _unhandled_input(event):
-	if event.is_action_pressed("pause"):
+	if event.is_action_pressed("pause") and can_toggle:
 		self.is_paused = !is_paused
 	if get_tree().is_paused():
 		if Input.is_action_pressed("move_backwards") and current_selection < 2:
-			current_selection += 1
+			if can_toggle:
+				current_selection += 1
+			else:
+				current_selection = 2
 			set_current_selection(current_selection)
 		elif Input.is_action_pressed("move_forwards") and current_selection > 0:
-			current_selection -= 1
+			if can_toggle:
+				current_selection += 1
+			else:
+				current_selection = 1
 			set_current_selection(current_selection)
 		elif Input.is_action_just_pressed("next_dialog"):
 			handle_selection(current_selection)
@@ -59,5 +67,14 @@ func set_current_selection(_current_selection) :
 
 func set_is_paused(value):
 	is_paused = value
+	get_tree().paused = is_paused
+	visible = is_paused
+
+func when_die():
+	get_node("Background/CenterContainer/VBoxContainer/HBoxContainer").set_visible(false)
+	current_selection = 1
+	set_current_selection(current_selection)
+	can_toggle = false
+	is_paused = true
 	get_tree().paused = is_paused
 	visible = is_paused
