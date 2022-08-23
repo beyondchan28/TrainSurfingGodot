@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://Player/PlayerLogic.gd" type="Script" id=1]
 [ext_resource path="res://RuntimeData.tres" type="Resource" id=2]
@@ -24,6 +24,7 @@
 [ext_resource path="res://UI/Logo ingame.png" type="Texture" id=22]
 [ext_resource path="res://UI/Button/button menu - on.png" type="Texture" id=23]
 [ext_resource path="res://UI/PauseMenu.gd" type="Script" id=24]
+[ext_resource path="res://Player/SoundEffect.gd" type="Script" id=25]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "MainCharacter_USED"
@@ -1517,6 +1518,10 @@ shape = SubResource( 14 )
 [node name="HealthManager" type="Spatial" parent="."]
 script = ExtResource( 5 )
 
+[node name="SoundEffect" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+script = ExtResource( 25 )
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 follow_viewport_enable = true
 script = ExtResource( 11 )
@@ -1864,5 +1869,8 @@ valign = 1
 [connection signal="area_entered" from="Pivot/Armature/Skeleton/BoneAttachment/Flashlight/ObejctivesArea" to="." method="_on_ObejctivesArea_area_entered"]
 [connection signal="area_exited" from="Pivot/Armature/Skeleton/BoneAttachment/Flashlight/ObejctivesArea" to="." method="_on_ObejctivesArea_area_exited"]
 [connection signal="dead" from="HealthManager" to="CanvasLayer/PauseMenu" method="when_die"]
+[connection signal="dead" from="HealthManager" to="SoundEffect" method="sound_dead"]
 [connection signal="health_changed" from="HealthManager" to="CanvasLayer/GamePlayUI" method="update_health"]
+[connection signal="noticed" from="HealthManager" to="SoundEffect" method="sound_notice"]
+[connection signal="finished" from="SoundEffect" to="SoundEffect" method="_on_SoundEffect_finished"]
 [connection signal="finished" from="CanvasLayer/VideoPlayer" to="CanvasLayer" method="_on_VideoPlayer_finished"]
