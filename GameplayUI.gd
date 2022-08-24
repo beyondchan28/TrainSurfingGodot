@@ -42,7 +42,7 @@ func next_level(next):
 	get_tree().change_scene(next)
 
 func _on_VideoPlayer_finished():
-	if video_name == "res://UI/RoomOfDepression15sec.webm":
+	if video_name == "res://UI/TrainStationCutscene.webm":
 		call_deferred("play_cutscene", loading_vid.video[0])
 	elif self.get_parent().get_parent().name == "Level" and video_name == "res://UI/loading-screen.webm":
 		next_level(trainstation_scene)

@@ -6,6 +6,11 @@ onready var gameplay_ui = $Player/CanvasLayer
 var loading_vid = preload("res://UI/loading-screen.webm")
 #var next_level = load("res://Level/SecretBuilding.tscn")
 
+onready var clock = $Player/CanvasLayer/GamePlayUI/ClockBackground/Clock
+
+func _ready():
+	clock.current_time = 1
+
 func _on_JacketTrigger_body_entered(body):
 	if body.name == "Player":
 		body.get_node("Pivot/Armature/Skeleton/Body").set_visible(false)

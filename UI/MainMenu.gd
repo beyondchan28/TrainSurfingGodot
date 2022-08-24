@@ -23,7 +23,7 @@ func _process(delta):
 	elif Input.is_action_just_pressed("move_forwards") and current_selection > 0:
 		current_selection -= 1
 		set_current_selection(current_selection)
-	elif Input.is_action_just_pressed("jump"):
+	elif Input.is_action_just_pressed("next_dialog"):
 		handle_selection(current_selection)
 	
 	if !current_selection == 1:
@@ -36,8 +36,6 @@ func handle_selection(_current_selection):
 		self.get_node("HowtoplayControl").set_visible(true)
 	elif _current_selection == 2:
 		get_tree().quit()
-
-
 
 func loading():
 	self.set_stream(loading_vid)

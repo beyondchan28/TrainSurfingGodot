@@ -12,6 +12,10 @@ onready var flashlight = $FlashlightActivator
 onready var gameplay_ui = $Player/CanvasLayer
 onready var hint = $Player/CanvasLayer/GamePlayUI/ObjectiveBackground/Hint
 
+onready var clock = $Player/CanvasLayer/GamePlayUI/ClockBackground/Clock
+
+func _ready():
+	clock.current_time = 19
 
 func _on_FlashlightActivator_body_entered(body):
 	if body.name == "Player":
