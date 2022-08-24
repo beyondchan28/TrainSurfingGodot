@@ -25,5 +25,5 @@ func _on_KeyAccess_body_entered(body):
 
 
 func _on_EndPoint_body_entered(body):
-	if body.name == "Player":
+	if body.name == "Player" and got_key_access == true:
 		gameplay_ui.play_cutscene(loading_vid)

@@ -1294,7 +1294,8 @@ size = 20
 font_data = ExtResource( 8 )
 
 [node name="Player" type="KinematicBody"]
-collision_layer = 2
+collision_layer = 3
+collision_mask = 3
 script = ExtResource( 1 )
 _runtime_data = ExtResource( 2 )
 
@@ -1523,7 +1524,6 @@ pause_mode = 2
 script = ExtResource( 25 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-follow_viewport_enable = true
 script = ExtResource( 11 )
 _runtime_data = ExtResource( 2 )
 loading_vid = ExtResource( 7 )
@@ -1703,7 +1703,7 @@ exit_off = NodePath("Background/CenterContainer/VBoxContainer/HBoxContainer2/Exi
 [node name="Background" type="ColorRect" parent="CanvasLayer/PauseMenu"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0, 0, 0, 0.168627 )
+color = Color( 0.262745, 0.278431, 0.317647, 0.776471 )
 
 [node name="CenterContainer" type="Control" parent="CanvasLayer/PauseMenu/Background"]
 anchor_left = 0.5
@@ -1868,8 +1868,8 @@ valign = 1
 
 [connection signal="area_entered" from="Pivot/Armature/Skeleton/BoneAttachment/Flashlight/ObejctivesArea" to="." method="_on_ObejctivesArea_area_entered"]
 [connection signal="area_exited" from="Pivot/Armature/Skeleton/BoneAttachment/Flashlight/ObejctivesArea" to="." method="_on_ObejctivesArea_area_exited"]
-[connection signal="dead" from="HealthManager" to="CanvasLayer/PauseMenu" method="when_die"]
 [connection signal="dead" from="HealthManager" to="SoundEffect" method="sound_dead"]
+[connection signal="dead" from="HealthManager" to="CanvasLayer/PauseMenu" method="when_die"]
 [connection signal="health_changed" from="HealthManager" to="CanvasLayer/GamePlayUI" method="update_health"]
 [connection signal="noticed" from="HealthManager" to="SoundEffect" method="sound_notice"]
 [connection signal="finished" from="SoundEffect" to="SoundEffect" method="_on_SoundEffect_finished"]

@@ -840,6 +840,7 @@ __meta__ = {
 stream = ExtResource( 5 )
 
 [node name="NoticeSound" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 
 [connection signal="target_reached" from="NavigationAgent" to="." method="_on_NavigationAgent_target_reached"]
 [connection signal="velocity_computed" from="NavigationAgent" to="." method="_on_NavigationAgent_velocity_computed"]
