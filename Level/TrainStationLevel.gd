@@ -11,6 +11,10 @@ onready var clock = $Player/CanvasLayer/GamePlayUI/ClockBackground/Clock
 func _ready():
 	clock.current_time = 1
 
+func play_sound(audio):
+	$CollectSound.set_stream(audio)
+	$CollectSound.play()
+
 func _on_JacketTrigger_body_entered(body):
 	if body.name == "Player":
 		body.get_node("Pivot/Armature/Skeleton/Body").set_visible(false)
