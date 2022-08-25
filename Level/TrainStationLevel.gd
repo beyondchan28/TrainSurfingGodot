@@ -3,7 +3,7 @@ extends Spatial
 var got_key_access = false
 onready var gameplay_ui = $Player/CanvasLayer
 
-var loading_vid = preload("res://UI/loading-screen.webm")
+var loading_vid = preload("res://UI/LoadingScreen.ogv")
 #var next_level = load("res://Level/SecretBuilding.tscn")
 
 onready var clock = $Player/CanvasLayer/GamePlayUI/ClockBackground/Clock

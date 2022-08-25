@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://Player/PlayerLogic.gd" type="Script" id=1]
 [ext_resource path="res://RuntimeData.tres" type="Resource" id=2]
@@ -6,7 +6,7 @@
 [ext_resource path="res://Player/Raw Assets/MCWorkerJacket.material" type="Material" id=4]
 [ext_resource path="res://Player/HealthManager.gd" type="Script" id=5]
 [ext_resource path="res://SoundSystem.tscn" type="PackedScene" id=6]
-[ext_resource path="res://UI/LoadingScreen.tres" type="Resource" id=7]
+[ext_resource path="res://LoadingScreen.tres" type="Resource" id=7]
 [ext_resource path="res://UI/BespokeSans-Medium.otf" type="DynamicFontData" id=8]
 [ext_resource path="res://Assets/Flashlight.material" type="Material" id=9]
 [ext_resource path="res://UI/Clock.tscn" type="PackedScene" id=10]
@@ -25,6 +25,7 @@
 [ext_resource path="res://UI/Button/button menu - on.png" type="Texture" id=23]
 [ext_resource path="res://UI/PauseMenu.gd" type="Script" id=24]
 [ext_resource path="res://Player/SoundEffect.gd" type="Script" id=25]
+[ext_resource path="res://Sound Audio/phone-hang-up.mp3" type="AudioStream" id=26]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "MainCharacter_USED"
@@ -1686,6 +1687,9 @@ margin_bottom = 0.048996
 custom_fonts/font = SubResource( 22 )
 align = 2
 valign = 1
+
+[node name="HintSound" type="AudioStreamPlayer" parent="CanvasLayer/GamePlayUI/ObjectiveBackground/Hint"]
+stream = ExtResource( 26 )
 
 [node name="PauseMenu" type="Control" parent="CanvasLayer"]
 pause_mode = 2
