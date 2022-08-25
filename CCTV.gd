@@ -21,13 +21,12 @@ func _process(delta):
 #	print(vision_manager.has_line_of_sight(target_point))
 	if target.has_method("get_aim_at_pos"):
 		target_point = target.get_aim_at_pos()
-		get_node("Red").global_transform.origin = target_point
 	if distance <= min_distance and vision_manager.in_vision(target_point) and vision_manager.has_line_of_sight(target_point):
 		$Red.show()
 		$Yellow.hide()
 		emit_signal("detected")
-		print(distance)
-		print(self.name)
+#		print(distance)
+#		print(self.name)
 	else:
 		$Red.hide()
 		$Yellow.show()

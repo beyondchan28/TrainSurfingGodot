@@ -1,6 +1,6 @@
 extends Spatial
 
-export(Resource) var cutscene_vid = cutscene_vid as Cutscene
+export(Resource) var cutscene_vid = cutscene_vid
 
 onready var player = $Player
 onready var flashlight = $FlashlightActivator
