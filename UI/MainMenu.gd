@@ -9,7 +9,7 @@ export(NodePath) onready var howtoplay_off = get_node(howtoplay_off) as TextureR
 export(NodePath) onready var exit_on = get_node(exit_on) as TextureRect
 export(NodePath) onready var exit_off = get_node(exit_off) as TextureRect
 
-const loading_vid = preload("res://UI/loading-screen.webm")
+const loading_vid = preload("res://UI/LoadingScreen.ogv")
 
 var current_selection = 0
 

@@ -90,7 +90,7 @@ func _on_DetectionArea_body_exited(body):
 
 func attack():
 	target_node_1.noticed(damage)
-#	play_sound()
+	play_sound()
 	print(self.name)
 	if count == 3:
 		count = 0

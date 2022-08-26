@@ -2,6 +2,7 @@ extends Spatial
 
 
 export var vision_arc = 60.0
+var minimal_distance = 40.0
 
 func in_vision(point: Vector3):
 	var forward = -self.global_transform.basis.z

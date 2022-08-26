@@ -186,7 +186,7 @@ func play_anim(name):
 	anim.play(name)
 
 func get_aim_at_pos():
-	return self.global_transform.origin + Vector3.UP * 1.5
+	return self.global_transform.origin + Vector3.UP * 1.9
 
 
 func noticed(damage: int):

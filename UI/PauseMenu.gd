@@ -29,7 +29,7 @@ func _unhandled_input(event):
 			set_current_selection(current_selection)
 		elif Input.is_action_pressed("move_forwards") and current_selection > 0:
 			if can_toggle:
-				current_selection += 1
+				current_selection -= 1
 			else:
 				current_selection = 1
 			set_current_selection(current_selection)
@@ -72,9 +72,8 @@ func set_is_paused(value):
 
 func when_die():
 	get_node("Background/CenterContainer/VBoxContainer/HBoxContainer").set_visible(false)
+	get_node("Background/CenterContainer/Title").set_text("You Are Noticed !")
 	current_selection = 1
 	set_current_selection(current_selection)
 	can_toggle = false
-	is_paused = true
-	get_tree().paused = is_paused
-	visible = is_paused
+	set_is_paused(!is_paused)

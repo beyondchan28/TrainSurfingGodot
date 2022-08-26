@@ -48,7 +48,7 @@ surfaces/0 = {
 script = ExtResource( 2 )
 
 [node name="VisionManager" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18511, -1.21515 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.910703 )
 script = ExtResource( 1 )
 
 [node name="SpotLight" type="SpotLight" parent="VisionManager"]

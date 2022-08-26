@@ -3110,11 +3110,11 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.82741, 2.44266, 12.9991 )
 shape = SubResource( 124 )
 
 [node name="CollisionShape3" type="CollisionShape" parent="StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -49.2119, 6.9617, 7.31285 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -49.2119, 6.9617, 1.04297 )
 shape = SubResource( 125 )
 
 [node name="CollisionShape4" type="CollisionShape" parent="StaticBody"]
-transform = Transform( 0.911913, 0, -0.410385, 0, 1, 0, 0.410385, 0, 0.911913, -78.2179, 7.16951, -3.55496 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -65.0832, 7.16951, -3.55496 )
 shape = SubResource( 126 )
 
 [node name="TrainStation" parent="." instance=ExtResource( 8 )]
@@ -3313,6 +3313,7 @@ anims/Sleepy = SubResource( 7 )
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Passenger"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.06589, -0.514729 )
 stream = ExtResource( 15 )
+unit_size = 4.0
 
 [node name="Passenger3" type="Spatial" parent="."]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -21.3826, -5.84836, 198.622 )
@@ -3507,6 +3508,7 @@ anims/Sleepy = SubResource( 134 )
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Passenger3"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.13723, 0 )
 stream = ExtResource( 13 )
+unit_size = 4.0
 
 [node name="Passenger2" type="Spatial" parent="."]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -16.7245, -5.89176, 209.548 )
@@ -3679,6 +3681,7 @@ anims/Sleepy = SubResource( 130 )
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Passenger2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.10877, 0 )
 stream = ExtResource( 14 )
+unit_size = 10.0
 
 [node name="VisibilityEnabler" type="VisibilityEnabler" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -39.7988, -0.234978, 162.986 )

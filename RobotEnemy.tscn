@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://PathFollow.gd" type="Script" id=1]
 [ext_resource path="res://Assets/RobotWorker.material" type="Material" id=2]
 [ext_resource path="res://Assets/Boxes.material" type="Material" id=3]
+[ext_resource path="res://Sound Audio/buzz.wav" type="AudioStream" id=4]
 
 [sub_resource type="ArrayMesh" id=5]
 resource_name = "RobotWorker_Cube014"
@@ -771,6 +772,9 @@ material = SubResource( 37 )
 __meta__ = {
 "_editor_description_": ""
 }
+
+[node name="HittingSoundEffect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
 
 [connection signal="body_entered" from="RobotArea" to="." method="_on_RobotArea_body_entered"]
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_PlayerDetector_body_entered"]

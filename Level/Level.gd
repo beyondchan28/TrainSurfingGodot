@@ -1,6 +1,6 @@
 extends Spatial
 
-export(Resource) var cutscene_vid = cutscene_vid as Cutscene
+export(Resource) var cutscene_vid = cutscene_vid
 
 onready var player = $Player
 onready var flashlight = $FlashlightActivator
@@ -17,22 +17,26 @@ onready var clock = $Player/CanvasLayer/GamePlayUI/ClockBackground/Clock
 func _ready():
 	clock.current_time = 19
 
+func set_hint(text: String):
+	hint.set_text(text)
+	hint.get_node("HintSound").play()
+
 func _on_FlashlightActivator_body_entered(body):
 	if body.name == "Player":
-		hint.set_text("Pickup Friend in this area.")
+		set_hint("Pickup Friend in this area.")
 		player.get_node("Pivot/Armature/Skeleton/BoneAttachment").visible = true
 		flashlight.queue_free()
 
 func _on_TranStationCutsceneTrigger_body_entered(body):
 	if body.name == "Player":
-		hint.set_text("")
+		set_hint("")
 		gameplay_ui.play_cutscene(cutscene_vid.video[1])
 		
 
 func _on_TelephoneCutsceneTrigger_body_entered(body):
 	if body.name == "Player":
 		gameplay_ui.play_cutscene(cutscene_vid.video[0])
-		hint.set_text("Go to The Park. Follow the Lights.")
+		set_hint("Go to the park. Follow the lights.")
 
 func _on_TelephoneCutsceneTrigger_body_exited(body):
 	if body.name == "Player":
@@ -41,6 +45,6 @@ func _on_TelephoneCutsceneTrigger_body_exited(body):
 
 func _on_FriendHintTrigger_body_entered(body):
 	if body.name == "Player":
-		hint.set_text("Go to the Train Station... Through fences...")
+		set_hint("Go to the Train Station... Through fences...")
 		self.get_node("FriendHintTrigger").queue_free()
 		
