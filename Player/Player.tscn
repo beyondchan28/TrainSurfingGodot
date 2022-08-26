@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://Player/PlayerLogic.gd" type="Script" id=1]
 [ext_resource path="res://RuntimeData.tres" type="Resource" id=2]
@@ -14,7 +14,7 @@
 [ext_resource path="res://Dialogues/DialogUI.gd" type="Script" id=12]
 [ext_resource path="res://UI/Supreme-Medium.otf" type="DynamicFontData" id=13]
 [ext_resource path="res://UI/BespokeSans-Regular.otf" type="DynamicFontData" id=14]
-[ext_resource path="res://UI/GameplayUI/db_tlp.png" type="Texture" id=15]
+[ext_resource path="res://Dialogues/bgdc.png" type="Texture" id=15]
 [ext_resource path="res://UI/GameplayUI/objektif.png" type="Texture" id=16]
 [ext_resource path="res://UI/GameplayUI/eye.png" type="Texture" id=17]
 [ext_resource path="res://UI/GameplayUI/jam.png" type="Texture" id=18]
@@ -26,6 +26,7 @@
 [ext_resource path="res://UI/PauseMenu.gd" type="Script" id=24]
 [ext_resource path="res://Player/SoundEffect.gd" type="Script" id=25]
 [ext_resource path="res://Sound Audio/phone-hang-up.mp3" type="AudioStream" id=26]
+[ext_resource path="res://Dialogues/bgdc2.png" type="Texture" id=27]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "MainCharacter_USED"
@@ -1542,37 +1543,40 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 12 )
 _dialog_text = NodePath("DialogText")
-_avatar = NodePath("CenterContainer/Avatar")
+_avatar = NodePath("Avatar")
 _runtime_data = ExtResource( 2 )
 
-[node name="CenterContainer" type="MarginContainer" parent="CanvasLayer/DialogUI"]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -502.0
-margin_top = -331.0
-margin_right = 555.0
-
-[node name="Avatar" type="TextureRect" parent="CanvasLayer/DialogUI/CenterContainer"]
-margin_right = 1057.0
-margin_bottom = 331.0
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/DialogUI"]
+margin_left = 475.0
+margin_top = 831.0
+margin_right = 1445.0
+margin_bottom = 1080.0
 texture = ExtResource( 15 )
 
 [node name="DialogText" type="Label" parent="CanvasLayer/DialogUI"]
-anchor_left = 0.393
-anchor_top = 0.752
-anchor_right = 0.722
-anchor_bottom = 0.925
-margin_left = 0.440002
-margin_top = -0.160034
-margin_right = -0.23999
-margin_bottom = -6.10352e-05
+anchor_left = 0.397396
+anchor_top = 0.812963
+anchor_right = 0.722396
+anchor_bottom = 0.962037
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 22 )
 text = "Sample
 ANOTHER"
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Avatar" type="TextureRect" parent="CanvasLayer/DialogUI"]
+margin_left = 511.0
+margin_top = 593.0
+margin_right = 930.0
+margin_bottom = 1037.0
+texture = ExtResource( 27 )
+stretch_mode = 3
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="GamePlayUI" type="Control" parent="CanvasLayer"]
 anchor_right = 1.0
@@ -1699,10 +1703,12 @@ anchor_bottom = 1.0
 script = ExtResource( 24 )
 resume_on = NodePath("Background/CenterContainer/VBoxContainer/HBoxContainer/ResumeON")
 resume_off = NodePath("Background/CenterContainer/VBoxContainer/HBoxContainer/ResumeOFF")
-restart_on = NodePath("Background/CenterContainer/VBoxContainer/HBoxContainer3/RestartON")
-restart_off = NodePath("Background/CenterContainer/VBoxContainer/HBoxContainer3/RestartOFF")
-exit_on = NodePath("Background/CenterContainer/VBoxContainer/HBoxContainer2/ExitON")
-exit_off = NodePath("Background/CenterContainer/VBoxContainer/HBoxContainer2/ExitOFF")
+restart_on = NodePath("Background/CenterContainer/VBoxContainer/HBoxContainer2/RestartON")
+restart_off = NodePath("Background/CenterContainer/VBoxContainer/HBoxContainer2/RestartOFF")
+backmain_on = NodePath("Background/CenterContainer/VBoxContainer/HBoxContainer3/MainMenuON")
+backmain_off = NodePath("Background/CenterContainer/VBoxContainer/HBoxContainer3/MainMenuOFF")
+exit_on = NodePath("Background/CenterContainer/VBoxContainer/HBoxContainer4/ExitON")
+exit_off = NodePath("Background/CenterContainer/VBoxContainer/HBoxContainer4/ExitOFF")
 
 [node name="Background" type="ColorRect" parent="CanvasLayer/PauseMenu"]
 anchor_right = 1.0
@@ -1738,7 +1744,7 @@ anchor_bottom = 0.5
 margin_left = -312.0
 margin_top = -145.0
 margin_right = 311.0
-margin_bottom = 153.0
+margin_bottom = 229.0
 color = Color( 0.278431, 0.266667, 0.266667, 0.537255 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PauseMenu/Background/CenterContainer"]
@@ -1793,7 +1799,7 @@ custom_fonts/font = SubResource( 24 )
 text = "RESUME"
 valign = 1
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/PauseMenu/Background/CenterContainer/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/PauseMenu/Background/CenterContainer/VBoxContainer"]
 margin_top = 64.0
 margin_right = 315.0
 margin_bottom = 124.0
@@ -1801,7 +1807,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="RestartOFF" type="TextureRect" parent="CanvasLayer/PauseMenu/Background/CenterContainer/VBoxContainer/HBoxContainer3"]
+[node name="RestartOFF" type="TextureRect" parent="CanvasLayer/PauseMenu/Background/CenterContainer/VBoxContainer/HBoxContainer2"]
 margin_right = 306.0
 margin_bottom = 60.0
 texture = ExtResource( 21 )
@@ -1809,7 +1815,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="ButtonName" type="Label" parent="CanvasLayer/PauseMenu/Background/CenterContainer/VBoxContainer/HBoxContainer3/RestartOFF"]
+[node name="ButtonName" type="Label" parent="CanvasLayer/PauseMenu/Background/CenterContainer/VBoxContainer/HBoxContainer2/RestartOFF"]
 anchor_left = 0.098
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1819,14 +1825,14 @@ custom_fonts/font = SubResource( 24 )
 text = "RESTART"
 valign = 1
 
-[node name="RestartON" type="TextureRect" parent="CanvasLayer/PauseMenu/Background/CenterContainer/VBoxContainer/HBoxContainer3"]
+[node name="RestartON" type="TextureRect" parent="CanvasLayer/PauseMenu/Background/CenterContainer/VBoxContainer/HBoxContainer2"]
 visible = false
 margin_left = 310.0
 margin_right = 616.0
 margin_bottom = 60.0
 texture = ExtResource( 23 )
 
-[node name="ButtonName" type="Label" parent="CanvasLayer/PauseMenu/Background/CenterContainer/VBoxContainer/HBoxContainer3/RestartON"]
+[node name="ButtonName" type="Label" parent="CanvasLayer/PauseMenu/Background/CenterContainer/VBoxContainer/HBoxContainer2/RestartON"]
 anchor_left = 0.098
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1837,7 +1843,7 @@ custom_fonts/font = SubResource( 24 )
 text = "RESTART"
 valign = 1
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/PauseMenu/Background/CenterContainer/VBoxContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/PauseMenu/Background/CenterContainer/VBoxContainer"]
 margin_top = 128.0
 margin_right = 315.0
 margin_bottom = 188.0
@@ -1845,7 +1851,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="ExitOFF" type="TextureRect" parent="CanvasLayer/PauseMenu/Background/CenterContainer/VBoxContainer/HBoxContainer2"]
+[node name="MainMenuOFF" type="TextureRect" parent="CanvasLayer/PauseMenu/Background/CenterContainer/VBoxContainer/HBoxContainer3"]
 margin_right = 306.0
 margin_bottom = 60.0
 texture = ExtResource( 21 )
@@ -1853,7 +1859,51 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="ButtonName" type="Label" parent="CanvasLayer/PauseMenu/Background/CenterContainer/VBoxContainer/HBoxContainer2/ExitOFF"]
+[node name="ButtonName" type="Label" parent="CanvasLayer/PauseMenu/Background/CenterContainer/VBoxContainer/HBoxContainer3/MainMenuOFF"]
+anchor_left = 0.098
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 0.0119991
+rect_min_size = Vector2( 235, 0 )
+custom_fonts/font = SubResource( 24 )
+text = "BACK TO MAIN MENU"
+valign = 1
+
+[node name="MainMenuON" type="TextureRect" parent="CanvasLayer/PauseMenu/Background/CenterContainer/VBoxContainer/HBoxContainer3"]
+visible = false
+margin_left = 310.0
+margin_right = 616.0
+margin_bottom = 60.0
+texture = ExtResource( 23 )
+
+[node name="ButtonName" type="Label" parent="CanvasLayer/PauseMenu/Background/CenterContainer/VBoxContainer/HBoxContainer3/MainMenuON"]
+anchor_left = 0.098
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 0.0119991
+rect_min_size = Vector2( 235, 0 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 24 )
+text = "BACK TO MAIN MENU"
+valign = 1
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="CanvasLayer/PauseMenu/Background/CenterContainer/VBoxContainer"]
+margin_top = 192.0
+margin_right = 315.0
+margin_bottom = 252.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ExitOFF" type="TextureRect" parent="CanvasLayer/PauseMenu/Background/CenterContainer/VBoxContainer/HBoxContainer4"]
+margin_right = 306.0
+margin_bottom = 60.0
+texture = ExtResource( 21 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ButtonName" type="Label" parent="CanvasLayer/PauseMenu/Background/CenterContainer/VBoxContainer/HBoxContainer4/ExitOFF"]
 anchor_left = 0.098
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1863,14 +1913,14 @@ custom_fonts/font = SubResource( 24 )
 text = "EXIT"
 valign = 1
 
-[node name="ExitON" type="TextureRect" parent="CanvasLayer/PauseMenu/Background/CenterContainer/VBoxContainer/HBoxContainer2"]
+[node name="ExitON" type="TextureRect" parent="CanvasLayer/PauseMenu/Background/CenterContainer/VBoxContainer/HBoxContainer4"]
 visible = false
 margin_left = 310.0
 margin_right = 616.0
 margin_bottom = 60.0
 texture = ExtResource( 23 )
 
-[node name="ButtonName" type="Label" parent="CanvasLayer/PauseMenu/Background/CenterContainer/VBoxContainer/HBoxContainer2/ExitON"]
+[node name="ButtonName" type="Label" parent="CanvasLayer/PauseMenu/Background/CenterContainer/VBoxContainer/HBoxContainer4/ExitON"]
 anchor_left = 0.098
 anchor_right = 1.0
 anchor_bottom = 1.0

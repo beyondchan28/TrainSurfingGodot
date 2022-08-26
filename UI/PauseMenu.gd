@@ -9,6 +9,9 @@ export(NodePath) onready var resume_off = get_node(resume_off)
 export(NodePath) onready var restart_on = get_node(restart_on)
 export(NodePath) onready var restart_off = get_node(restart_off)
 
+export(NodePath) onready var backmain_on = get_node(backmain_on)
+export(NodePath) onready var backmain_off = get_node(backmain_off)
+
 export(NodePath) onready var exit_on = get_node(exit_on)
 export(NodePath) onready var exit_off = get_node(exit_off)
 
@@ -21,11 +24,11 @@ func _unhandled_input(event):
 	if event.is_action_pressed("pause") and can_toggle:
 		self.is_paused = !is_paused
 	if get_tree().is_paused():
-		if Input.is_action_pressed("move_backwards") and current_selection < 2:
+		if Input.is_action_pressed("move_backwards") and current_selection < 3:
 			if can_toggle:
 				current_selection += 1
 			else:
-				current_selection = 2
+				current_selection = 3
 			set_current_selection(current_selection)
 		elif Input.is_action_pressed("move_forwards") and current_selection > 0:
 			if can_toggle:
@@ -43,6 +46,8 @@ func handle_selection(_current_selection):
 		get_tree().reload_current_scene()
 		get_tree().set_pause(false)
 	elif _current_selection == 2:
+		get_tree().change_scene("res://UI/MainMenu.tscn")
+	elif _current_selection == 3:
 		get_tree().quit()
 
 func set_current_selection(_current_selection) :
@@ -51,6 +56,9 @@ func set_current_selection(_current_selection) :
 	
 	restart_off.visible = true
 	restart_on.visible = false
+	
+	backmain_off.visible = true
+	backmain_on.visible = false
 	
 	exit_off.visible = true
 	exit_on.visible = false
@@ -62,6 +70,9 @@ func set_current_selection(_current_selection) :
 		restart_off.visible = false
 		restart_on.visible = true
 	elif _current_selection == 2:
+		backmain_off.visible = false
+		backmain_on.visible = true
+	elif _current_selection == 3:
 		exit_off.visible = false
 		exit_on.visible = true
 
@@ -72,6 +83,7 @@ func set_is_paused(value):
 
 func when_die():
 	get_node("Background/CenterContainer/VBoxContainer/HBoxContainer").set_visible(false)
+	get_node("Background/CenterContainer/VBoxContainer/HBoxContainer3").set_visible(false)
 	get_node("Background/CenterContainer/Title").set_text("You Are Noticed !")
 	current_selection = 1
 	set_current_selection(current_selection)

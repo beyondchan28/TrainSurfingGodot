@@ -23,6 +23,6 @@ func time_limit(mins):
 		health_manager.emit_signal("dead")
 	elif health_manager.get_parent().get_parent().name == "TrainStationLevel" and  fmod(mins, 5) <= 1.0:
 		health_manager.emit_signal("dead")
-	elif health_manager.get_parent().get_parent().name == "SecretBuilding" and  fmod(mins, 8) <= 1.0:
+	elif health_manager.get_parent().get_parent().name == "SecretBuilding" and  fmod(mins, 7) <= 1.0:
 		health_manager.emit_signal("dead")
 		
