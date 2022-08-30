@@ -71,3 +71,7 @@ func set_current_selection(_current_selection) :
 
 func _on_MainMenuVideo_finished():
 	self.play()
+
+
+func _on_AudioStreamPlayer_finished():
+	$AudioStreamPlayer.play()

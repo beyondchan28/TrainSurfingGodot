@@ -25,7 +25,7 @@
 [ext_resource path="res://UI/Button/button menu - on.png" type="Texture" id=23]
 [ext_resource path="res://UI/PauseMenu.gd" type="Script" id=24]
 [ext_resource path="res://Player/SoundEffect.gd" type="Script" id=25]
-[ext_resource path="res://Sound Audio/phone-hang-up.mp3" type="AudioStream" id=26]
+[ext_resource path="res://Sound Audio/Hint.mp3" type="AudioStream" id=26]
 [ext_resource path="res://Dialogues/bgdc2.png" type="Texture" id=27]
 
 [sub_resource type="ArrayMesh" id=1]
