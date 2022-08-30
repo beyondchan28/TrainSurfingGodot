@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/NightCityMood.mp3-f16c19ce1e516a6df0bbf6c66fffc2e2.mp3str"
+
+[deps]
+
+source_file="res://Sound Audio/NightCityMood.mp3"
+dest_files=[ "res://.import/NightCityMood.mp3-f16c19ce1e516a6df0bbf6c66fffc2e2.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

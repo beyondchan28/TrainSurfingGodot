@@ -1568,10 +1568,10 @@ __meta__ = {
 }
 
 [node name="Avatar" type="TextureRect" parent="CanvasLayer/DialogUI"]
-margin_left = 511.0
-margin_top = 593.0
-margin_right = 930.0
-margin_bottom = 1037.0
+anchor_left = 0.222396
+anchor_top = 0.615741
+anchor_right = 0.440625
+anchor_bottom = 1.02685
 texture = ExtResource( 27 )
 stretch_mode = 3
 __meta__ = {

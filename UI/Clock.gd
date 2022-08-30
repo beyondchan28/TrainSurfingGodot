@@ -19,9 +19,9 @@ func _process(delta):
 	
 
 func time_limit(mins):
-	if health_manager.get_parent().get_parent().name == "Park" and fmod(mins, 1) <= 1.0:
+	if health_manager.get_parent().get_parent().name == "Park" and fmod(mins, 23) <= 1.0:
 		health_manager.emit_signal("dead")
-	elif health_manager.get_parent().get_parent().name == "TrainStationLevel" and  fmod(mins, 5) <= 1.0:
+	elif health_manager.get_parent().get_parent().name == "TrainStationLevel" and  fmod(mins, 6) <= 1.0:
 		health_manager.emit_signal("dead")
 	elif health_manager.get_parent().get_parent().name == "SecretBuilding" and  fmod(mins, 7) <= 1.0:
 		health_manager.emit_signal("dead")

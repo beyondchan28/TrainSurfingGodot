@@ -15,7 +15,7 @@ onready var hint = $Player/CanvasLayer/GamePlayUI/ObjectiveBackground/Hint
 onready var clock = $Player/CanvasLayer/GamePlayUI/ClockBackground/Clock
 
 func _ready():
-	clock.current_time = 19
+	clock.current_time = 20
 
 func set_hint(text: String):
 	hint.set_text(text)

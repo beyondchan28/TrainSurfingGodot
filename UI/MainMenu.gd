@@ -15,8 +15,9 @@ var current_selection = 0
 
 func _ready():
 	set_current_selection(current_selection)
+	get_tree().set_pause(false)
 
-func _process(delta):
+func _unhandled_input(event):
 	if Input.is_action_just_pressed("move_backwards") and current_selection < 2:
 		current_selection += 1
 		set_current_selection(current_selection)
@@ -32,6 +33,7 @@ func _process(delta):
 func handle_selection(_current_selection):
 	if _current_selection == 0:
 		loading()
+		print(get_tree().get_current_scene())
 	elif _current_selection == 1:
 		self.get_node("HowtoplayControl").set_visible(true)
 	elif _current_selection == 2:
