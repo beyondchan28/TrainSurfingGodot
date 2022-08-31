@@ -37,6 +37,7 @@ func handle_selection(_current_selection):
 	elif _current_selection == 1:
 		self.get_node("HowtoplayControl").set_visible(true)
 	elif _current_selection == 2:
+		print("?")
 		get_tree().quit()
 
 func loading():

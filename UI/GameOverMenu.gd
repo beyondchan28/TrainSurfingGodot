@@ -3,9 +3,6 @@ extends Control
 var is_paused = false setget set_is_paused
 var current_selection = 0
 
-export(NodePath) onready var resume_on = get_node(resume_on)
-export(NodePath) onready var resume_off = get_node(resume_off)
-
 export(NodePath) onready var restart_on = get_node(restart_on)
 export(NodePath) onready var restart_off = get_node(restart_off)
 
@@ -15,16 +12,17 @@ export(NodePath) onready var backmain_off = get_node(backmain_off)
 export(NodePath) onready var exit_on = get_node(exit_on)
 export(NodePath) onready var exit_off = get_node(exit_off)
 
-var can_toggle = true
+var can_use = false
 
 func _ready():
 	set_current_selection(current_selection)
 
-func _input(event):
-	if event.is_action_pressed("pause") and can_toggle:
-		self.is_paused = !is_paused
-	if get_tree().is_paused() and can_toggle:
-		if Input.is_action_pressed("move_backwards") and current_selection < 3:
+#func _process(delta):
+#	print(current_selection)
+
+func _unhandled_input(event):
+	if get_tree().is_paused() and can_use:
+		if Input.is_action_pressed("move_backwards") and current_selection < 2:
 			current_selection += 1
 			set_current_selection(current_selection)
 		elif Input.is_action_pressed("move_forwards") and current_selection > 0:
@@ -35,19 +33,15 @@ func _input(event):
 
 func handle_selection(_current_selection):
 	if _current_selection == 0:
-		self.is_paused = false
-	elif _current_selection == 1:
 		get_tree().reload_current_scene()
 		get_tree().set_pause(false)
-	elif _current_selection == 2:
+	elif _current_selection == 1:
 		get_tree().change_scene("res://UI/MainMenu.tscn")
-	elif _current_selection == 3:
+		print("dafaq")
+	elif _current_selection == 2:
 		get_tree().quit()
 
 func set_current_selection(_current_selection) :
-	resume_off.visible = true
-	resume_on.visible = false
-	
 	restart_off.visible = true
 	restart_on.visible = false
 	
@@ -58,15 +52,12 @@ func set_current_selection(_current_selection) :
 	exit_on.visible = false
 	
 	if _current_selection == 0:
-		resume_off.visible = false
-		resume_on.visible = true
-	elif _current_selection == 1:
 		restart_off.visible = false
 		restart_on.visible = true
-	elif _current_selection == 2:
+	elif _current_selection == 1:
 		backmain_off.visible = false
 		backmain_on.visible = true
-	elif _current_selection == 3:
+	elif _current_selection == 2:
 		exit_off.visible = false
 		exit_on.visible = true
 
@@ -75,15 +66,7 @@ func set_is_paused(value):
 	get_tree().paused = is_paused
 	visible = is_paused
 
-#func when_die():
-#	get_node("Background/CenterContainer/VBoxContainer/HBoxContainer").set_visible(false)
-#	get_node("Background/CenterContainer/VBoxContainer/HBoxContainer3").set_visible(false)
-#	get_node("Background/CenterContainer/Title").set_text("You Are Noticed !")
-#	current_selection = 1
-#	set_current_selection(current_selection)
-#	can_toggle = false
-#	set_is_paused(!is_paused)
-
-
 func when_die():
-	can_toggle = false
+	can_use = true
+	set_visible(true)
+	set_is_paused(!is_paused)
