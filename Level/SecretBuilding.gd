@@ -4,6 +4,7 @@ onready var clock = $Player/CanvasLayer/GamePlayUI/ClockBackground/Clock
 
 func _ready():
 	clock.current_time = 5
+	$Player/Pivot/Armature/Skeleton/BoneAttachment.set_visible(true)
 
 func _on_OnArea_area_entered(area):
 	if area.name == "RobotArea":

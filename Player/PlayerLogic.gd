@@ -26,7 +26,7 @@ var flash_on = false
 
 var climb_array = []
 
-enum STATES{IDLE, JUMP, CROUCH, CLIMB, UNCLIMB}
+enum STATES{IDLE, JUMP, CROUCH, RUN, CLIMB, UNCLIMB}
 
 var dead = false 
 
@@ -153,13 +153,15 @@ func crouch():
 		curr_state = STATES.IDLE
 
 func run():
-	if is_on_floor() and Input.is_action_pressed("run"):
-		move_speed = 10
-		
-	elif is_on_floor() and Input.is_action_just_released("run"):
-		move_speed = 5
+	var ms_changer = 10
+	if is_on_floor() and Input.is_action_pressed("run") or curr_state == STATES.JUMP:
+		curr_state = STATES.RUN
+		move_speed = ms_changer
+	elif !is_on_floor():
+		move_speed = ms_changer
 	else :
-		return
+		curr_state = STATES.IDLE
+		move_speed = 5
 
 func flashlight():
 	var light = flashlight.get_node("Flashlight/SpotLight")

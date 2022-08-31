@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Hint.mp3-f37c574cb9fa27b6eaf171ad88fea1ec.mp3str"
+
+[deps]
+
+source_file="res://Sound Audio/Hint.mp3"
+dest_files=[ "res://.import/Hint.mp3-f37c574cb9fa27b6eaf171ad88fea1ec.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
