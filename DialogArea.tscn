@@ -4,9 +4,11 @@
 [ext_resource path="res://Dialogues/Telephone.tres" type="Resource" id=2]
 
 [sub_resource type="BoxShape" id=1]
-extents = Vector3( 0.5, 0.5, 0.5 )
+extents = Vector3( 0.703051, 0.5, 4.54439 )
 
 [node name="DialogArea" type="Area"]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource( 1 )
 _dialogue = ExtResource( 2 )
 

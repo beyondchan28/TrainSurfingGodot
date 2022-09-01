@@ -27,17 +27,23 @@ func _unhandled_input(event):
 	elif Input.is_action_just_pressed("next_dialog"):
 		handle_selection(current_selection)
 	
+	#for testing only
+	if Input.is_action_just_pressed("level_1"):
+		get_tree().change_scene("res://Level/Level.tscn")
+	elif Input.is_action_just_pressed("level_2"):
+		get_tree().change_scene("res://Level/TrainStationLevel.tscn")
+	elif Input.is_action_just_pressed("level_3"):
+		get_tree().change_scene("res://Level/SecretBuilding.tscn")
+	
 	if !current_selection == 1:
 		self.get_node("HowtoplayControl").set_visible(false)
 
 func handle_selection(_current_selection):
 	if _current_selection == 0:
 		loading()
-		print(get_tree().get_current_scene())
 	elif _current_selection == 1:
 		self.get_node("HowtoplayControl").set_visible(true)
 	elif _current_selection == 2:
-		print("?")
 		get_tree().quit()
 
 func loading():

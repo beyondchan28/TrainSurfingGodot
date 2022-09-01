@@ -4,4 +4,4 @@
 
 [resource]
 script = ExtResource( 1 )
-dialog_slides = [ "You've found her...", "Keep moving...", "Find the way to go-", "to the Station. " ]
+dialog_slides = [ "You've found him...", "Keep moving...", "Find the way to go-", "to the Station. " ]

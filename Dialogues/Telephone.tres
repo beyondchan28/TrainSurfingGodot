@@ -1,7 +1,9 @@
-[gd_resource type="Resource" load_steps=2 format=2]
+[gd_resource type="Resource" load_steps=3 format=2]
 
 [ext_resource path="res://Dialogue.gd" type="Script" id=1]
+[ext_resource path="res://Dialogues/bgdc2.png" type="Texture" id=2]
 
 [resource]
 script = ExtResource( 1 )
-dialog_slides = [ "Hit me up", "Find Friend", "Then find the next way" ]
+avatar_texture = ExtResource( 2 )
+dialog_slides = [ "Your mission is to delivering \"Friend\"...", "Using train inside the building across the station.", "All you need is not to get caught and notice...", "by people there.", "Also dont forget, your time is limited.", "Now, \"Friend\" is waiting somewhere at the Park.", "Found him." ]

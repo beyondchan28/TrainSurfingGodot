@@ -1,0 +1,7 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Dialogue.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+dialog_slides = [ "You got Key Access !", "All items needed are fulfilled.", "Now, meet \"Friend\"...", "He is waiting for you !" ]

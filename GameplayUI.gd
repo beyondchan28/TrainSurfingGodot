@@ -48,3 +48,5 @@ func _on_VideoPlayer_finished():
 		next_level(trainstation_scene)
 	elif self.get_parent().get_parent().name == "TrainStationLevel" and video_name == "res://UI/LoadingScreen.ogv":
 		next_level(secretbuilding_scene)
+	elif self.get_parent().get_parent().name == "SecretBuilding" and video_name == "res://UI/LoadingScreen.ogv": #RewardVideoName
+		get_tree().change_scene("res://UI/MainMenu.tscn")

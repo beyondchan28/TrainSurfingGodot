@@ -1,0 +1,7 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Dialogue.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+dialog_slides = [ "Welcome...", "You got 3 health, clock and hint box.", "Time limit is different every level...", "Your time for this level is until 23 o'clock or 3 mins." ]
