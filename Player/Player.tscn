@@ -1505,7 +1505,7 @@ mesh = SubResource( 6 )
 skin = SubResource( 2 )
 
 [node name="BoneAttachment" type="BoneAttachment" parent="Pivot/Armature/Skeleton"]
-transform = Transform( 0.00323709, -0.000647407, -0.999995, -0.547271, -0.836954, -0.00122973, -0.836949, 0.547272, -0.00306371, 1.6968, 1.01672, 1.13791 )
+transform = Transform( 0.05452, 0.000435539, -0.998513, -0.930278, -0.363299, -0.0509528, -0.362781, 0.931673, -0.019402, 1.26936, 0.919098, 2.65467 )
 visible = false
 bone_name = "hand.L"
 
@@ -2168,6 +2168,9 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 24 )
 text = "EXIT"
 valign = 1
+
+[node name="Listener" type="Listener" parent="."]
+current = true
 
 [connection signal="area_entered" from="Pivot/Armature/Skeleton/BoneAttachment/Flashlight/ObejctivesArea" to="." method="_on_ObejctivesArea_area_entered"]
 [connection signal="area_exited" from="Pivot/Armature/Skeleton/BoneAttachment/Flashlight/ObejctivesArea" to="." method="_on_ObejctivesArea_area_exited"]

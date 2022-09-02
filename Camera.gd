@@ -7,8 +7,6 @@ export var follow_speed = 2
 
 var target = null
 
-onready var listener = $Listener
-
 func _physics_process(delta):
 	#print(listener.is_current())
 	if target == null:
@@ -32,14 +30,14 @@ func _physics_process(delta):
 	
 	rotation_degrees.y += turn_speed * -r_dot * delta
 	rotation_degrees.x += turn_speed * u_dot * delta
-	enable_listener()
+#	enable_listener()
 	
 
 func set_target(t):
 	target = t
 
-func enable_listener():
-	if self.is_current():
-		listener.make_current()
-	else:
-		listener.clear_current()
+#func enable_listener():
+#	if self.is_current():
+#		listener.make_current()
+#	else:
+#		listener.clear_current()
