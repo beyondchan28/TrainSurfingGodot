@@ -1,0 +1,7 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Dialogue.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+dialog_slides = [ "You got a flashlight !", "You can activate it by pressing C button.", "This flashligth not just giving light but also hint.", "to the Station. ", "If its on and hitting right place, it can show red light,", "which is the right way..." ]

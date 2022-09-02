@@ -33,7 +33,7 @@ func _physics_process(_delta):
 	var target_pos = target_node_1.get_global_transform().origin
 	var patrol_1 = patrol_point_1.global_transform.origin
 	var patrol_2 = patrol_point_2.global_transform.origin
-	if self_pos.distance_to(target_pos) < 15 and target_node_1.move_speed == 10 or target_node_1.curr_state == target_node_1.STATES.JUMP:
+	if self_pos.distance_to(target_pos) < 15 and target_node_1.curr_state == target_node_1.STATES.RUN or target_node_1.curr_state == target_node_1.STATES.JUMP or target_node_1.flash_on == true:
 		current_state = STATES.CHASE
 	if self_pos.distance_to(target_pos) < 15 and current_state == STATES.CHASE:
 		set_target_location(target_pos)

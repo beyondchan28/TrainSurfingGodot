@@ -23,14 +23,14 @@ func set_hint(text: String):
 
 func _on_FlashlightActivator_body_entered(body):
 	if body.name == "Player":
-		set_hint("Pickup Friend in this area.")
+		set_hint("Pickup Friend in this area")
 		player.get_node("Pivot/Armature/Skeleton/BoneAttachment").visible = true
 		$ProtectionWall.queue_free()
 		flashlight.queue_free()
 
 func _on_TranStationCutsceneTrigger_body_entered(body):
 	if body.name == "Player":
-		set_hint("")
+		set_hint("Find Jacket Worker")
 		gameplay_ui.play_cutscene(cutscene_vid.video[1])
 		
 
@@ -40,13 +40,13 @@ func _on_TelephoneCutsceneTrigger_body_entered(body):
 
 func _on_TelephoneCutsceneTrigger_body_exited(body):
 	if body.name == "Player":
-		set_hint("Go to the park. Follow the lights.")
+		set_hint("Find and take Flashlight")
 		self.get_node("TelephoneCutsceneTrigger").queue_free()
 
 
 func _on_FriendHintTrigger_body_entered(body):
 	if body.name == "Player":
-		set_hint("Go to the Train Station... Through fences...")
+		set_hint("Find the way out to next level")
 		$ProtectionWall2.queue_free()
 		self.get_node("FriendHintTrigger").queue_free()
 		

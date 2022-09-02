@@ -41,5 +41,5 @@ func set_target(t):
 func enable_listener():
 	if self.is_current():
 		listener.make_current()
-	elif !self.is_current():
+	else:
 		listener.clear_current()

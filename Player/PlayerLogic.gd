@@ -54,14 +54,13 @@ func _physics_process(delta):
 		curr_state = STATES.IDLE
 		move_dir = 0
 		turn_dir = 0
-		self.translation.y = 2
 		anim.play("Idle")
 	#print(curr_state)
 	
 
 func _process(delta):
 	#for stable flashlight position
-	if curr_state == STATES.IDLE:
+	if curr_state == STATES.IDLE or curr_state == STATES.RUN:
 		flashlight.rotation_degrees = Vector3(0.148, -90.118, -117.344)
 	else:
 		flashlight.rotation_degrees = Vector3(0.025, -90.187, -161.128)

@@ -9,10 +9,16 @@ var loading_vid = preload("res://UI/LoadingScreen.ogv")
 
 onready var clock = $Player/CanvasLayer/GamePlayUI/ClockBackground/Clock
 
+onready var hint = $Player/CanvasLayer/GamePlayUI/ObjectiveBackground/Hint
+
 func _ready():
 	clock.current_time = 1
 	$Player/Pivot/Armature/Skeleton/BoneAttachment.set_visible(true)
 	
+
+func set_hint(text: String):
+	hint.set_text(text)
+	hint.get_node("HintSound").play()
 
 func play_sound():
 	$CollectSound.play()
@@ -21,6 +27,7 @@ func play_sound():
 func _on_JacketTrigger_body_entered(body):
 	if body.name == "Player":
 		play_sound()
+		set_hint("Find and take Key Access")
 		body.get_node("Pivot/Armature/Skeleton/Body").set_visible(false)
 		body.get_node("Pivot/Armature/Skeleton/WorkerJacket").set_visible(true)
 		$JacketTrigger.queue_free()
@@ -28,11 +35,13 @@ func _on_JacketTrigger_body_entered(body):
 
 func _on_KeyAccess_body_entered(body):
 	if body.name == "Player" and !$JacketTrigger.is_inside_tree():
+		set_hint("Meet \"Friend\"")
 		got_key_access = true
 		$KeyAccess.queue_free()
 
 
 func _on_EndPoint_body_entered(body):
 	if body.name == "Player" and got_key_access == true:
+		set_hint("Crossing without noticed")
 		play_sound()
 		gameplay_ui.play_cutscene(loading_vid)
