@@ -407,7 +407,6 @@ texture = ExtResource( 14 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 15 )
-volume_db = -15.0
 autoplay = true
 
 [connection signal="finished" from="." to="." method="_on_MainMenuVideo_finished"]

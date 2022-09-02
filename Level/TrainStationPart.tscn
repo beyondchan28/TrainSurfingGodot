@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=2]
+[gd_scene load_steps=52 format=2]
 
 [ext_resource path="res://Assets/TrainStationMaterial_001.material" type="Material" id=1]
 [ext_resource path="res://Assets/Material_001.material" type="Material" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://Sound Audio/SFx/Passenger Voices/VOICE LINES/INTRUDER INTRUDER.wav" type="AudioStream" id=13]
 [ext_resource path="res://Sound Audio/PassengerSnoring.wav" type="AudioStream" id=14]
 [ext_resource path="res://Sound Audio/PassengerYawning.wav" type="AudioStream" id=15]
+[ext_resource path="res://Sound Audio/WalkLeftFeet.wav" type="AudioStream" id=16]
 
 [sub_resource type="ArrayMesh" id=61]
 resource_name = "TrainStationLevel_Cube163"
@@ -3170,7 +3171,7 @@ bones/8/name = "Bone.003"
 bones/8/parent = 7
 bones/8/rest = Transform( 0.830391, -0.0710848, -0.552628, 0.262203, 0.924997, 0.275009, 0.49163, -0.373266, 0.786748, 5.96046e-08, 0.252039, 4.47035e-08 )
 bones/8/enabled = true
-bones/8/bound_children = [ NodePath("BoneAttachment") ]
+bones/8/bound_children = [  ]
 bones/9/name = "Bone.009.L"
 bones/9/parent = 6
 bones/9/rest = Transform( -0.534485, 0.837863, 0.110956, -0.837863, -0.542508, 0.0605844, 0.110956, -0.0605846, 0.991977, -3.54743e-07, 1.46942, 6.01302e-08 )
@@ -3311,8 +3312,13 @@ anims/Sleep = SubResource( 6 )
 anims/Sleepy = SubResource( 7 )
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Passenger"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.06589, -0.514729 )
-stream = ExtResource( 15 )
+transform = Transform( -1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 1.12683, 0 )
+stream = ExtResource( 16 )
+unit_db = 32.0
+max_distance = 20.0
+__meta__ = {
+"_editor_description_": ""
+}
 
 [node name="Passenger3" type="Spatial" parent="."]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -21.3826, -5.84836, 198.622 )
@@ -3507,7 +3513,8 @@ anims/Sleepy = SubResource( 134 )
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Passenger3"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.13723, 0 )
 stream = ExtResource( 13 )
-unit_size = 4.0
+unit_db = 32.0
+max_distance = 20.0
 
 [node name="Passenger2" type="Spatial" parent="."]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -16.7245, -5.89176, 209.548 )
@@ -3680,6 +3687,9 @@ anims/Sleepy = SubResource( 130 )
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Passenger2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.10877, 0 )
 stream = ExtResource( 14 )
+attenuation_model = 3
+unit_db = 32.0
+max_distance = 20.0
 
 [node name="VisibilityEnabler" type="VisibilityEnabler" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -39.7988, -0.234978, 162.986 )

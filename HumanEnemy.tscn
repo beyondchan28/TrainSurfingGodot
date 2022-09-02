@@ -837,7 +837,9 @@ __meta__ = {
 }
 
 [node name="AudioStreamPlayer3D" parent="." instance=ExtResource( 4 )]
-stream = ExtResource( 5 )
+stream = ExtResource( 6 )
+unit_db = 32.0
+max_distance = 20.0
 
 [node name="NoticeSound" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
