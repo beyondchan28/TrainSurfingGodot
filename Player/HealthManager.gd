@@ -24,5 +24,4 @@ func noticed(damage: int = 1):
 	else:
 		emit_signal("noticed")
 	emit_signal("health_changed", current_health)
-	print(current_health)
 	

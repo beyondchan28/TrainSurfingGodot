@@ -13,7 +13,7 @@ onready var anim = $Graphic/AnimationPlayer
 enum STATES {FOLLOW, STOP, LOST}
 
 var current_state = STATES.LOST
-var self_pos = Vector3.ZERO
+#var self_pos = Vector3.ZERO
 var dist :float = 0
 
 export(float) var min_dist = 25

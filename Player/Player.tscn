@@ -1505,7 +1505,7 @@ mesh = SubResource( 6 )
 skin = SubResource( 2 )
 
 [node name="BoneAttachment" type="BoneAttachment" parent="Pivot/Armature/Skeleton"]
-transform = Transform( 0.05452, 0.000435539, -0.998513, -0.930278, -0.363299, -0.0509528, -0.362781, 0.931673, -0.019402, 1.26936, 0.919098, 2.65467 )
+transform = Transform( 0.0032369, -0.000647299, -0.999995, -0.323449, -0.946245, -0.000434475, -0.94624, 0.323448, -0.00327237, 1.69684, 0.697389, 1.1968 )
 visible = false
 bone_name = "hand.L"
 

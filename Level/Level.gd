@@ -16,6 +16,7 @@ onready var clock = $Player/CanvasLayer/GamePlayUI/ClockBackground/Clock
 
 func _ready():
 	clock.current_time = 20
+	set_hint("Go to the Telephone")
 
 func set_hint(text: String):
 	hint.set_text(text)
@@ -30,7 +31,6 @@ func _on_FlashlightActivator_body_entered(body):
 
 func _on_TranStationCutsceneTrigger_body_entered(body):
 	if body.name == "Player":
-		set_hint("Find Jacket Worker")
 		gameplay_ui.play_cutscene(cutscene_vid.video[1])
 		
 

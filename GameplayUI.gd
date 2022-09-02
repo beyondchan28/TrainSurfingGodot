@@ -11,6 +11,8 @@ export(String, FILE, "*.tscn") var secretbuilding_scene
 
 onready var gameplay_ui = $GamePlayUI
 onready var video_player = $VideoPlayer
+onready var audio_1 = get_parent().get_parent().get_node("AudioStreamPlayer")
+onready var audio_2 = get_parent().get_parent().get_node("AudioStreamPlayer2")
 
 #var loading_vid = load("res://UI/loading-screen.webm")
 
@@ -22,6 +24,9 @@ func _ready():
 
 func play_cutscene(video):
 	_runtime_data.current_gameplay_state = Enums.GameplayState.IN_DIALOG
+	audio_1.set_stream_paused(true)
+	audio_2.set_stream_paused(true)
+	
 	video_player.set_stream(video)
 
 	video_name = video.get_file()
@@ -36,7 +41,8 @@ func play_cutscene(video):
 	gameplay_ui.set_visible(true)
 	video_player.set_visible(false)
 	_runtime_data.current_gameplay_state = Enums.GameplayState.FREEWALK
-
+	audio_1.set_stream_paused(false)
+	audio_2.set_stream_paused(false)
 
 func next_level(next):
 	get_tree().change_scene(next)

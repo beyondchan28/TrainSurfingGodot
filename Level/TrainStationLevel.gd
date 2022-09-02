@@ -13,6 +13,7 @@ onready var hint = $Player/CanvasLayer/GamePlayUI/ObjectiveBackground/Hint
 
 func _ready():
 	clock.current_time = 1
+	set_hint("Find Jacket Worker")
 	$Player/Pivot/Armature/Skeleton/BoneAttachment.set_visible(true)
 	
 
@@ -42,6 +43,6 @@ func _on_KeyAccess_body_entered(body):
 
 func _on_EndPoint_body_entered(body):
 	if body.name == "Player" and got_key_access == true:
-		set_hint("Crossing without noticed")
+		
 		play_sound()
 		gameplay_ui.play_cutscene(loading_vid)
