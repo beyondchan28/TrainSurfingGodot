@@ -31,6 +31,7 @@ enum STATES{IDLE, JUMP, CROUCH, RUN, CLIMB, UNCLIMB}
 var dead = false 
 
 func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	collision_shape.get_shape().height = 3.5
 	curr_state = STATES.IDLE
 	health_manager.init()

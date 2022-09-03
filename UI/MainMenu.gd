@@ -14,6 +14,7 @@ const loading_vid = preload("res://UI/LoadingScreen.ogv")
 var current_selection = 0
 
 func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	set_current_selection(current_selection)
 	get_tree().set_pause(false)
 
